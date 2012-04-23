@@ -29,15 +29,15 @@ It does so by helping you to populate your dummy with content and randomizing ke
 + What is the easiest way to demo the signed-in and signed-out states of this page?
 
 ### Why?
-Using it in the early stages of front-end development can give you a new perspective on your work every time a document is reloaded, shortening and improving your test cycle by more quickly exposing weak-points or trouble areas as you go about marking up a new design.
+Using Dummy in the early stages of front-end development can give you a new perspective on your work every time your document is reloaded in the browser, shortening and improving your test cycle by more quickly exposing weak-points or trouble areas as you go about marking up a new design.
 
-This is especially important for front-end code that should be delivered to another team for implementation as part of a phased hand-off. As any front-ender knows, the earlier you can catch a problem the easier it will be to debug it.
+This is especially important for front-end code that should be delivered to another team for implementation as part of a phased hand-off. As any front-ender knows, the earlier you can catch a problem the easier and less painful it will be to debug.
 
 ### TODO
 + It's probably a bad idea to ship this with a bandwidth hogging library of images in assets/images. It would make more sense to maintain separate asset packages for different types of projects. (e.g. a commerce/store package, portfolio or showcase package)
-+ Integrate a lorum Ipsum generator, together with some clever syntax for specifying what you want generated.
++ Integrate a full-fledged Lorum Ipsum generator, together with some clever syntax for specifying some parameters for the type of text you want generated.
 + Ability to call and define image crops from within CSS
-+ Performance, performance, performance.
++ Optimize performance and memory usage.
 
 ### License
 Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Please let me know how you're using Dummy, or if you've used it to help build, test or demo something interesting.
