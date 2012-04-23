@@ -1,9 +1,9 @@
 # Dummy
 =====
-Dummy is a PHP toolkit for rapid front-end prototyping and QA. Originally conceived as a tool for simulating the high volume, rapidly changing content characteristics of online newspapers and magazines, it's generalized enough to benefit the early stage front-end development of any website or application with content that varies in length, type, or nature.
+Dummy is a PHP toolkit for rapid front-end prototyping and QA. Originally conceived as a tool for simulating the high volume, rapidly changing content characteristics of online newspapers and magazines, it's generalized enough to benefit the early stage front-end development of any website or application with highly variable content.
 
 ### Dummy can…
-+ Randomly select and insert strings of Lorem Ipsum in various predefined formats, or easily roll your own formats.
++ Randomly select and insert strings of Lorem Ipsum of various lengths and in predefined formats, or easily roll your own formats.
 + Automagically crop and size high quality, news worthy, CC licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
 + Bring new life to your static code with friendly, human readable functions for controlling probability and building out if/else scenarios.
 + More. Not lots more. But a _bit_ more!
