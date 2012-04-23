@@ -43,7 +43,7 @@ You need a development environment running Apache + PHP and compiled with suppor
 + Ability to call and define image crops from within CSS (i.e. being able to post image requests in the URL to dummy.php)
 + Optimize performance and memory usage.
 + Clean up the way errors and messages are formatted (i.e. abstract the HTML and style surrounding them)
-+ It's probably a bad idea to ship this with a bandwidth hogging library of images in assets/images. It would make more sense to maintain separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design). The image assets that ship with Dummy are very much geared toward editorial design.
++ It's probably a bad idea to ship this with a bandwidth hogging library of images in assets/images. The image assets that ship with Dummy are also geared toward the aesthetic of an editorial design. It would make more sense to maintain separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design).
 
 ### License
 Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Be a doll and let me know how you're using Dummy, or if you've used it to help build, test or demo anything interesting.
