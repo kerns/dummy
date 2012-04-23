@@ -2,7 +2,7 @@
 =====
 Dummy is a PHP toolkit for rapid front-end prototyping and QA. Originally conceived as a tool for helping to simulate the high volume, rapidly changing content characteristics of online newspapers and magazines, it's generalized enough to benefit the early stage front-end development of any website or application with content that frequently changes in length, form or nature.
 
-It's most useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before middleware and database engineers further down the gantt diagram can begin bringing things to life.
+It's most useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to a conclusion before engineers further down the gantt diagram can begin their work.
 
 ### Dummy can…
 + Insert randomly selected strings of placeholder text in various lengths and formats (e.g. Headline, teaser, paragraph, username).
