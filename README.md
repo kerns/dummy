@@ -3,10 +3,10 @@
 A toolkit for rapid prototyping and QA
 
 ### Dummy can…
-+ Crop and size placeholder images from a random pool, or from a specific folder or subset of folders.
-+ Randomly select and insert strings of Lorem Ipsum in various predefined formats. Or roll your own formats.
-+ Create simple, human readable probability statements that make your static feel dynamic.
-+ More! Not lots more. But a bit more.
++ Automagically crop and size high quality, news worthy, CC licensed placeholder images from a default pool, or from a specific folder or subset of folders that you provide.
++ Randomly select and insert strings of Lorem Ipsum in various predefined formats. Or easily roll your own formats.
++ Bring new life to your static code with friendly, human readable functions for controlling probability and building out if/else scenarios.
++ More. Not lots more. But a _bit_ more!
 
 ### You can…
 + See demos
@@ -18,7 +18,7 @@ Dummy is a content generation toolkit designed to make the development, testing 
 
 It does so by helping you to populate your dummy with content and randomizing key aspects of it's layout, in this way simulating connectivity to a live database.
 
-**Dummy is for the front-end web worker who wonders…**
+**Dummy is for the front-end web worker wondering…**
 
 + How does this layout hold up without an image – or – with a landscape (instead of a portrait) oriented image?
 
