@@ -1,0 +1,23 @@
+#	DATE - http://php.net/date - This could be a lot better, but I am weak.
+#	
+#	Day
+#	d  Day of the month, 2 digits with leading zeros (01 to 31)
+#	D  A textual representation of a day, three letters (Mon through Sun)
+#	j  Day of the month without leading zeros	1 to 31
+#	l  A full textual representation of the day of the week (Sunday through Saturday)
+#	S  English ordinal suffix for the day of the month (st, nd, rd or th)
+#	
+#	Month
+#	F  A full textual representation of a month, such as January or March	January through December
+#	m  Numeric representation of a month, with leading zeros	01 through 12
+#	M  A short textual representation of a month, three letters	Jan through Dec
+#	n  Numeric representation of a month, without leading zeros	1 through 12
+#	t  Number of days in the given month	28 through 31
+#	
+#	Year
+#	Y  A full numeric representation of a year, 4 digits	Examples: 1999 or 2003
+#	y  A two digit representation of a year	Examples: 99 or 03
+#	
+#	Torsdag den 28. oktober 2010
+
+<?php $thePast = time() - (rand(0,3) * 24 * 60 * 60); echo date('F jS, Y', $thePast) ; // Anglo-American style ;?>

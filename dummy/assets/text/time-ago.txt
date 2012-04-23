@@ -1,0 +1,1 @@
+<?php print(rand(2,15)); switch (rand(1,2)) {?><?case 1 ?> days<?break;?><?case 2 ?> hours<?break;?><?};?> ago

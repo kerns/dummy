@@ -3,8 +3,8 @@
 Dummy is a PHP toolkit for rapid front-end prototyping and QA. Originally conceived as a tool for simulating the high volume, rapidly changing content characteristics of online newspapers and magazines, it's generalized enough to benefit the early stage front-end development of any website or application with content that varies in length, type, or nature.
 
 ### Dummy can…
-+ Automagically crop and size high quality, news worthy, CC licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
 + Randomly select and insert strings of Lorem Ipsum in various predefined formats, or easily roll your own formats.
++ Automagically crop and size high quality, news worthy, CC licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
 + Bring new life to your static code with friendly, human readable functions for controlling probability and building out if/else scenarios.
 + More. Not lots more. But a _bit_ more!
 
@@ -25,7 +25,7 @@ It does so by helping you to populate your dummy with content and randomizing ke
 + What is the maximum number of items that can appear in this list before it breaks the layout, or before it just stops looking good?
 + How does the columns balance as the content changes – and what's the longest word that can fit into this column without triggering unwanted overflow?
 + What is the easiest way to demo the signed-in and signed-out states of this page?
-+ I hope my breakpoints make sense.
++ Do these breakpoints hold water?
 
 ### Why?
 Using Dummy in the early stages of front-end development can give you a new perspective on your work every time your document is reloaded in the browser, shortening and improving your test cycle by more quickly exposing weak-points or trouble areas as you go about marking up a new design.
@@ -35,11 +35,12 @@ This is especially important for front-end code that should be delivered to anot
 ### Requirements
 You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/docs/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
 
-### ToDo
+### TODO
 + Add demos and docs (I know).
 + Integrate a full-fledged Lorum Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated.
 + Ability to call and define image crops from within CSS (i.e. being able to post image requests in the URL to dummy.php)
 + Optimize performance and memory usage.
++ Clean up the way errors and messages are formatted (i.e. abstract the HTML and style surrounding them)
 + It's probably a bad idea to ship this with a bandwidth hogging library of images in assets/images. It would make more sense to maintain separate asset packages for different types of projects (e.g. a commerce package with commerical product shots, a portfolio or gallery package with images that showcase art, architecture, or design). The image assets that ship with Dummy are very much geared toward editorial design.
 
 ### License
