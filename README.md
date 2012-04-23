@@ -4,7 +4,7 @@ A toolkit for rapid prototyping and QA
 
 ### Dummy can…
 + Crop and size placeholder images from a random pool, or from a specific folder or subset of folders.
-+ Randomly select and insert strings of Lorem Ipsum in various predefined forms. Or roll your own.
++ Randomly select and insert strings of Lorem Ipsum in various predefined formats. Or roll your own formats.
 + Create simple, human readable probability statements that make your static feel dynamic.
 + More! Not lots more. But a bit more.
 
