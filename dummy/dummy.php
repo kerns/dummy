@@ -1,7 +1,6 @@
 <?php
 
 // Dummy, version 1.0 – For *Credible* Rapid Prototyping and QA
-// Updated: April, 2012 | Produced/directed by: David Kerns
 // Feedback, requests, ideas => http://twitter.com/kerns
 // Fork, Download or Follow @ https://github.com/kerns/dummy
 
@@ -9,7 +8,7 @@
 // Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license
 // (http://creativecommons.org/licenses/by-sa/3.0/us/).
 // If you like Dummy, if you've found it useful or if you've used it to do something interesting
-// maybe pop off a tweet.
+// please let me know, maybe pop off a tweet.
 
 // REQUIREMENTS
 // PHP + GD - Detailed requirements and instructions on setup and configuration coming soon...
