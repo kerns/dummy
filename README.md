@@ -18,8 +18,8 @@ It's most useful in the early stages of a project's development, where basic que
 + Give feedback …[this instant](http://twitter.com/kerns).
 + Fork it on Github @ [https://github.com/kerns/dummy](https://github.com/kerns/dummy)
 
-## More Info
-Dummy's primary goal is to provide tools that speed front-end prototyping and QA. Whether you're meticulously crafting a fully responsive site with a myriad of CSS breakpoints, or just slapping together a half-baked idea – using Dummy should make it easier _**at the earliest stages of development**_ to visualize, test and present something much closer to what your actual front-end will become under a variety of different conditions.
+### More Info
+Dummy's primary goal is to provide tools that speed front-end prototyping and QA. Whether you're meticulously crafting a fully responsive site with a myriad of CSS breakpoints, or just slapping together a half-baked idea – using Dummy should make it easier _at the earliest stages of development_ to visualize, test and present something much closer to what your actual front-end will become under a variety of different conditions.
 
 It does so by helping you to populate your work with content and randomizing key aspects of it's layout, in a way, simulating connectivity to a live database.
 
