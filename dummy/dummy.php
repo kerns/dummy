@@ -16,7 +16,7 @@
 
 // BASIC CONFIGURATION
 $dummy_path = "/dummy"; // The location of Dummy relative to the webroot of your project. (Examples: "/admin/tools/dummy", "/~username/Sites/ProjectName/dummy")
-$flash_ads = false; // (true or false) Disable Flash ads for validation or testing on platforms that don't support the increasingly deprecated plug-in
+$flash_ads = false; // (true or false) Incorporate Adobe® Flash® based ads in the random selection and insertion of ads?
 
 define("ADVANCED_RANDOM_IMAGES", true); // (true or false) Minimizes the number of repeated images by way of opening a session. This is good.
 define("JPEG_QUALITY", 90); // (1-100) You understand...
@@ -29,14 +29,14 @@ $delimiter = '@'; // Leave this, no reason to change it.
 define("IGNORE_CACHE", false); // For debugging of image generation
 define("HIDDEN_FOLDER_PREPEND", "!"); // Prepended to the name of a folder to be excluded from normal random selection (Example: "!myfolder")
 
+
 // END CONFIGURATION
 //////////////////////////////
 
-
-
 // BEGIN DUMMY
 // REALLY...stop editing, unless your middlename is "Reckless".
-// Now if you ARE editing things down here,...maybe you should get in touch. We could make Dummy smarter!
+// Now if you ARE editing things down here,...maybe you should get in touch.
+// We could make Dummy a lot smarter!
 
 // Start a session if it hasn't already been started
 $sid = session_id();
