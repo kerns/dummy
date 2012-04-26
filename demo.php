@@ -60,11 +60,11 @@
 <?php
 $filename = 'dummy/cache';
 if (file_exists($filename) && is_writable($filename) ) {
-    echo "Great. <strong>$filename</strong> exists and seems to be writable. You are killing it.";
+    echo "Success. <strong>$filename</strong> exists and seems to be writable.";
 } elseif (file_exists($filename)) {
-    echo "Dummy has good news and bad news.<br/><strong>$filename</strong> does exist...</br>...but it isn't writable by your web server. Please look into it.";
+    echo "<strong>$filename</strong> exists but it isn't writable by your web server. Please make it writable.";
 } else {
-    echo "The directory <strong>$filename</strong> does not seem to exist. Create it and then make sure it is writable by your web server.";
+    echo "<strong>$filename</strong> does not seem to exist. Create it and make sure it is writable by your web server.";
 }
 ?>
 </p>
@@ -73,8 +73,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <h2>Dummy Assets</h2>
 
-<p>The ability to select, manipulate, and insert different assets into your front-end project is a key feature of Dummy. All of the assets available to Dummy live in a folder located at <b>dummy/assets/</b>. It's a good idea to poke around in here and see how things are structured. The simple logic and syntax used to request different assets relates very much to the structure of this directory.</p>
-
+<p>The ability to select, manipulate, and insert different assets into your front-end project is a key feature of Dummy. All of the assets available to Dummy live in a folder located at <b>dummy/assets/</b>. It's a good idea to poke around in here and see how things are structured. The simple syntax used to request different assets relates very much to the structure of this directory.</p>
 
 <h3>Dummy Text</h3>
 
@@ -219,7 +218,7 @@ if (file_exists($filename) && is_writable($filename) ) {
         <td><span><a href="<? dummy("image@100x100") ;?>"><? dummy("image@100x100") ;?></a></span></td>
       </tr>
       <tr>
-        <td>100px square (Part II) <span>A rather pointless way of generating the same result as above. I'm trying to prove a point here.</span></td>
+        <td>100px square (Part II) <span>A rather pointless way of generating the same result as above. Proving a point here.</span></td>
         <td><code>&lt;? dummy("image@100x,1:1") ;?&gt;</code></td>
         <td><span><a href="<? dummy("image@100x,1:1") ;?>"><? dummy("image@100x,1:1") ;?></a></span></td>
       </tr>
@@ -270,9 +269,9 @@ if (file_exists($filename) && is_writable($filename) ) {
   <? dummy("ad@120x90");?>
 </div>
 
-<p>Note that requests for ads return pre-formatted blocks of embed code. They differ from images in this respect, where only the path is returned. One reason for this is that we often need a lot of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to Adobe&reg; Flash&reg; based advertising.</p>
+<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed just a URL path to the ad (as is done with normal images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to Adobe&reg; Flash&reg; based advertising.</p>
 
-<p>On the root level of <b>assets/ads</b> you'll find two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b>. These contain the default embed code for standards compliant image based ads, and Adobe&reg; Flash&reg; based ads respectively. You can override the default embed code used by any ad format by placing a copy of one or both of these files in the folder of the format you wish to override.</p>
+<p>The default embed code for standards compliant image based ads, and Adobe&reg; Flash&reg; based ads can be found on the root level of <b>assets/ads</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the default embed code used by any ad format by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
 
 <p>Inside of <b>dummy/assets/ads/</b> you'll see a complete list of available formats displayed as folders which specify their dimensions (WxH). Dummy parses these names and interprets them as variables which are used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you can add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
 
@@ -283,7 +282,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <p>The ability to insert randomly selected assets into a layout is great, but it's the combination of asset insertion with simple logic for controlling probability and creating loop ranges that make it possible for Dummy to flesh out asset rich document layouts in record time.</p>
 
-<h3>Probabilty Logic</h3>
+<h3>Controlling Probability</h3>
 <p>A basic building block of Dummy driven layouts, use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, &rdquo;What does this layout look like with or without <b>X</b> ?&rdquo; It could be the appearance of an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
 <div class="snippet code-snippet">
@@ -339,11 +338,21 @@ if (file_exists($filename) && is_writable($filename) ) {
 </b> won.
 
 
-<h3>Dumb Luck</h3>
+<h3>Creating Loop Ranges</h3>
+
+<div class="snippet img-snippet zoom-snippet">
+	<? while (dumb_luck("50-90")): ?>
+	<a href="#"><img src="<? dummy("image@200x200,");?>" width="40" height="40" alt="A thumbnail..." /></a>
+	<? endwhile ;?>
+</div>
+
 <p>A basic building block of Dummy driven layouts, use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, &rdquo;What does this layout look like with or without <b>X</b> ?&rdquo; It could be the appearance of an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
-
-
+<div class="snippet text-snippet">
+	<ul>
+		<li><? dummy("text@headline") ;?></li>
+	</ul>
+</div>
 
 </div>
 

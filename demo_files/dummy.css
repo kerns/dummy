@@ -96,7 +96,13 @@ a:hover {
 
 .text-snippet {
   background-color:#e6f0f7;
-  }
+  color:#578;
+}
+
+.text-snippet ul {
+  margin:1em 1em 1em 1.5em;
+  color:#578;
+}
 
 .text-snippet h4 {
   color:#578;
@@ -112,10 +118,27 @@ a:hover {
   width:auto;
   float:left;
   clear:both;
+  padding-bottom: .2em;
 }
 
 .img-snippet img {
   box-shadow: 0 1px 3px #333;
+}
+
+.zoom-snippet {
+  overflow:visible;
+}
+
+.zoom-snippet img {
+  -webkit-transition: all .1s ease-in-out;
+}
+
+.zoom-snippet img:hover {
+  -webkit-transform: scale(2);
+}
+
+.img-snippet a {
+  border-bottom:0;
 }
 
 .table-snippet p.note {
@@ -172,7 +195,7 @@ li b {
 
 h2 {
   font: normal 2em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
-  border-bottom:2px solid #e6f0f7;
+  border-bottom:2px solid #e0e9f0;
   padding-bottom:.1em;
   padding-top: 1.5em;
 }
