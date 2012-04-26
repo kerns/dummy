@@ -1,4 +1,4 @@
-<? require_once("dummy/dummy.php") // Dummy now at the ready ;?>
+<? require_once("dummy/dummy.php") ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,11 +32,12 @@
 </div>
 
 <h2>Getting Started</h2>
+
 <h3>Basic Requirements</h3>
 
 <p>You'll need a development environment running Apache and PHP compiled with support for GD (this hopefully covers most of them). Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively.</p>
 
-<p class="note"><b>Tip:</b> Creating a virtual host your local web projects is not only a best practice, it makes it easy to keep dummy on the web root. Mac users can avail themselves of Patrick Gibson's excellent <a href="https://github.com/pgib/virtualhost.sh">virtualhost.sh</a> script.</p>
+<p class="note"><b>Tip:</b> Creating a virtual host your local web projects is not only a best practice, it also removes the need to make any configuration changes to Dummy. Mac users should take a look at Patrick Gibson's indispensable <a href="https://github.com/pgib/virtualhost.sh">virtualhost.sh</a> script.</p>
 
 <h3>Installation</h3>
 
@@ -46,7 +47,7 @@
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-    &lt;? require_once("dummy/dummy.php") // Dummy now at the ready ;?&gt;
+    &lt;? require_once("dummy/dummy.php") ?&gt;
     &lt;!doctype html&gt;
   </pre>
 </div>
@@ -56,7 +57,7 @@
 <p>If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p>
 
 <div class="snippet img-snippet">
-<img src="<? dummy("image@16:9,550x");?>" width="550" alt="A test image..." />
+<img src="<? dummy("image@16:9,550x") ?>" width="550" alt="A test image..." />
 <p class="note">
 <?php
 $filename = 'dummy/cache';
@@ -71,7 +72,6 @@ if (file_exists($filename) && is_writable($filename) ) {
 </p>
 </div>
 
-
 <h2>Dummy Assets</h2>
 
 <p>The ability to select, manipulate, and insert different assets into your front-end project is a key feature of Dummy. All of the assets available to Dummy live in a folder located at <b>dummy/assets/</b>. It's a good idea to poke around in here and see how things are structured. The simple syntax used to request different assets relates very much to the structure of this directory.</p>
@@ -82,14 +82,14 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-    &lt;? dummy("text@headline") ;?&gt;
+    &lt;? dummy("text@headline") ?&gt;
   </pre>
 </div>
 
 <p>The exact result will be different every time you reload your document, but it should look something like this...</p>
 
 <div class="snippet text-snippet">
-  <h4><? dummy("text@headline") ;?></h4>
+  <h4><? dummy("text@headline") ?></h4>
 </div>
 
 <p>The following table is a catalog of the text assets that currently ship with Dummy, the snippet of code used to insert the asset, and a sample of expected output.</p>
@@ -106,63 +106,63 @@ if (file_exists($filename) && is_writable($filename) ) {
     <tbody>
       <tr>
         <td>Headline</td>
-        <td><code>&lt;? dummy("text@headline") ;?&gt;</code></td>
-        <td><? dummy("text@headline") ;?></td>
+        <td><code>&lt;? dummy("text@headline") ?&gt;</code></td>
+        <td><? dummy("text@headline") ?></td>
       </tr>
         <tr>
           <td>Teaser</td>
-          <td><code>&lt;? dummy("text@teaser") ;?&gt;</code></td>
-          <td><? dummy("text@teaser") ;?></td>
+          <td><code>&lt;? dummy("text@teaser") ?&gt;</code></td>
+          <td><? dummy("text@teaser") ?></td>
         </tr>
         <tr>
           <td>Short Teaser</td>
-          <td><code>&lt;? dummy("text@short-teaser") ;?&gt;</code></td>
-          <td><? dummy("text@short-teaser") ;?></td>
+          <td><code>&lt;? dummy("text@short-teaser") ?&gt;</code></td>
+          <td><? dummy("text@short-teaser") ?></td>
         </tr>
         <tr>
           <td>Long Teaser</td>
-          <td><code>&lt;? dummy("text@long-teaser") ;?&gt;</code></td>
-          <td><? dummy("text@long-teaser") ;?></td>
+          <td><code>&lt;? dummy("text@long-teaser") ?&gt;</code></td>
+          <td><? dummy("text@long-teaser") ?></td>
         </tr>
         <tr>
           <td>Item</td>
-          <td><code>&lt;? dummy("text@item") ;?&gt;</code></td>
-          <td><? dummy("text@item") ;?></td>
+          <td><code>&lt;? dummy("text@item") ?&gt;</code></td>
+          <td><? dummy("text@item") ?></td>
         </tr>
         <tr>
           <td>Date</td>
-          <td><code>&lt;? dummy("text@date") ;?&gt;</code></td>
-          <td><? dummy("text@date") ;?></td>
+          <td><code>&lt;? dummy("text@date") ?&gt;</code></td>
+          <td><? dummy("text@date") ?></td>
         </tr>
         <tr>
           <td>Time</td>
-          <td><code>&lt;? dummy("text@time") ;?&gt;</code></td>
-          <td><? dummy("text@time") ;?></td>
+          <td><code>&lt;? dummy("text@time") ?&gt;</code></td>
+          <td><? dummy("text@time") ?></td>
         </tr>
         <tr>
           <td>Time ago (relative)</td>
-          <td><code>&lt;? dummy("text@time-ago") ;?&gt;</code></td>
-          <td><? dummy("text@time-ago") ;?></td>
+          <td><code>&lt;? dummy("text@time-ago") ?&gt;</code></td>
+          <td><? dummy("text@time-ago") ?></td>
         </tr>
         <tr>
           <td>Author</td>
-          <td><code>&lt;? dummy("text@author") ;?&gt;</code></td>
-          <td><? dummy("text@author") ;?></td>
+          <td><code>&lt;? dummy("text@author") ?&gt;</code></td>
+          <td><? dummy("text@author") ?></td>
         </tr>
         <tr>
           <td>Username</td>
-          <td><code>&lt;? dummy("text@username") ;?&gt;</code></td>
-          <td><? dummy("text@username") ;?></td>
+          <td><code>&lt;? dummy("text@username") ?&gt;</code></td>
+          <td><? dummy("text@username") ?></td>
         </tr>
         <tr>
           <td>City</td>
-          <td><code>&lt;? dummy("text@city") ;?&gt;</code></td>
-          <td><? dummy("text@city") ;?></td>
+          <td><code>&lt;? dummy("text@city") ?&gt;</code></td>
+          <td><? dummy("text@city") ?></td>
         </tr>
         <tr>
           <td>Paragraph</td>
-          <td><code>&lt;? dummy("text@paragraph") ;?&gt;</code></td>
-          <td><? dummy("text@paragraph") ;?></td>
+          <td><code>&lt;? dummy("text@paragraph") ?&gt;</code></td>
+          <td><? dummy("text@paragraph") ?></td>
         </tr>
     </tbody>
 </table>
@@ -177,14 +177,14 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-    &lt;img src="&lt;? dummy("image@480x320");?&gt;" /&gt;
+    &lt;img src="&lt;? dummy("image@480x320") ?&gt;" /&gt;
   </pre>
 </div>
 
 <p>...and the following is returned:</p>
 
 <div class="snippet img-snippet">
-  <img src="<? dummy("image@480x320");?>" />
+  <img src="<? dummy("image@480x320") ?>" />
 </div>
 
 
@@ -192,14 +192,14 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-    &lt;img src="&lt;? dummy("image@640x,16:9");?&gt;" /&gt;
+    &lt;img src="&lt;? dummy("image@640x,16:9") ?&gt;" /&gt;
   </pre>
 </div>
 
-<p>Returns...</p>
+  <p>Returns...</p>
 
 <div class="snippet img-snippet">
-  <img src="<? dummy("image@640x,16:9");?>" />
+  <img src="<? dummy("image@640x,16:9") ?>" />
   <p class="note"><b>Note:</b> Dummy returns a URL path to an image &mdash; not the HTML needed to embed it.</p>
 </div>
 
@@ -217,33 +217,33 @@ if (file_exists($filename) && is_writable($filename) ) {
     <tbody>
       <tr>
         <td>100px square <span>Classic. Square.</span></td>
-        <td><code>&lt;? dummy("image@100x100") ;?&gt;</code></td>
-        <td><span><a href="<? dummy("image@100x100") ;?>"><? dummy("image@100x100") ;?></a></span></td>
+        <td><code>&lt;? dummy("image@100x100") ?&gt;</code></td>
+        <td><span><a href="<? dummy("image@100x100") ?>"><? dummy("image@100x100") ?></a></span></td>
       </tr>
       <tr>
         <td>100px square (Part II) <span>A rather pointless way of generating the same result as above. Proving a point here.</span></td>
-        <td><code>&lt;? dummy("image@100x,1:1") ;?&gt;</code></td>
-        <td><span><a href="<? dummy("image@100x,1:1") ;?>"><? dummy("image@100x,1:1") ;?></a></span></td>
+        <td><code>&lt;? dummy("image@100x,1:1") ?&gt;</code></td>
+        <td><span><a href="<? dummy("image@100x,1:1") ?>"><? dummy("image@100x,1:1") ?></a></span></td>
       </tr>
       <tr>
         <td>16:9 <span>With a height of 200px. Pixel dimensions and aspect ratios must be separated with a comma.</span></td>
-        <td><code>&lt;? dummy("image@16:9,x200") ;?&gt;</code></td>
-        <td><span><a href="<? dummy("image@16:9,x200") ;?>"><? dummy("image@16:9,x200") ;?></a></span></td>
+        <td><code>&lt;? dummy("image@16:9,x200") ?&gt;</code></td>
+        <td><span><a href="<? dummy("image@16:9,x200") ?>"><? dummy("image@16:9,x200") ?></a></span></td>
       </tr>
       <tr>
         <td>16:9 (Part II) <span>Same as above. It doesn't matter which order you specify ratio or pixel dimensions.</span></td>
-        <td><code>&lt;? dummy("image@x200,16:9") ;?&gt;</code></td>
-        <td><span><a href="<? dummy("image@x200,16:9") ;?>"><? dummy("image@x200,16:9") ;?></a></span></td>
+        <td><code>&lt;? dummy("image@x200,16:9") ?&gt;</code></td>
+        <td><span><a href="<? dummy("image@x200,16:9") ?>"><? dummy("image@x200,16:9") ?></a></span></td>
       </tr>
       <tr>
         <td>3:2 <span>The Photographer's aspect! We'll ask for assets from a specific subdirectory of &lsquo;dummy/assets/images/&rsquo; here to improve the odds of getting a suitable image.</span></td>
-        <td><code>&lt;? dummy("image/landscape@3:2") ;?&gt;</code></td>
-        <td><span><a href="<? dummy("image@3:2") ;?>"><? dummy("image@3:2") ;?></a></span></td>
+        <td><code>&lt;? dummy("image/landscape@3:2") ?&gt;</code></td>
+        <td><span><a href="<? dummy("image@3:2") ?>"><? dummy("image@3:2") ?></a></span></td>
       </tr>
       <tr>
         <td>!Avatar <span>Subdirectories of &lsquo;dummy/assets/images/&rsquo; that begin with a &lsquo;!&rsquo; are exempted from normal random (and recursive) selection. You have to target them specifically. This is good.</span></td>
-        <td><code>&lt;? dummy("image/!avatar@150x150") ;?&gt;</code></td>
-        <td><span><a href="<? dummy("image/!avatar@150x150") ;?>"><? dummy("image/!avatar@150x150") ;?></a></span></td>
+        <td><code>&lt;? dummy("image/!avatar@150x150") ?&gt;</code></td>
+        <td><span><a href="<? dummy("image/!avatar@150x150") ?>"><? dummy("image/!avatar@150x150") ?></a></span></td>
       </tr>
     </tbody>
 </table>
@@ -259,14 +259,14 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-    &lt;? dummy("ad@120x90") ;?&gt;
+    &lt;? dummy("ad@120x90") ?&gt;
   </pre>
 </div>
 
 <p>Returns...</p>
 
 <div class="snippet img-snippet">
-  <? dummy("ad@120x90");?>
+  <? dummy("ad@120x90") ?>
 </div>
 
 <p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to advertising in the Adobe&reg; Flash&reg; format.</p>
@@ -281,13 +281,13 @@ if (file_exists($filename) && is_writable($filename) ) {
 <p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts.</p>
 
 <h3>Controlling Probability</h3>
-<p>A basic building block of Dummy driven layouts, we use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&rdquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
+<p>A basic building block of Dummy driven layouts, we use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
     &lt;? if (dumb_luck("50%")): ?&gt;
       There is a 50/50 chance of this happening.
-    &lt;? endif ;?&gt;
+    &lt;? endif ?&gt;
   </pre>
 </div>
 
@@ -299,7 +299,7 @@ if (file_exists($filename) && is_writable($filename) ) {
       There is a very slim chance that this will happen...
     &lt;? else: ?&gt;
       This seems 99% more likely.
-    &lt;? endif ;?&gt;
+    &lt;? endif ?&gt;
   </pre>
 </div>
 
@@ -322,15 +322,15 @@ if (file_exists($filename) && is_writable($filename) ) {
       &lt;? else: ?&gt;
         Scissors
       &lt;? endif ?&gt;
-    &lt;? endif ;?&gt;
+    &lt;? endif ?&gt;
   </pre>
   <p class="note">For the record... 
   <b>
   <? if (dumb_luck("50%")): ?>
-  <? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ;?>
+  <? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ?>
   <? else: ?>
-  <? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ;?>
-  <? endif ;?>
+  <? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ?>
+  <? endif ?>
   </b> won.
   </p>
 </div>
@@ -339,8 +339,8 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet img-snippet zoom-snippet">
 	<? while (dumb_luck("50-75")): ?>
-	<a href="#"><img src="<? dummy("image@100x100,");?>" width="40" height="40" alt="A thumbnail..." /></a>
-  <? endwhile ;?>
+	<a href="#"><img src="<? dummy("image@100x100,")?>" width="40" height="40" alt="A thumbnail..." /></a>
+  <? endwhile ?>
 	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify. In the above example, there are two bits of Dummy Code working together. <b>1)</b> A dumb_luck loop range of 50 to 75. <b>2)</b> Inside of that loop range, an image request for a thumbnail image.</p>
 </div>
 
@@ -350,8 +350,8 @@ if (file_exists($filename) && is_writable($filename) ) {
   <pre class="brush: php">
   <ul>
   &lt;? while (dumb_luck("3-9")): ?&gt;
-    <li>&lt;? dummy("text@headline") ;?&gt;</li>
-  &lt;? endwhile ;?&gt;
+    <li>&lt;? dummy("text@headline") ?&gt;</li>
+  &lt;? endwhile ?&gt;
   </ul>
   </pre>
 </div>
@@ -361,12 +361,10 @@ if (file_exists($filename) && is_writable($filename) ) {
 <div class="snippet text-snippet">
   <ul>
   <? while (dumb_luck("3-9")): ?>
-    <li><? dummy("text@headline") ;?></li>
-  <? endwhile ;?>
+    <li><? dummy("text@headline") ?></li>
+  <? endwhile ?>
   </ul>
 </div>
-
-
 
 
 

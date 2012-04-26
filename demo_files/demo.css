@@ -1,4 +1,4 @@
-/* Mighty Meyer Reset */
+/* A Mighty Meyer Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,7 +47,7 @@ table {
 /* Begin Dummy Demo */
 
 #main {
-  max-width:1320px
+  max-width:1332px
   }
 
 body {
@@ -100,7 +100,7 @@ a:hover {
 
 .code-snippet p.note {
   border-top: 1px dotted #2a4676;
-  color:#94a9cf;
+  color:#dcecf7;
   margin:2em  1em .5em 1em;
   padding-top: 1em; 
 }
@@ -159,10 +159,8 @@ a:hover {
 }
 
 .table-snippet p.note {
-  border-top: 1px dotted #dadada;
   font-size:.9em;
-  margin:1em 1em .5em 1em;
-  padding-top:1em;
+  margin:1em .5em .5em .5em;
   text-align: center;
 }
 
@@ -259,10 +257,9 @@ table th
   font-weight: normal;
   background-color: #343941;
   color: #fff;
-  padding: 5px 8px;
-  border: 2px solid #efefef;
-  border-width: 2 0px;
-  
+  padding: .5em .8em;
+  border: 2px solid #fff;
+  border-width: 2 0px;  
   background: #343941;
   background: -moz-linear-gradient(top,  #424a51 0%, #40454f 50%, #343941 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#424a51), color-stop(50%,#40454f), color-stop(100%,#343941));
@@ -274,22 +271,22 @@ table th
 
 }
 
-table th.objective {
- width:25%;
- white-space:nowrap;
- min-width:150px;
-}
-
-table th.output {
- width:40%;
-}
 
 table td
 {
   border-bottom: 1px solid #efefef;
   color: #666;
-  padding: 6px 8px;
+  padding: .5em .8em;
 }
+
+
+table tr:last-child td
+{
+  padding-bottom: 1.5em;
+  margin-bottom: 1em;
+  border-bottom: 4px solid #efefef;
+}
+
 
 table td span
 {

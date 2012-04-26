@@ -28,7 +28,7 @@ define("MAX_HEIGHT_PX", 1440); // (value in px) Max height of an image in assets
 $delimiter = '@'; // Leave this, no reason to change it.
 define("IGNORE_CACHE", false); // For debugging of image generation
 define("HIDDEN_FOLDER_PREPEND", "!"); // Prepended to the name of a folder to be excluded from normal random selection (Example: "!myfolder")
-
+ini_set("memory_limit", "256M"); // Boosts memory allocation
 
 // END CONFIGURATION
 //////////////////////////////
@@ -247,6 +247,9 @@ function dummy_image($path, $params) {
          } else if ($nImgExt == "png") {
             @imagepng($nImg, $nImgFn);
          }
+      // Remove the images from memory
+      imagedestroy($img);
+      imagedestroy($cImg);
       }
       $result = $nImgUrl;
    }
