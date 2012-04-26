@@ -143,7 +143,7 @@ a:hover {
 }
 
 .zoom-snippet {
-  padding:.8em;
+  padding:.8em .8em .2em .8em;
 }
 
 .zoom-snippet img {
@@ -243,7 +243,7 @@ em {
 
 table
 {
-  font:.8em "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font:.8em/1.4em "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
   background: #fff;
   width: 100%;
   border-collapse: collapse;

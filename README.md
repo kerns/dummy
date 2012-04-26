@@ -42,10 +42,10 @@ This is especially important for front-end code that should be delivered to anot
 
 Dummy also aims to support designers and front-end artisans who find themselves increasingly attracted to In-Browser Design as a viable process for the creation, iteration, and client approval of their work. As does @beardedstudio. (http://blog.bearded.com/post/21447195970/mocking-up-is-hard-to-do)
 
-### Not Frequently Asked Non-Questions
+### Where I Try To Anticipate Your Questions
 
 #### This is very basic PHP, I could just write this myself as I go along working…
-> Dummy is geared toward front-enders with either a limited knowledge of programming outside of HTML and CSS –OR- a limited desire to code and recode rudimentary functions and routines.
+> Dummy is geared toward front-enders with either a limited knowledge of programming outside of HTML and CSS –OR– a limited desire to code and recode rudimentary functions and routines.
 
 #### It could be done in JavaScript
 > One of the things Dummy was designed to test is JavaScript performance. For this reason we don't want to mingle with, tax, or otherwise touch the DOM of a document in any way. It's not 100% certain that PHP is the best way to go, but it's widely available and all of the heavy lifting is done by the server (not in or by the client).

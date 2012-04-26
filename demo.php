@@ -35,24 +35,23 @@
 
 <h3>Basic Requirements</h3>
 
-<p>You'll need a development environment running Apache and PHP compiled with support for GD (this hopefully covers most of them). Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively.</p>
-
-<p class="note"><b>Tip:</b> Creating a virtual host your local web projects is not only a best practice, it also removes the need to make any configuration changes to Dummy. Mac users should take a look at Patrick Gibson's indispensable <a href="https://github.com/pgib/virtualhost.sh">virtualhost.sh</a> script.</p>
+<p>You'll need a development environment running Apache and PHP compiled with support for GD (this hopefully covers most of them). Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively. These are easy to install and configure and a good way to get started if you're on unfamiliar ground.</p>
 
 <h3>Installation</h3>
 
-<p>Move the dummy folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Alternatively, you can enable the <b>.htaccess</b> file located at <b>dummy/docs/optional.htaccess</b>. It will allow HTML documents to be parsed as PHP, together with some other nice features.</p>
+<p>Move the main <b>dummy</b> folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Alternatively, you can enable the <b>.htaccess</b> file located at <b>dummy/docs/optional.htaccess</b>. It will allow HTML documents to be parsed as PHP, together with some other nice features.</p>
 
-<p>Then, for every document in which you want to use dummy code, add the following line just above your opening doctype declaration.</p>
+<p>Then, for every document in which you want to use dummy code, add the following line just above your opening doctype declaration. It should be on the very first line of your document.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
     &lt;? require_once("dummy/dummy.php") ?&gt;
-    &lt;!doctype html&gt;
   </pre>
 </div>
 
-<p>So far so good. The next step is to make sure that the cache folder located at <b>dummy/cache/</b> is writable by your web server. For performance reasons, it's here that Dummy will first look for pre-existing crop sizes before generating news ones. Describing how to make a folder writable by your local web server is outside the scope of this document, but finding out how is only a web search away.</p>
+<p>If you're in the habit of creating virtual hosts for your local web projects &mdash; good for you, Dummy won't require any further configuration once you've moved it to the root level of your project. If you aren't using a virtual host you'll need to open the file located at <b>dummy/dummy.php</b> and edit the first line in the configuration section so that it points to the location of <b>/dummy</b> relative to the web root of your project.</p>
+
+<p>So far so good. The final step is to make sure that the cache folder located at <b>dummy/cache/</b> is writable by your web server. For performance reasons, it's here that Dummy will first look for pre-existing crop sizes before generating news ones. Describing how to make a folder writable by your local web server is outside the scope of this document, but finding out how is only a web search away.</p>
 
 <p>If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p>
 
@@ -186,7 +185,6 @@ if (file_exists($filename) && is_writable($filename) ) {
 <div class="snippet img-snippet">
   <img src="<? dummy("image@480x320") ?>" />
 </div>
-
 
 <p>You can specify exact pixel dimensions or just an aspect ratio, or you can combine one or more of these properties. For example, you could choose to specify just the width, together with an aspect ratio. Dummy would then return the path to an image that conforms to the specified width and aspect ratio.</p>
 
@@ -324,49 +322,76 @@ if (file_exists($filename) && is_writable($filename) ) {
       &lt;? endif ?&gt;
     &lt;? endif ?&gt;
   </pre>
-  <p class="note">For the record... 
+  <p class="note">For the record... it's
   <b>
   <? if (dumb_luck("50%")): ?>
   <? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ?>
   <? else: ?>
   <? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ?>
   <? endif ?>
-  </b> won.
+  </b>.
   </p>
 </div>
 
 <h3>Creating Loop Ranges</h3>
 
 <div class="snippet img-snippet zoom-snippet">
-	<? while (dumb_luck("50-75")): ?>
+	<? while (dumb_luck("50-100")): ?>
 	<a href="#"><img src="<? dummy("image@100x100,")?>" width="40" height="40" alt="A thumbnail..." /></a>
   <? endwhile ?>
-	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify. In the above example, there are two bits of Dummy Code working together. <b>1)</b> A dumb_luck loop range of 50 to 75. <b>2)</b> Inside of that loop range, an image request for a thumbnail image.</p>
+	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify. In the above example, there are two bits of Dummy Code working together. <b>1)</b> A dumb_luck loop range of 50 to 100. <b>2)</b> Inside of that loop range, a single request for a 100x100 thumbnail.</p>
 </div>
 
-<p>The ability of Dumb Luck to create loop ranges makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; but instead of passing in a single % value, we'll pass it a range of two numbers separated with a "-". In the example below, we ask for between 5 and 10 instances of a list item with a headline.</p>
+<p>The ability of Dumb Luck to create loop ranges makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; but instead of passing in a single % value, we'll pass it a range of two numbers separated with a "-". In the example below, we ask for between 3 and 6 instances of a list item with a headline.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
   <ul>
-  &lt;? while (dumb_luck("3-9")): ?&gt;
+  &lt;? while (dumb_luck("5-10")): ?&gt;
     <li>&lt;? dummy("text@headline") ?&gt;</li>
   &lt;? endwhile ?&gt;
   </ul>
   </pre>
 </div>
 
-<p>Returns...</p>
+<p>The result is a simple UL list of between 5 and 10 list items:</p>
 
 <div class="snippet text-snippet">
   <ul>
-  <? while (dumb_luck("3-9")): ?>
+  <? while (dumb_luck("5-10")): ?>
     <li><? dummy("text@headline") ?></li>
   <? endwhile ?>
   </ul>
 </div>
 
 
+<h3>Putting It All Together</h3>
+
+<p>Imagine that we wanted to see how the same list used in the previous example looks with <em>some</em> of the items linked <em>some</em> of the time. To achieve the desired result we only need to mix-in some of Dummy's probability logic within the loop range.</p>
+
+<div class="snippet code-snippet">
+  <pre class="brush: php">
+    <ul>
+    &lt;? while (dumb_luck("3-6")): ?&gt;
+      <li>
+      &lt;? if (dumb_luck("50%")): ?&gt;
+        <a href="#">&lt;? dummy("text@headline") ?&gt;</a>
+      &lt;? else: ?&gt;
+        &lt;? dummy("text@headline") ?&gt;
+      &lt;? endif ?&gt;
+      </li>
+    &lt;? endwhile ?&gt;
+    </ul>
+  </pre>
+</div>
+
+<p>Roughly half of the items in the following list should be wrapped in a link.</p>
+
+<div class="snippet text-snippet">
+  <ul><? while (dumb_luck("5-10")): ?><li><? if (dumb_luck("50%")): ?><a href="#"><? dummy("text@headline") ?></a><? else: ?><? dummy("text@headline") ?><? endif ?></li><? endwhile ?></ul>
+</div>
+
+<p>Imagine that we wanted to see how the same list used in the previous example looks with <em>some</em> of the items linked <em>some</em> of the time. To achieve the desired result we only need to mix-in some of Dummy's probability logic within the loop range.</p>
 
 </div>
 

@@ -1,43 +1,35 @@
 <?php
 
-// Dummy, version 1.0 – For *Credible* Rapid Prototyping and QA
+// Dummy v. 1.0 – For Rapid Prototyping and QA
+
 // Feedback, requests, ideas => http://twitter.com/kerns
-// Fork/Download/Follow @ https://github.com/kerns/dummy
+// Fork, Follow, Download => https://github.com/kerns/dummy
 
 // LICENSE
 // Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license
 // (http://creativecommons.org/licenses/by-sa/3.0/us/).
-// If you like Dummy, if you've found it useful or if you've used it to do something interesting
-// please let me know,...maybe pop off a tweet.
 
 // REQUIREMENTS
-// PHP + GD - Detailed requirements and instructions on setup and configuration coming soon...
-
+// Apache + PHP + GD
 
 // BASIC CONFIGURATION
 $dummy_path = "/dummy"; // The location of Dummy relative to the webroot of your project. (Example: "/~username/Sites/ProjectName/dummy")
 $flash_ads = false; // (true or false) Incorporate Adobe® Flash® based ads in the random selection and insertion of ads?
-
-define("ADVANCED_RANDOM_IMAGES", true); // (true or false) Minimizes the number of repeated images by way of opening a session. This is good.
 define("JPEG_QUALITY", 90); // (1-100) You understand...
 define("MAX_WIDTH_PX", 2560); // (value in px) Max width of an image in assets/images
 define("MAX_HEIGHT_PX", 1440); // (value in px) Max height of an image in assets/images
 
 // ADVANCED CONFIGURATION
-// No reason to edit anything below here unless you're confident.
 $delimiter = '@'; // Leave this, no reason to change it.
+define("ADVANCED_RANDOM_IMAGES", true); // (true or false) Minimizes the number of repeated images by way of opening a session. This is good.
 define("IGNORE_CACHE", false); // For debugging of image generation
 define("HIDDEN_FOLDER_PREPEND", "!"); // Prepended to the name of a folder to be excluded from normal random selection (Example: "!myfolder")
 ini_set("memory_limit", "256M"); // Boosts memory allocation
 
 // END CONFIGURATION
-//////////////////////////////
+
 
 // BEGIN DUMMY
-// REALLY...stop editing, unless your middlename is "Reckless".
-// Now if you ARE editing things down here,...maybe you should get in touch.
-// We could make Dummy a lot smarter!
-
 // Start a session if it hasn't already been started
 $sid = session_id();
 if (!$sid) {
