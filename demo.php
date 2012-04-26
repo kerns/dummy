@@ -5,17 +5,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Dummy - A Quick and Dirty Demo</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Dummy is a toolkit for rapid prototyping and QA.">
+  <meta name="author" content="David Kerns">
   <meta name="viewport" content="width=device-width">
 
-  <!-- Dummy demo css -->
-  <link href="demo_files/dummy.css" rel="stylesheet" type="text/css" />
-  
-  <!-- For syntax highlighting. Only works if you're connected to the internet -->  
-  <link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
-  <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
-  <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeMidnight.css" rel="stylesheet" type="text/css" />
+  <!-- Dummy Demo CSS -->
+  <link href="demo_files/demo.css" rel="stylesheet" type="text/css" />
+
+  <!-- For syntax highlighting. -->
+  <link href="demo_files/sh/shCore.css" rel="stylesheet" type="text/css" />
+  <link href="demo_files/sh/shThemeMidnight.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -28,14 +27,16 @@
 
 <div class="hero-block">
   <p>This document contains a few working examples to get you started using Dummy, together with some light documentation on how it works. It also makes a great test page. If you can get this page to operate without any errors, then you're ready to start using it in your own project.</p>
-  
+
   <p>If you're unclear as to why you'd want to do this in the first place, then head over to <a href="https://github.com/kerns/dummy">the project page</a>, or check out the <b>README.md</b> file included with this download.</p>
 </div>
 
 <h2>Getting Started</h2>
 <h3>Basic Requirements</h3>
 
-<p>You need a development environment running Apache + PHP compiled with support for GD (this hopefully covers most of them).</p>
+<p>You'll need a development environment running Apache and PHP compiled with support for GD (this hopefully covers most of them). Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively.</p>
+
+<p class="note"><b>Tip:</b> Creating a virtual host your local web projects is not only a best practice, it makes it easy to keep dummy on the web root. Mac users can avail themselves of Patrick Gibson's excellent <a href="https://github.com/pgib/virtualhost.sh">virtualhost.sh</a> script.</p>
 
 <h3>Installation</h3>
 
@@ -51,7 +52,7 @@
 </div>
 
 <p>So far so good. The next step is to make sure that the cache folder located at <b>dummy/cache/</b> is writable by your web server. For performance reasons, it's here that Dummy will first look for pre-existing crop sizes before generating news ones. Describing how to make a folder writable by your local web server is outside the scope of this document, but finding out how is only a web search away.</p>
-  
+
 <p>If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p>
 
 <div class="snippet img-snippet">
@@ -78,7 +79,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <h3>Dummy Text</h3>
 
 <p>Dummy makes it easy to insert random strings of Lorem Ipsum that correspond to commonly needed lengths and formats. For example, the following snippet of code will produce a random string of Lorem Ipsum approximately the length of a headline.</p>
-  
+
 <div class="snippet code-snippet">
   <pre class="brush: php">
     &lt;? dummy("text@headline") ;?&gt;
@@ -185,8 +186,8 @@ if (file_exists($filename) && is_writable($filename) ) {
 <div class="snippet img-snippet">
   <img src="<? dummy("image@480x320");?>" />
 </div>
-  
-  
+
+
 <p>You can specify exact pixel dimensions or just an aspect ratio, or you can combine one or more of these properties. For example, you could choose to specify just the width, together with an aspect ratio. Dummy would then return the path to an image that conforms to the specified width and aspect ratio.</p>
 
 <div class="snippet code-snippet">
@@ -268,13 +269,13 @@ if (file_exists($filename) && is_writable($filename) ) {
   <? dummy("ad@120x90");?>
 </div>
 
-<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to Adobe&reg; Flash&reg; based advertising.</p>
+<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to advertising in the Adobe&reg; Flash&reg; format.</p>
 
-<p>The default embed code for both standards compliant image based ads, and Adobe&reg; Flash&reg; based ads can be found on the root level of <b>dummy/assets/ads/</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
+<p>The default embed code for both standards compliant image based ads and ads in the Flash format can be found on the root level of <b>dummy/assets/ads/</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
 
 <p>Note that the folders containing different formats also specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
 
-<p class="note"><b>Tip:</b> For a lot of reasons, you may find it useful to enable or disable the use of Adobe&reg; Flash&reg; based ads under different testing scenarios. There is a preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
+<p class="note"><b>Tip:</b> For a lot of reasons, you may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
 
 <h2 id="logic">Dumb Luck</h2>
 <p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts.</p>
@@ -334,13 +335,12 @@ if (file_exists($filename) && is_writable($filename) ) {
   </p>
 </div>
 
-
 <h3>Creating Loop Ranges</h3>
 
 <div class="snippet img-snippet zoom-snippet">
 	<? while (dumb_luck("50-75")): ?>
 	<a href="#"><img src="<? dummy("image@100x100,");?>" width="40" height="40" alt="A thumbnail..." /></a>
-	<? endwhile ;?>
+  <? endwhile ;?>
 	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify. In the above example, there are two bits of Dummy Code working together. <b>1)</b> A dumb_luck loop range of 50 to 75. <b>2)</b> Inside of that loop range, an image request for a thumbnail image.</p>
 </div>
 
@@ -349,7 +349,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <div class="snippet code-snippet">
   <pre class="brush: php">
   <ul>
-  &lt;? while (dumb_luck("5-10")): ?&gt;
+  &lt;? while (dumb_luck("3-9")): ?&gt;
     <li>&lt;? dummy("text@headline") ;?&gt;</li>
   &lt;? endwhile ;?&gt;
   </ul>
@@ -360,22 +360,24 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet text-snippet">
   <ul>
-  <? while (dumb_luck("5-10")): ?>
+  <? while (dumb_luck("3-9")): ?>
     <li><? dummy("text@headline") ;?></li>
   <? endwhile ;?>
   </ul>
 </div>
 
 
+
+
+
 </div>
 
 <footer>
-<p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, comments? <a href="http://twitter.com/kerns">Contact me</a>.</p>
+  <p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, comments? <a href="http://twitter.com/kerns">Contact me</a>.</p>
 </footer>
 
-<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
-<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
-<script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushPHP.js" type="text/javascript"></script>
+<script src="demo_files/sh/shCore.js" type="text/javascript"></script>
+<script src="demo_files/sh/shBrushPHP.js" type="text/javascript"></script>
 
 <script type="text/javascript">
      SyntaxHighlighter.all()
