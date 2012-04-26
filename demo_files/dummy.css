@@ -82,16 +82,27 @@ a:hover {
 
 .snippet {
   border:2px solid #fafafa;
-  margin:1em 0 1.5em 0;
-  padding:.5em;
+  margin:1.5em 0;
+  padding:.75em;
   overflow:hidden;
   box-shadow: inset 0px 0px 7px rgba(50, 50, 50, 0.6);
   display: block;
   border-radius:5px;
 }
 
+.snippet p.note {
+  margin:.5em 0
+}
+
 .code-snippet {
   background-color: #0f192a;
+}
+
+.code-snippet p.note {
+  border-top: 1px dotted #2a4676;
+  color:#94a9cf;
+  margin:2em  1em .5em 1em;
+  padding-top: 1em; 
 }
 
 .text-snippet {
@@ -100,7 +111,7 @@ a:hover {
 }
 
 .text-snippet ul {
-  margin:1em 1em 1em 1.5em;
+  margin:1em 1em 1em 2.2em;
   color:#578;
 }
 
@@ -118,23 +129,29 @@ a:hover {
   width:auto;
   float:left;
   clear:both;
-  padding-bottom: .2em;
+  margin-top: .5em;
+  padding-bottom: .5em;
 }
 
 .img-snippet img {
   box-shadow: 0 1px 3px #333;
+  border-radius:3px;
 }
 
 .zoom-snippet {
   overflow:visible;
 }
 
+.zoom-snippet {
+  padding:.8em;
+}
+
 .zoom-snippet img {
-  -webkit-transition: all .1s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
 }
 
 .zoom-snippet img:hover {
-  -webkit-transform: scale(2);
+  -webkit-transform: scale(1.8);
 }
 
 .img-snippet a {
@@ -147,7 +164,7 @@ a:hover {
   margin:1em 1em .5em 1em;
   padding-top:1em;
   text-align: center;
-  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   color:#455;
@@ -197,7 +214,7 @@ h2 {
   font: normal 2em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
   border-bottom:2px solid #e0e9f0;
   padding-bottom:.1em;
-  padding-top: 1.5em;
+  padding-top: 1em;
 }
 
 h3 {
@@ -222,6 +239,9 @@ p.note {
   margin:.5em 0;
   }
 
+em {
+  font-style:italic;
+}
 
 table
 {
@@ -306,6 +326,6 @@ table code {
   width:40%;
   }
 
-.image-table td {
+/*.image-table td {
   vertical-align:middle;
-  }
+  }*/

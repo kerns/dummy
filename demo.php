@@ -21,7 +21,7 @@
 <body>
 
 <header>
-  <h1>Quick and Dirty Dummy Demo</h1>
+  <h1>A Quick and Dirty Dummy Demo</h1>
 </header>
 
 <div id="main" role="main">
@@ -39,7 +39,7 @@
 
 <h3>Installation</h3>
 
-<p>Move the dummy folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Alternatively, you can enable the <b>.htaccess</b> file located at <b>dummy/docs/optional.htaccess</b>. It will allow HTML documents to be parsed as PHP, along with some other nice features.</p>
+<p>Move the dummy folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Alternatively, you can enable the <b>.htaccess</b> file located at <b>dummy/docs/optional.htaccess</b>. It will allow HTML documents to be parsed as PHP, together with some other nice features.</p>
 
 <p>Then, for every document in which you want to use dummy code, add the following line just above your opening doctype declaration.</p>
 
@@ -180,7 +180,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-<p>...and the following is returned.</p>
+<p>...and the following is returned:</p>
 
 <div class="snippet img-snippet">
   <img src="<? dummy("image@480x320");?>" />
@@ -195,9 +195,11 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
+<p>Returns...</p>
+
 <div class="snippet img-snippet">
   <img src="<? dummy("image@640x,16:9");?>" />
-  <p class="note"><b>Note:</b> Dummy's image function gives you a URL to an image &mdash; not the HTML needed to embed it.</p>
+  <p class="note"><b>Note:</b> Dummy returns a URL path to an image &mdash; not the HTML needed to embed it.</p>
 </div>
 
 <p>The following table provides some clues as to how you can structure your image requests.</p>
@@ -233,12 +235,12 @@ if (file_exists($filename) && is_writable($filename) ) {
         <td><span><a href="<? dummy("image@x200,16:9") ;?>"><? dummy("image@x200,16:9") ;?></a></span></td>
       </tr>
       <tr>
-        <td>3:2 <span>The Photographer's aspect! We'll ask for assets from a specific subdirectory of &lsquo;assets/images&rsquo; here to improve the odds of getting a suitable image.</span></td>
+        <td>3:2 <span>The Photographer's aspect! We'll ask for assets from a specific subdirectory of &lsquo;dummy/assets/images/&rsquo; here to improve the odds of getting a suitable image.</span></td>
         <td><code>&lt;? dummy("image/landscape@3:2") ;?&gt;</code></td>
         <td><span><a href="<? dummy("image@3:2") ;?>"><? dummy("image@3:2") ;?></a></span></td>
       </tr>
       <tr>
-        <td>!Avatar <span>Subdirectories of &lsquo;assets/images&rsquo; that begin with a &lsquo;!&rsquo; are exempted from normal random (and recursive) selection. You have to target them specifically. This is good.</span></td>
+        <td>!Avatar <span>Subdirectories of &lsquo;dummy/assets/images/&rsquo; that begin with a &lsquo;!&rsquo; are exempted from normal random (and recursive) selection. You have to target them specifically. This is good.</span></td>
         <td><code>&lt;? dummy("image/!avatar@150x150") ;?&gt;</code></td>
         <td><span><a href="<? dummy("image/!avatar@150x150") ;?>"><? dummy("image/!avatar@150x150") ;?></a></span></td>
       </tr>
@@ -251,11 +253,8 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 
 <h3>Dummy Ads</h3>
-<p>The issues and requirements around supporting the easy insertion of advertising were difficult to navigate, and couldn't be supported in exact same way that images in Dummy are generally supported.</p>
 
-<p>Inside of <b>dummy/assets/ads</b> you'll find a host of folders representing popular formats <a href="http://www.iab.net/guidelines/508676/508767/displayguidelines">as defined by the IAB</a>. Not all of them, but like any other assets this is easy for you to expand or edit these according to your needs.</p>
-
-<p>The dummy code used to request an ad follows the now already familiar model.</p>
+<p>Inside of <b>dummy/assets/ads/</b> you'll find a host of folders representing many of the popular formats <a href="http://www.iab.net/guidelines/508676/508767/displayguidelines">as defined by the IAB</a>. The dummy code used to request and insert an ad follows the now familiar model.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -269,21 +268,19 @@ if (file_exists($filename) && is_writable($filename) ) {
   <? dummy("ad@120x90");?>
 </div>
 
-<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed just a URL path to the ad (as is done with normal images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to Adobe&reg; Flash&reg; based advertising.</p>
+<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to Adobe&reg; Flash&reg; based advertising.</p>
 
-<p>The default embed code for standards compliant image based ads, and Adobe&reg; Flash&reg; based ads can be found on the root level of <b>assets/ads</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the default embed code used by any ad format by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
+<p>The default embed code for both standards compliant image based ads, and Adobe&reg; Flash&reg; based ads can be found on the root level of <b>dummy/assets/ads/</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
 
-<p>Inside of <b>dummy/assets/ads/</b> you'll see a complete list of available formats displayed as folders which specify their dimensions (WxH). Dummy parses these names and interprets them as variables which are used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you can add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
+<p>Note that the folders containing different formats also specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
 
 <p class="note"><b>Tip:</b> For a lot of reasons, you may find it useful to enable or disable the use of Adobe&reg; Flash&reg; based ads under different testing scenarios. There is a preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
 
-
 <h2 id="logic">Dumb Luck</h2>
-
-<p>The ability to insert randomly selected assets into a layout is great, but it's the combination of asset insertion with simple logic for controlling probability and creating loop ranges that make it possible for Dummy to flesh out asset rich document layouts in record time.</p>
+<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts.</p>
 
 <h3>Controlling Probability</h3>
-<p>A basic building block of Dummy driven layouts, use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, &rdquo;What does this layout look like with or without <b>X</b> ?&rdquo; It could be the appearance of an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
+<p>A basic building block of Dummy driven layouts, we use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&rdquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -326,33 +323,49 @@ if (file_exists($filename) && is_writable($filename) ) {
       &lt;? endif ?&gt;
     &lt;? endif ;?&gt;
   </pre>
+  <p class="note">For the record... 
+  <b>
+  <? if (dumb_luck("50%")): ?>
+  <? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ;?>
+  <? else: ?>
+  <? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ;?>
+  <? endif ;?>
+  </b> won.
+  </p>
 </div>
-
-<p class="note">For the record... 
-<b>
-<? if (dumb_luck("50%")): ?>
-<? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ;?>
-<? else: ?>
-<? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ;?>
-<? endif ;?>
-</b> won.
 
 
 <h3>Creating Loop Ranges</h3>
 
 <div class="snippet img-snippet zoom-snippet">
-	<? while (dumb_luck("50-90")): ?>
-	<a href="#"><img src="<? dummy("image@200x200,");?>" width="40" height="40" alt="A thumbnail..." /></a>
+	<? while (dumb_luck("50-75")): ?>
+	<a href="#"><img src="<? dummy("image@100x100,");?>" width="40" height="40" alt="A thumbnail..." /></a>
 	<? endwhile ;?>
+	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify. In the above example, there are two bits of Dummy Code working together. <b>1)</b> A dumb_luck loop range of 50 to 75. <b>2)</b> Inside of that loop range, an image request for a thumbnail image.</p>
 </div>
 
-<p>A basic building block of Dummy driven layouts, use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, &rdquo;What does this layout look like with or without <b>X</b> ?&rdquo; It could be the appearance of an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
+<p>The ability of Dumb Luck to create loop ranges makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; but instead of passing in a single % value, we'll pass it a range of two numbers separated with a "-". In the example below, we ask for between 5 and 10 instances of a list item with a headline.</p>
+
+<div class="snippet code-snippet">
+  <pre class="brush: php">
+  <ul>
+  &lt;? while (dumb_luck("5-10")): ?&gt;
+    <li>&lt;? dummy("text@headline") ;?&gt;</li>
+  &lt;? endwhile ;?&gt;
+  </ul>
+  </pre>
+</div>
+
+<p>Returns...</p>
 
 <div class="snippet text-snippet">
-	<ul>
-		<li><? dummy("text@headline") ;?></li>
-	</ul>
+  <ul>
+  <? while (dumb_luck("5-10")): ?>
+    <li><? dummy("text@headline") ;?></li>
+  <? endwhile ;?>
+  </ul>
 </div>
+
 
 </div>
 
@@ -360,11 +373,9 @@ if (file_exists($filename) && is_writable($filename) ) {
 <p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, comments? <a href="http://twitter.com/kerns">Contact me</a>.</p>
 </footer>
 
-
 <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
 <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
 <script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushPHP.js" type="text/javascript"></script>
-
 
 <script type="text/javascript">
      SyntaxHighlighter.all()

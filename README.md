@@ -7,10 +7,10 @@ Originally conceived as a tool for helping to simulate the high volume, rapidly 
 It's most useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before engineers further down the gantt diagram can begin the work of disassociating and obfuscating yours.
 
 ### Dummy can…
-+ Insert randomly selected strings of placeholder text in various lengths and formats (e.g. Headline, teaser, paragraph, username).
-+ Automagically crop and size high quality, news worthy, CC licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
-+ Flesh out asset rich document layouts quickly with friendly, human-readable logic for building loops and controlling probability.
-+ Let you focus on the important things – namely, the design and the code – not on copying and pasting (static) Lorum Ipsum, or hunting down plausible placeholder images.
++ Insert randomly selected strings of placeholder text in various lengths and formats (e.g. Headline, teaser, paragraph).
++ Automagically crop and size high quality, news worthy, Creative Commons licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
++ Flesh out highly variable, asset rich layouts quickly with friendly, human-readable logic for building loops and controlling probability.
++ Allow you to focus on the important things – namely, the design and the code – not on copying and pasting (static) Lorum Ipsum, or hunting down plausible placeholder images.
 + More. Not lots more, but a _bit_ more!
 
 ### You can…
@@ -31,7 +31,7 @@ It does so by helping you to populate your work with content and randomizing key
 + How does the columns balance as the content changes – and what's the longest word that can fit into this column without triggering unwanted overflow?
 + What is the easiest way to demo the signed-in and signed-out states of this page?
 + Do these CSS breakpoints hold water?
-+ How will this script perform in a DOM when it needs to process over 100 images?
++ How will this script perform in a DOM when it needs to process over 100+ images?
 
 ### Why?
 Using Dummy in the early stages of front-end development can give you a new perspective on your work every time your document is reloaded in the browser, shortening and improving your test cycle by more quickly exposing weak-points or trouble areas as you go about marking up a new design.
