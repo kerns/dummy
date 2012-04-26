@@ -40,16 +40,16 @@ This is especially important for front-end code that should be delivered to anot
 
 Dummy also aims to support designers and front-end artisans who find themselves increasingly attracted to "in-browser design" as a viable process for the creation, iteration, and client approval of their work. As does @beardedstudio. (http://blog.bearded.com/post/21447195970/mocking-up-is-hard-to-do)
 
-### Not Very Frequently Asked, And Not Actually Questions
+### Not Frequently Asked Non-Questions
 
 #### This is very basic PHP. I could just write myself as I go along…
-Dummy is geared toward front-enders with either a limited knowledge of programming outside of HTML and CSS –OR- a limited desire to code and recode rudimentary functions and routines.
+> Dummy is geared toward front-enders with either a limited knowledge of programming outside of HTML and CSS –OR- a limited desire to code and recode rudimentary functions and routines.
 
 #### It could be done in JavaScript
-Sure, but one of the things Dummy was designed to test is JavaScript performance. For this reason we don't want to mingle with, tax, or otherwise touch the DOM of a document in any way.
+> Sure, but one of the things Dummy was designed to test is JavaScript performance. For this reason we don't want to mingle with, tax, or otherwise touch the DOM of a document in any way.
 
 #### This could be done much better
-I agree! I'm all for better, and this version leaves a lot of room for improvement. Let's do it.
+> I agree! I'm all for better, and this version leaves plenty of room for improvement. Let's do it.
 
 ### Requirements
 You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/docs/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
