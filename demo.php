@@ -1,4 +1,4 @@
-<? require_once("dummy/dummy.php") ?>
+<? require_once("/Users/dvk/Sites/projects/dummy.git/dummy/dummy.php") ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,6 +17,7 @@
   <link href="demo_files/sh/shThemeMidnight.css" rel="stylesheet" type="text/css" />
 
 </head>
+
 <body>
 
 <header>
@@ -26,34 +27,31 @@
 <div id="main" role="main">
 
 <div class="hero-block">
-  <p>This document contains a few working examples to get you started using Dummy, together with some light documentation on how it works. It also makes a great test page. If you can get this page to operate without any errors, then you're ready to start using it in your own project.</p>
-
+  <p>This document contains a few working examples to get you started using Dummy, together with some light documentation on how it works. It also makes a suitable test page. If you can get it to operate without error then you're ready to start using it in your own project.</p>
   <p>If you're unclear as to why you'd want to do this in the first place, then head over to <a href="https://github.com/kerns/dummy">the project page</a>, or check out the <b>README.md</b> file included with this download.</p>
 </div>
 
+<section>
 <h2>Getting Started</h2>
 
+<article>
 <h3>Basic Requirements</h3>
-
 <p>You'll need a development environment running Apache and PHP compiled with support for GD (this hopefully covers most of them). Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively. These are easy to install and configure and a good way to get started if you're on unfamiliar ground.</p>
+</article>
 
-<h3>Installation</h3>
-
-<p>Move the main <b>dummy</b> folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Alternatively, you can enable the <b>.htaccess</b> file located at <b>dummy/docs/optional.htaccess</b>. It will allow HTML documents to be parsed as PHP, together with some other nice features.</p>
-
-<p>Then, for every document in which you want to use dummy code, add the following line just above your opening doctype declaration. It should be on the very first line of your document.</p>
-
-<div class="snippet code-snippet">
-  <pre class="brush: php">
-    &lt;? require_once("dummy/dummy.php") ?&gt;
-  </pre>
-</div>
-
-<p>If you're in the habit of creating virtual hosts for your local web projects &mdash; good for you, Dummy won't require any further configuration once you've moved it to the root level of your project. If you aren't using a virtual host you'll need to open the file located at <b>dummy/dummy.php</b> and edit the first line in the configuration section so that it points to the location of <b>/dummy</b> relative to the web root of your project.</p>
-
-<p>So far so good. The final step is to make sure that the cache folder located at <b>dummy/cache/</b> is writable by your web server. For performance reasons, it's here that Dummy will first look for pre-existing crop sizes before generating news ones. Describing how to make a folder writable by your local web server is outside the scope of this document, but finding out how is only a web search away.</p>
-
-<p>If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p>
+<article>
+<h3>Setup</h3>
+<ol>
+  <li><p>Move the main <b>/dummy</b> folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Next, make sure that any document in which you want to use Dummy has the following code on the very first line.</p>
+    <div class="snippet code-snippet">
+      <pre class="brush: php">
+        &lt;? require_once("dummy/dummy.php") ?&gt;
+      </pre>
+    </div>
+  </li>
+  <li><p>Open the file located at <b>/dummy/dummy.php</b> and make sure the first line in the configuration section points to the location of <b>/dummy</b> relative to the web root of your project. If you're using a virtual host the default value is probably fine, and you don't need to change anything.</p></li>
+  <li><p>Finally, make the cache folder located at <b>/dummy/cache</b> writable by your web server. Describing how to do this is outside the scope of this document, but finding out how is only <a href="http://www.google.com/search?q=how+to+make+a+folder+writable">a web search away</a>. If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p></li>
+</ol>
 
 <div class="snippet img-snippet">
 <img src="<? dummy("image@16:9,550x") ?>" width="550" alt="A test image..." />
@@ -70,13 +68,16 @@ if (file_exists($filename) && is_writable($filename) ) {
 ?>
 </p>
 </div>
+</article>
+</section>
 
+
+<section>
 <h2>Dummy Assets</h2>
-
 <p>The ability to select, manipulate, and insert different assets into your front-end project is a key feature of Dummy. All of the assets available to Dummy live in a folder located at <b>dummy/assets/</b>. It's a good idea to poke around in here and see how things are structured. The simple syntax used to request different assets relates very much to the structure of this directory.</p>
 
+<article>
 <h3>Dummy Text</h3>
-
 <p>Dummy makes it easy to insert random strings of Lorem Ipsum that correspond to commonly needed lengths and formats. For example, the following snippet of code will produce a random string of Lorem Ipsum approximately the length of a headline.</p>
 
 <div class="snippet code-snippet">
@@ -91,7 +92,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   <h4><? dummy("text@headline") ?></h4>
 </div>
 
-<p>The following table is a catalog of the text assets that currently ship with Dummy, the snippet of code used to insert the asset, and a sample of expected output.</p>
+<p>The following table is a catalog of Dummy's default assets, the snippet of code used to insert the asset, and a sample of actual output.</p>
 
 <div class="snippet table-snippet">
 <table summary="Dummy Text Assets" class="text-table">
@@ -167,11 +168,11 @@ if (file_exists($filename) && is_writable($filename) ) {
 </table>
 <p class="note"><strong>Hint:</strong> Inside of <strong>dummy/assets/text/</strong> you'll find a directory full of flat text files. These are the basis for organizing different text formats used by Dummy. You can edit these or add your own as you like.</p>
 </div>
+</article>
 
+<article>
 <h3>Dummy Images</h3>
-
 <p>Dummy makes it easy to crop and size placeholder images on demand. It ships with a starter pack of high-quality Creative Commons licensed images, but (like other assets) it's easy to edit or expand these according to the needs of your project.</p>
-
 <p>The syntax for requesting an image is simple and flexible. In a very basic example, you request an image with specific dimensions...</p>
 
 <div class="snippet code-snippet">
@@ -194,11 +195,11 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-  <p>Returns...</p>
+<p>Returns...</p>
 
 <div class="snippet img-snippet">
   <img src="<? dummy("image@640x,16:9") ?>" />
-  <p class="note"><b>Note:</b> Dummy returns a URL path to an image &mdash; not the HTML needed to embed it.</p>
+  <p class="note"><b>Note:</b> Dummy returns a URL path to an image, not the HTML needed to embed it.</p>
 </div>
 
 <p>The following table provides some clues as to how you can structure your image requests.</p>
@@ -248,12 +249,12 @@ if (file_exists($filename) && is_writable($filename) ) {
 <p class="note"><strong>Note:</strong> When specifying dimensions, either as an exact pixel measurement or as an aspect ratio, describe the width first and height second (<b>Width</b>&nbsp;x&nbsp;<b>Height</b>).</p>
 </div>
 
-<p>The basic model for how Dummy selects assets is random and recursive. It begins looking for assets at the level you specify and drills down, only ignoring folders that start with a &lsquo;<b>!</b>&rsquo;. You specify a subset of assets by changing the scope of your request.</p>
+<p>The basic model for how Dummy selects assets is random and recursive. It begins looking for assets at the level you specify and drills down, only ignoring folders that start with a &lsquo;<b>!</b>&rsquo;.</p>
+</article>
 
-
+<article>
 <h3>Dummy Ads</h3>
-
-<p>Inside of <b>dummy/assets/ads/</b> you'll find a host of folders representing many of the popular formats <a href="http://www.iab.net/guidelines/508676/508767/displayguidelines">as defined by the IAB</a>. The dummy code used to request and insert an ad follows the now familiar model.</p>
+<p>Inside of <b>/dummy/assets/ads</b> you'll find a host of folders representing many of the popular formats <a href="http://www.iab.net/guidelines/508676/508767/displayguidelines">as defined by the IAB</a>. The dummy code used to request and insert an ad follows the now familiar model.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -268,16 +269,17 @@ if (file_exists($filename) && is_writable($filename) ) {
 </div>
 
 <p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to advertising in the Adobe&reg; Flash&reg; format.</p>
-
-<p>The default embed code for both standards compliant image based ads and ads in the Flash format can be found on the root level of <b>dummy/assets/ads/</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
-
+<p>The default embed code for both standards compliant image based ads and ads in the Flash format can be found on the root level of <b>/dummy/assets/ads</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
 <p>Note that the folders containing different formats also specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
+<p class="note"><b>Note:</b> For a lot of reasons, you may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
+</article>
+</section>
 
-<p class="note"><b>Tip:</b> For a lot of reasons, you may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
-
+<section>
 <h2 id="logic">Dumb Luck</h2>
 <p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts.</p>
 
+<article>
 <h3>Controlling Probability</h3>
 <p>A basic building block of Dummy driven layouts, we use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
@@ -301,7 +303,6 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-
 <p>You can also nest calls to <b>dumb_luck</b> as needed, to test and explore more complex scenarios or outcomes.</p>
 
 <div class="snippet code-snippet">
@@ -322,27 +323,31 @@ if (file_exists($filename) && is_writable($filename) ) {
       &lt;? endif ?&gt;
     &lt;? endif ?&gt;
   </pre>
-  <p class="note">For the record... it's
-  <b>
-  <? if (dumb_luck("50%")): ?>
-  <? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ?>
-  <? else: ?>
-  <? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ?>
-  <? endif ?>
-  </b>.
-  </p>
+  <p class="note">For the record... <b><? if (dumb_luck("50%")): ?><? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ?><? else: ?><? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ?><? endif ?></b>!</p>
 </div>
+</article>
 
+<article>
 <h3>Creating Loop Ranges</h3>
 
 <div class="snippet img-snippet zoom-snippet">
 	<? while (dumb_luck("50-100")): ?>
-	<a href="#"><img src="<? dummy("image@100x100,")?>" width="40" height="40" alt="A thumbnail..." /></a>
+	<a href="#"><img src="<? dummy("image@80x80,")?>" width="40" height="40" alt="A thumbnail..." /></a>
   <? endwhile ?>
-	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify. In the above example, there are two bits of Dummy Code working together. <b>1)</b> A dumb_luck loop range of 50 to 100. <b>2)</b> Inside of that loop range, a single request for a 100x100 thumbnail.</p>
+	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify.</p>
 </div>
 
-<p>The ability of Dumb Luck to create loop ranges makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; but instead of passing in a single % value, we'll pass it a range of two numbers separated with a "-". In the example below, we ask for between 3 and 6 instances of a list item with a headline.</p>
+<p>In the example above, there are two bits of Dummy Code working together. <b>1)</b> A <b>dumb_luck</b> loop range of 50 to 100. <b>2)</b> Inside of that loop range, a single request for a 40x40 thumbnail. It looks like this:</p>
+
+<div class="snippet code-snippet">
+  <pre class="brush: php">
+  &lt;? while (dumb_luck("50-100")): ?&gt;
+    &lt;? dummy("image@40x40") ?&gt;
+  &lt;? endwhile ?&gt;
+  </pre>
+</div>
+
+<p>Dumb Luck's loop range makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; only instead of passing in a % value, we'll pass it a range of two numbers separated with a "-". The PHP syntax also changes from &ldquo;IF&rdquo; to &ldquo;WHILE&rdquo;. In the example below, we ask for between 3 and 6 instances of a list item with a headline.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -363,35 +368,41 @@ if (file_exists($filename) && is_writable($filename) ) {
   <? endwhile ?>
   </ul>
 </div>
+</article>
 
-
+<article>
 <h3>Putting It All Together</h3>
 
-<p>Imagine that we wanted to see how the same list used in the previous example looks with <em>some</em> of the items linked <em>some</em> of the time. To achieve the desired result we only need to mix-in some of Dummy's probability logic within the loop range.</p>
+<p>The following example ties together everything we've seen so far with regard to asset generation, probability, and loop ranges. Taking the same list used in the previous example, imagine we needed to see how it would look with <em>some</em> of the items linked <em>some</em> of the time. To achieve this we'll bring some probability logic inside of the loop range.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
     <ul>
     &lt;? while (dumb_luck("3-6")): ?&gt;
-      <li>
       &lt;? if (dumb_luck("50%")): ?&gt;
-        <a href="#">&lt;? dummy("text@headline") ?&gt;</a>
+        <li><a href="#">&lt;? dummy("text@headline") ?&gt;</a></li>
       &lt;? else: ?&gt;
-        &lt;? dummy("text@headline") ?&gt;
+        <li>&lt;? dummy("text@headline") ?&gt;</li>
       &lt;? endif ?&gt;
-      </li>
     &lt;? endwhile ?&gt;
     </ul>
   </pre>
 </div>
 
-<p>Roughly half of the items in the following list should be wrapped in a link.</p>
+<p>Though the exact number will change every time you reload the page, roughly half of the items in the following list will be wrapped in a link.</p>
 
 <div class="snippet text-snippet">
-  <ul><? while (dumb_luck("5-10")): ?><li><? if (dumb_luck("50%")): ?><a href="#"><? dummy("text@headline") ?></a><? else: ?><? dummy("text@headline") ?><? endif ?></li><? endwhile ?></ul>
+  <ul><? while (dumb_luck("5-10")): ?><? if (dumb_luck("50%")): ?><li><a href="#"><? dummy("text@headline") ?></a></li><? else: ?><li><? dummy("text@headline") ?></li><? endif ?><? endwhile ?></ul>
 </div>
 
-<p>Imagine that we wanted to see how the same list used in the previous example looks with <em>some</em> of the items linked <em>some</em> of the time. To achieve the desired result we only need to mix-in some of Dummy's probability logic within the loop range.</p>
+<p>When used together, probability and loop range logic can create highly variable layouts with very little effort in code. This makes is possible to quickly test how the change of an item, attribute or parameter in one place propagates on a range of different scales every time you load the page. It can provide new insights on the performance or design efficacy of your work, and it can do so at the earliest stages of a project (when you still have time to do something about it).</p>
+</article>
+</section>
+
+<section>
+<h2>More to come...</h2>
+<p>There are some unfinished features which remain undocumented for now, namely the <b>dumb_question</b> function for reading and reacting to loop position, URL variables, and URL segments. More info to come on those in a future release.</p>
+</section>
 
 </div>
 

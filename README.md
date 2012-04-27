@@ -6,7 +6,7 @@ Originally conceived as a tool for helping to simulate the high volume, rapidly 
 
 Dummy can be useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before engineers further down the gantt diagram can begin the work of disassociating and obfuscating yours.
 
-It can also been seen as a support tool for designers and front-end artisans ready to embrace or experiment with the dark art of In-Browser Design.
+It can also been seen as a support tool for designers and front-end artisans ready to embrace the dark art of In-Browser Design.
 
 ### Dummy can…
 + Insert randomly selected strings of placeholder text in various lengths and formats (e.g. Headline, teaser, paragraph).
@@ -42,27 +42,15 @@ This is especially important for front-end code that should be delivered to anot
 
 Dummy also aims to support designers and front-end artisans who find themselves increasingly attracted to In-Browser Design as a viable process for the creation, iteration, and client approval of their work. As does @beardedstudio. (http://blog.bearded.com/post/21447195970/mocking-up-is-hard-to-do)
 
-### Where I Try To Anticipate Your Questions
-
-#### This is very basic PHP, I could just write this myself as I go along working…
-> Dummy is geared toward front-enders with either a limited knowledge of programming outside of HTML and CSS –OR– a limited desire to code and recode rudimentary functions and routines.
-
-#### It could be done in JavaScript
-> One of the things Dummy was designed to test is JavaScript performance. For this reason we don't want to mingle with, tax, or otherwise touch the DOM of a document in any way. It's not 100% certain that PHP is the best way to go, but it's widely available and all of the heavy lifting is done by the server (not in or by the client).
-
-#### This could be done much better
-> I agree! I love better. And this version leaves plenty of room for improvement. Let's do it.
-
 ### Requirements
 You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/docs/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
 
 ### TODO
-+ Improve demos and docs (I know).
++ Improve demos, finish docs.
 + Optimize performance and memory usage.
-+ Integrate a full-fledged Lorum Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated (length in chars or words, casing, etc)
++ Integrate a Lorum Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated (length in chars or words, casing, etc)
 + Ability to call and define image crops from within CSS (i.e. ability to post image requests in the URL to dummy.php)
-+ Develop an easy way to tag/track dumb luck outcomes, and to play other logic outcomes together in sync with those.
-+ See if it would be possible to abstract Dummy from PHP, and bring it to other environments (i.e. Python, Ruby) …without forking or splintering the core features. Maybe if was built specifically for different development environments at the OS level (Mac/Win/Lin), or at the server level as a module with some sort of pre-processor?
++ Develop an easy way to link our broadcast dumbluck outcomes, so that one outcome could bubble-up to another.
 + Clean up the way errors and messages are formatted (i.e. abstract the HTML and style surrounding them)
 + It's a bad idea to ship this with a bandwidth hogging library of images in assets/images. The image assets that ship with Dummy are also highly geared toward usage in editorial design. What if we maintained separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design).
 

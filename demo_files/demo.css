@@ -1,4 +1,15 @@
-/* A Mighty Meyer Reset */
+/* Dummy v. 1.0 – For Rapid Prototyping and QA
+
+// Feedback, requests, ideas => http://twitter.com/kerns
+// Fork, Follow, Download => https://github.com/kerns/dummy
+
+// LICENSE
+// Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license
+// (http://creativecommons.org/licenses/by-sa/3.0/us/).
+
+*/
+
+/* The Mighty Meyer Reset – http://meyerweb.com/eric/tools/css/reset/ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -45,33 +56,98 @@ table {
 
 
 /* Begin Dummy Demo */
+/* Core Structure and Typography */
 
 #main {
   max-width:1332px
-  }
+}
 
 body {
   color:#333;
-  background-color: #fffefe;
+  background-color: #fefefe;
   font: 1.1em/1.4em 'Palatino Linotype','Book Antiqua', Palatino, Georgia, serif;
   margin:0;
   padding:4em 5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#455;
+}
+
+h1,h2,h3 {
+  clear:both;
+  display: block;
+  margin:1.5em 0 .5em -15px;
+}
+
+h2 {
+  border-bottom:2px solid #e0e9f0;
+  font: normal 2em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
+  padding-bottom:.1em;
+  padding-top: 1em;
+}
+
+h3 {
+  color:#5d5d52;
+  font-size:1.2em;
+  font-weight: bold;
+  margin-top: 2em;
+  margin-bottom: .8em;
+  text-transform: uppercase
+}
+
+h4 {
+  font-size:1em;
+  font-weight: bold;
+  margin: 1.5em 0 .5em 0;
 }
 
 p {
   clear:both;
   display: block;
   margin:0 0 1em 0;
-  }
+}
 
 p strong, p b {
   font-weight:bold
-  }
+}
 
+p.note {
+  color:#666;
+  font-size:.9em;
+  font-style: italic;
+  margin:.5em 0;
+}
+
+em {
+  font-style:italic;
+}
+
+/* Typographic Overrides */
+header h1 {
+  font: normal 3.2em/1em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
+  margin:0 0 .5em -.2em;
+}
+
+.hero-block p {
+  color:#737f7f;
+  font-size:1.2em;
+  line-height:1.3em;
+  margin-left:-.5em;
+}
+
+footer p.note {
+  font-size:.8em;
+  font-style:italic;
+  text-align: center;
+  padding-top: 4em;
+}
+
+/* Link style */
 a, a:visited {
+  border-bottom:1px dotted #dbc;
   color:#b47;
   text-decoration: none;
-  border-bottom:1px dotted #dbc;
   padding-bottom: .1em;
 }
 
@@ -79,6 +155,114 @@ a:hover {
   color:#d16;
   border-color:#d9a;
 }
+
+/* Lists */
+
+ul, ol {
+  display: block;
+  list-style-position: outside;
+}
+
+ul {
+  color:#888;
+  list-style-type: disc;
+}
+
+ol {
+  color:#333;
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: .5em
+  }
+
+li b {
+  color:#333;
+  }
+
+/* Table Styles */
+
+table {
+  background: #fff;
+  border-collapse: collapse;
+  font:.8em/1.4em "Lucida Sans Unicode", "Lucida Grande", Lucida, Sans-Serif;
+  text-align: left;
+  overflow: hidden;
+  width: 100%;
+}
+
+table th {
+  background-color: #343941;
+  color: #fff;
+  font-size: 1em;
+  font-weight: normal;
+  padding: .5em .8em;
+  border: 2px solid #fff;
+  border-width: 2 0px;
+  background: #343941;
+  background: -moz-linear-gradient(top,  #424a51 0%, #40454f 50%, #343941 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#424a51), color-stop(50%,#40454f), color-stop(100%,#343941));
+  background: -webkit-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
+  background: -o-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
+  background: -ms-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
+  background: linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#424a51', endColorstr='#343941',GradientType=0 );
+
+}
+
+table td {
+  border-bottom: 1px solid #efefef;
+  color: #666;
+  padding: .5em .8em;
+}
+
+/* Draw a heavy border here, mostly for webikit's sake */
+table tr:last-child td {
+  padding-bottom: 1.5em;
+  margin-bottom: 1em;
+  border-bottom: 4px solid #efefef;
+}
+
+table td span {
+  font: italic .9em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
+  display: block;
+}
+
+table tbody tr:hover td {
+  color: #000;
+}
+
+table code {
+  white-space:nowrap;
+}
+
+/* Some desperate tweaks */
+
+.text-table th.objective{
+  width:20%;
+  min-width:100px;
+}
+
+.text-table th.output{
+  width:50%;
+}
+
+.image-table th.objective {
+  width:30%;
+  min-width:150px;
+}
+
+.image-table th.output {
+  width:40%;
+}
+
+.image-table td {
+  vertical-align:middle;
+}
+
+/* Snippets */
+/* Wideley used to matte different objects in the demo */
 
 .snippet {
   border:2px solid #fafafa;
@@ -103,6 +287,10 @@ a:hover {
   color:#dcecf7;
   margin:2em  1em .5em 1em;
   padding-top: 1em; 
+}
+
+.code-snippet p.note b {
+  color:#fff;
 }
 
 .text-snippet {
@@ -134,8 +322,8 @@ a:hover {
 }
 
 .img-snippet img {
-  box-shadow: 0 1px 3px #333;
-  border-radius:3px;
+  box-shadow: 0 1px 3px #666;
+  border-radius:2px;
 }
 
 .zoom-snippet {
@@ -164,165 +352,4 @@ a:hover {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color:#455;
-}
-
-h1,h2,h3 {
-  clear:both;
-  display: block;
-  margin:1.5em 0 .5em -15px;
-}
-
-header h1 {
-  font: normal 3.2em/1em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
-  margin:0 0 .5em -.2em;
-}
-
-footer p.note {
-  font-size:.8em;
-  font-style:italic;
-  text-align: center;
-  padding-top: 4em;
-}
-
-ul, ol {
-  display: block;
-  list-style-position: outside;
-  list-style-type: disc;
-  color:#888;
-}
-
-li {
-  margin-bottom: .5em
-  }
-
-li b {
-  color:#333;
-  }
-
-.hero-block p {
-  color:#737f7f;
-  font-size:1.2em;
-  line-height:1.3em;
-  margin-left:-.5em;
-}
-
-h2 {
-  font: normal 2em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
-  border-bottom:2px solid #e0e9f0;
-  padding-bottom:.1em;
-  padding-top: 1em;
-}
-
-h3 {
-  color:#5d5d52;
-  font-size:1.2em;
-  font-weight: bold;
-  margin-top: 2em;
-  margin-bottom: .8em;
-  text-transform: uppercase
-  }
-
-h4 {
-  font-size:1em;
-  font-weight: bold;
-  margin: 1.5em 0 .5em 0;
-  }
-
-p.note {
-  color:#666;
-  font-size:.9em;
-  font-style: italic;
-  margin:.5em 0;
-  }
-
-em {
-  font-style:italic;
-}
-
-table
-{
-  font:.8em/1.4em "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  background: #fff;
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  overflow: hidden;
-}
-
-table th
-{
-  font-size: 1em;
-  font-weight: normal;
-  background-color: #343941;
-  color: #fff;
-  padding: .5em .8em;
-  border: 2px solid #fff;
-  border-width: 2 0px;  
-  background: #343941;
-  background: -moz-linear-gradient(top,  #424a51 0%, #40454f 50%, #343941 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#424a51), color-stop(50%,#40454f), color-stop(100%,#343941));
-  background: -webkit-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
-  background: -o-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
-  background: -ms-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
-  background: linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#424a51', endColorstr='#343941',GradientType=0 );
-
-}
-
-
-table td
-{
-  border-bottom: 1px solid #efefef;
-  color: #666;
-  padding: .5em .8em;
-}
-
-
-table tr:last-child td
-{
-  padding-bottom: 1.5em;
-  margin-bottom: 1em;
-  border-bottom: 4px solid #efefef;
-}
-
-
-table td span
-{
-  font: italic .9em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
-  display: block;
-}
-
-table tbody tr:hover td
-{
-  color: #000;
-}
-
-table code {
-  white-space:nowrap;
-}
-
-/* Some desperate tweaks */
-.text-table th.objective{
-  width:20%;
-  min-width:100px;
-  }
-
-.text-table th.output{
-  width:50%;
-  }
-
-
-.image-table th.objective {
-  width:30%;
-  min-width:150px;
-  }
-
-.image-table th.output {
-  width:40%;
-  }
-
-.image-table td {
-  vertical-align:middle;
-  }
+/* eof */
