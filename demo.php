@@ -1,4 +1,4 @@
-<? require_once("/Users/dvk/Sites/projects/dummy.git/dummy/dummy.php") ?>
+<? require_once("dummy/dummy.php") ?>
 <!doctype html>
 <html lang="en">
 <head>
