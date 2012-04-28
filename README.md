@@ -9,7 +9,7 @@ Dummy can be useful in the early stages of a project's development, where basic 
 It can also been seen as a support tool for designers and front-end artisans ready to embrace the dark art of In-Browser Design.
 
 ### Dummy can…
-+ Insert randomly selected strings of placeholder text in various lengths and formats (e.g. Headline, teaser, paragraph).
++ Insert randomly selected strings of placeholder text in various lengths and formats (e.g. headline, teaser, paragraph).
 + Automagically crop and size high quality, news worthy, Creative Commons licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
 + Flesh out highly variable, asset rich layouts quickly with friendly, human-readable logic for building loops and controlling probability.
 + Allow you to focus on the important things – namely, the design and the code – not on copying and pasting (static) Lorum Ipsum, or hunting down plausible placeholder images.

@@ -187,7 +187,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   <img src="<? dummy("image@480x320") ?>" />
 </div>
 
-<p>You can specify exact pixel dimensions or just an aspect ratio, or you can combine one or more of these properties. For example, you could choose to specify just the width, together with an aspect ratio. Dummy would then return the path to an image that conforms to the specified width and aspect ratio.</p>
+<p>You can specify exact pixel dimensions or just an aspect ratio. You can also combine these parameters. For example, you can choose to specify just the width, together with an aspect ratio. Dummy will return the path to an image that conforms to both requirements.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -277,11 +277,11 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <section>
 <h2 id="logic">Dumb Luck</h2>
-<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts.</p>
+<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts. This is made possible by a function within Dummy named <b>dumb_luck</b>.</p>
 
 <article>
 <h3>Controlling Probability</h3>
-<p>A basic building block of Dummy driven layouts, we use it to control the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
+<p>A basic building block of Dummy driven layouts, we can use <b>dumb_luck</b> to influence the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -303,7 +303,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-<p>You can also nest calls to <b>dumb_luck</b> as needed, to test and explore more complex scenarios or outcomes.</p>
+<p>You can also nest <b>dumb_luck</b> logic as needed, to test and explore more complex scenarios or outcomes.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -337,7 +337,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify.</p>
 </div>
 
-<p>In the example above, there are two bits of Dummy Code working together. <b>1)</b> A <b>dumb_luck</b> loop range of 50 to 100. <b>2)</b> Inside of that loop range, a single request for a 40x40 thumbnail. It looks like this:</p>
+<p>In the example above, there are two bits of Dummy Code working together. <b>1)</b> A <b>dumb_luck</b> loop range of 50 to 100. <b>2)</b> Inside of that loop range, a single request for a 40x40 thumbnail. Together, they look like this:</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
