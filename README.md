@@ -28,7 +28,7 @@ It does so by helping you to populate your work with content and randomizing key
 
 **Dummy is for the front-end web worker who wonders…**
 
-+ How does this layout hold up without an image – or – with a landscape (instead of a portrait) oriented image?
++ How does this layout hold up with and without an image, or with multiple images?
 + What is the maximum number of items that can appear in this list before it breaks the layout, or before it just stops looking good?
 + How does the columns balance as the content changes – and what's the longest word that can fit into this column without triggering unwanted overflow?
 + What is the easiest way to demo the signed-in and signed-out states of this page?
