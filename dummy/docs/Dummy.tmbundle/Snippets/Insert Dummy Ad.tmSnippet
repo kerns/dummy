@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? dummy("ad@$1") ?&gt;$0</string>
+	<key>name</key>
+	<string>Insert Dummy Ad</string>
+	<key>tabTrigger</key>
+	<string>dad</string>
+	<key>uuid</key>
+	<string>D52FE704-4832-44FD-986A-F8AA81367B53</string>
+</dict>
+</plist>

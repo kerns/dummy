@@ -173,7 +173,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <article>
 <h3>Dummy Images</h3>
 <p>Dummy makes it easy to crop and size placeholder images on demand. It ships with a starter pack of high-quality Creative Commons licensed images, but (like other assets) it's easy to edit or expand these according to the needs of your project.</p>
-<p>The syntax for requesting an image is simple and flexible. In a very basic example, you request an image with specific dimensions...</p>
+<p>The syntax for requesting an image is flexible. In a very basic example, you request an image with specific dimensions...</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -347,7 +347,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-<p>Dumb Luck's loop range makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; only instead of passing in a % value, we'll pass it a range of two numbers separated with a "-". The PHP syntax also changes from &ldquo;IF&rdquo; to &ldquo;WHILE&rdquo;. In the example below, we ask for between 3 and 6 instances of a list item with a headline.</p>
+<p>Dumb Luck's loop range makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; only instead of passing in a % value, we'll pass it a range of two numbers separated with a "-". The PHP syntax also changes from &ldquo;IF&rdquo; to &ldquo;WHILE&rdquo;. In the example below, we ask for between 5 and 10 instances of a list item containing a headline.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -373,12 +373,12 @@ if (file_exists($filename) && is_writable($filename) ) {
 <article>
 <h3>Putting It All Together</h3>
 
-<p>The following example ties together everything we've seen so far with regard to asset generation, probability, and loop ranges. Taking the same list used in the previous example, imagine we needed to see how it would look with <em>some</em> of the items linked <em>some</em> of the time. To achieve this we'll bring some probability logic inside of the loop range.</p>
+<p>Taking the same list used in the previous example, imagine we needed to see how it would look with <em>some</em> of the items linked <em>some</em> of the time. To achieve this we'll nest some probability logic inside of our loop range.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
     <ul>
-    &lt;? while (dumb_luck("3-6")): ?&gt;
+    &lt;? while (dumb_luck("5-10")): ?&gt;
       &lt;? if (dumb_luck("50%")): ?&gt;
         <li><a href="#">&lt;? dummy("text@headline") ?&gt;</a></li>
       &lt;? else: ?&gt;
@@ -389,13 +389,31 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-<p>Though the exact number will change every time you reload the page, roughly half of the items in the following list will be wrapped in a link.</p>
+<p>Though the exact number will change every time you reload the page, roughly half of the items in the following list will be wrapped in a link. It's a very basic example, but one that uses all the core features of Dummy.</p>
+
 
 <div class="snippet text-snippet">
   <ul><? while (dumb_luck("5-10")): ?><? if (dumb_luck("50%")): ?><li><a href="#"><? dummy("text@headline") ?></a></li><? else: ?><li><? dummy("text@headline") ?></li><? endif ?><? endwhile ?></ul>
 </div>
 
-<p>When used together, probability and loop range logic can create highly variable layouts with very little effort in code. This makes is possible to quickly test how the change of an item, attribute or parameter in one place propagates on a range of different scales every time you load the page. It can provide new insights on the performance or design efficacy of your work, and it can do so at the earliest stages of a project (when you still have time to do something about it).</p>
+<p>When used together, asset generation, probability, and loop range logic can create highly variable layouts with very little effort in code. This makes it possible to quickly test how the change of an item, attribute or parameter in one place propagates on a range of different scales. It can provide new insights on the performance or design efficacy of your work at the earliest stages of a project, and every time you reload the page.</p>
+
+<!--
+<div class="snippet code-snippet">
+  <pre class="brush: php">
+    <h1>&lt;? dummy("text@headline") ?&gt;</h1>
+    <p>By &lt;? dummy("text@author") ?&gt; | Published &lt;? dummy("text@date") ?&gt;</p>
+    &lt;? while (dumb_luck("3-8")): ?&gt;
+      <p>&lt;? dummy("text@paragraph") ?&gt;</p>
+    &lt;? endwhile ?&gt;
+    &lt;? if (dumb_luck("50%")): ?&gt;
+    <p><b>Related Story:</b> <a href="#">&lt;? dummy("text@headline") ?&gt;</a></p>
+    &lt;? endif ?&gt;
+  </pre>
+  <p class="note"></p>
+</div>
+-->
+
 </article>
 </section>
 

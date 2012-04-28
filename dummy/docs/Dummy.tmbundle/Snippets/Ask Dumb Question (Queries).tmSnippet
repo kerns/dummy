@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? if (dumb_question("${1:order/url/segment}:$2")): ?&gt;$3${4:&lt;? else: ?&gt;}$5${6:&lt;? endif ?&gt;}$0</string>
+	<key>name</key>
+	<string>Ask Dumb Question (Queries)</string>
+	<key>tabTrigger</key>
+	<string>dumq</string>
+	<key>uuid</key>
+	<string>74273396-A09E-4E78-9162-EA28C4F12A6C</string>
+</dict>
+</plist>

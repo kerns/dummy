@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;img src="&lt;? dummy("image@$1${2:,}$3") ?&gt;" ${4:${5:width="$6"} ${7:height="$8"} ${9:alt="$10"}} /&gt;$0</string>
+	<key>name</key>
+	<string>Insert Dummy Image</string>
+	<key>tabTrigger</key>
+	<string>dimg</string>
+	<key>uuid</key>
+	<string>D7A7A424-7C4E-4E55-984A-76AA491757F2</string>
+</dict>
+</plist>
