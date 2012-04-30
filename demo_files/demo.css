@@ -334,16 +334,12 @@ table code {
   overflow:visible;
 }
 
-.zoom-snippet {
-  padding:.8em .8em .2em .8em;
-}
-
 .zoom-snippet img {
   -webkit-transition: all .2s ease-in-out;
 }
 
 .zoom-snippet img:hover {
-  -webkit-transform: scale(1.8);
+  -webkit-transform: scale(3);
 }
 
 .img-snippet a {

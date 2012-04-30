@@ -172,7 +172,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <article>
 <h3>Dummy Images</h3>
-<p>Dummy makes it easy to crop and size placeholder images on demand. It ships with a starter pack of high-quality Creative Commons licensed images, but (like other assets) it's easy to edit or expand these according to the needs of your project.</p>
+<p>Dummy makes it easy to crop and size placeholder images on the fly. It ships with a starter pack of high-quality, newsworthy, Creative Commons licensed images, but like other assets it's easy to edit or expand these according to the needs of your project.</p>
 <p>The syntax for requesting an image is flexible. In a very basic example, you request an image with specific dimensions...</p>
 
 <div class="snippet code-snippet">
@@ -249,7 +249,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <p class="note"><strong>Note:</strong> When specifying dimensions, either as an exact pixel measurement or as an aspect ratio, describe the width first and height second (<b>Width</b>&nbsp;x&nbsp;<b>Height</b>).</p>
 </div>
 
-<p>The basic model for how Dummy selects assets is random and recursive. It begins looking for assets at the level you specify and drills down, only ignoring folders that start with a &lsquo;<b>!</b>&rsquo;.</p>
+<p>The basic model for how Dummy selects assets is random and recursive. It begins looking for assets at the level you specify and drills down, only ignoring folders that start with a &lsquo;<b>!</b>&rsquo;. Dummy also works in the background to track which image was most recently served, to minimize the odds of inserting the same image twice in succession or in close proximity.</p>
 </article>
 
 <article>
@@ -332,7 +332,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet img-snippet zoom-snippet">
 	<? while (dumb_luck("50-100")): ?>
-	<a href="#"><img src="<? dummy("image@100x100,")?>" width="50" height="50" alt="A thumbnail..." /></a>
+	<a href="#"><img src="<? dummy("image@160x160,")?>" width="40" height="40" alt="A thumbnail..." /></a>
   <? endwhile ?>
 	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify.</p>
 </div>
@@ -342,7 +342,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <div class="snippet code-snippet">
   <pre class="brush: php">
   &lt;? while (dumb_luck("50-100")): ?&gt;
-    &lt;? dummy("image@50x50") ?&gt;
+    &lt;? dummy("image@40x40") ?&gt;
   &lt;? endwhile ?&gt;
   </pre>
 </div>
