@@ -413,7 +413,7 @@ if (file_exists($filename) && is_writable($filename) ) {
       <p><b>Related Story:</b> <a href="#">&lt;? dummy("text@headline") ?&gt;</a></p>
     &lt;? endif ?&gt;
   </pre>
-  <p class="note">An example of a simple article, with optionally appearing sub-headline and related story elements.</p>
+  <p class="note">An example of a simple article 3 to 8 paragraphs in length, with optionally appearing sub-headline and related story elements.</p>
 </div>
 
 </article>
