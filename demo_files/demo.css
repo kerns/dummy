@@ -270,13 +270,12 @@ table code {
 /* Wideley used to matte different objects in the demo */
 
 .snippet {
-  border:2px solid #fafafa;
   margin:1.5em 0;
   padding:.75em;
   overflow:hidden;
-  box-shadow: inset 0px 0px 7px rgba(50, 50, 50, 0.6);
+  box-shadow: inset 0px 1px 4px rgba(50, 50, 50, 0.8);
   display: block;
-  border-radius:5px;
+  border-radius:4px;
 }
 
 .snippet p.note {
