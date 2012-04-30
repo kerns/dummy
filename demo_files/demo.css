@@ -59,8 +59,9 @@ table {
 /* Core Structure and Typography */
 
 #main {
-  max-width:1332px
-}
+  max-width:1332px;
+/*  padding-left:200px;
+*/}
 
 body {
   color:#333;
@@ -166,6 +167,10 @@ ul, ol {
 ul {
   color:#888;
   list-style-type: disc;
+}
+
+ul ul, ol ol {
+  margin:.5em 0 0 1.2em;
 }
 
 ol {
@@ -350,6 +355,52 @@ table code {
   font-size:.9em;
   margin:1em .5em .5em .5em;
   text-align: center;
+}
+
+#nav {
+  background-color: #fff;
+  position:absolute;
+  left:0;
+  width: 250px;
+  display: none;
+}
+
+#nav ul {
+  list-style:none;
+}
+
+#nav ul li {
+  margin: 0;
+  font-size: .9em;
+}
+
+#nav ul li a {
+  border-bottom: 1px solid #fff;
+  background-color: #ddd;
+  display: block;
+  padding:.4em .8em;
+}
+
+#nav ul li a:hover {
+  background-color: #efefef;
+}
+
+#nav ul li ul li a {
+  padding-left:2em;
+}
+
+#nav ul ul {
+  margin: 0;
+  font-size:1em;
+}
+
+#nav.fixed{
+    position: fixed;
+    top: 0;
+}
+
+#nav.fixed + * {
+    padding-top: 70px;
 }
 
 /* eof */

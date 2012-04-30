@@ -15,6 +15,7 @@
   <!-- For syntax highlighting. -->
   <link href="demo_files/sh/shCore.css" rel="stylesheet" type="text/css" />
   <link href="demo_files/sh/shThemeMidnight.css" rel="stylesheet" type="text/css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" type="text/javascript"></script>
 
 </head>
 
@@ -23,6 +24,29 @@
 <header>
   <h1>A Quick and Dirty Dummy Demo</h1>
 </header>
+
+<div id="nav">
+  <ul>
+    <li><a href="#">Getting Started</a>
+      <ul>
+        <li><a href="#">Basic Requirements</a></li>
+        <li><a href="#">Setup</a></li>
+      </ul>
+      </li>
+    <li><a href="#">Dummy Assets</a>
+      <ul>
+        <li><a href="#">Dummy Text</a></li>
+        <li><a href="#">Dummy Images</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Dumb Luck</a>
+      <ul>
+        <li><a href="#">Probability</a></li>
+        <li><a href="#">Loop Ranges</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
 <div id="main" role="main">
 
@@ -73,7 +97,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 
 <section>
-<h2>Dummy Assets</h2>
+<h2 id="assets">Dummy Assets</h2>
 <p>The ability to select, manipulate, and insert different assets into your front-end project is a key feature of Dummy. All of the assets available to Dummy live in a folder located at <b>dummy/assets/</b>. It's a good idea to poke around in here and see how things are structured. The simple syntax used to request different assets relates very much to the structure of this directory.</p>
 
 <article>
@@ -276,8 +300,8 @@ if (file_exists($filename) && is_writable($filename) ) {
 </section>
 
 <section>
-<h2 id="logic">Dumb Luck</h2>
-<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that really make it possible to flesh out highly variable, asset rich layouts. This is made possible by a function within Dummy named <b>dumb_luck</b>.</p>
+<h2 id="luck">Dumb Luck</h2>
+<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that make it possible to quickly flesh out highly variable, asset rich layouts. This is made possible by a function within Dummy named <b>dumb_luck</b>.</p>
 
 <article>
 <h3>Controlling Probability</h3>
@@ -398,7 +422,6 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <p>When used together, asset generation, probability, and loop range logic can create highly variable layouts with very little effort in code. This makes it possible to quickly test how the change of an item, attribute or parameter in one place propagates on a range of different scales. It can provide new insights on the performance or design efficacy of your work at the earliest stages of a project, and every time you reload the page.</p>
 
-<!--
 <div class="snippet code-snippet">
   <pre class="brush: php">
     <h1>&lt;? dummy("text@headline") ?&gt;</h1>
@@ -412,7 +435,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
   <p class="note"></p>
 </div>
--->
+
 
 </article>
 </section>
@@ -434,6 +457,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <script type="text/javascript">
      SyntaxHighlighter.all()
 </script>
+
 
 </body>
 </html>
