@@ -332,7 +332,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet img-snippet zoom-snippet">
 	<? while (dumb_luck("50-100")): ?>
-	<a href="#"><img src="<? dummy("image@160x160,")?>" width="40" height="40" alt="A thumbnail..." /></a>
+	<a href="#"><img src="<? dummy("image@80x80,")?>" width="40" height="40" alt="A thumbnail..." /></a>
   <? endwhile ?>
 	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify.</p>
 </div>

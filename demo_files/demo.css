@@ -339,7 +339,7 @@ table code {
 }
 
 .zoom-snippet img:hover {
-  -webkit-transform: scale(3);
+  -webkit-transform: scale(2);
 }
 
 .img-snippet a {
