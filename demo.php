@@ -425,15 +425,18 @@ if (file_exists($filename) && is_writable($filename) ) {
 <div class="snippet code-snippet">
   <pre class="brush: php">
     <h1>&lt;? dummy("text@headline") ?&gt;</h1>
+    &lt;? if (dumb_luck("25%")): ?&gt;
+      <p class="sub-title">&lt;? dummy("text@long-teaser") ?&gt;</p>
+    &lt;? endif ?&gt;
     <p>By &lt;? dummy("text@author") ?&gt; | Published &lt;? dummy("text@date") ?&gt;</p>
     &lt;? while (dumb_luck("3-8")): ?&gt;
       <p>&lt;? dummy("text@paragraph") ?&gt;</p>
     &lt;? endwhile ?&gt;
-    &lt;? if (dumb_luck("50%")): ?&gt;
-    <p><b>Related Story:</b> <a href="#">&lt;? dummy("text@headline") ?&gt;</a></p>
+    &lt;? if (dumb_luck("75%")): ?&gt;
+      <p><b>Related Story:</b> <a href="#">&lt;? dummy("text@headline") ?&gt;</a></p>
     &lt;? endif ?&gt;
   </pre>
-  <p class="note"></p>
+  <p class="note">An example of a simple article, with optionally appearing sub-headline and related story elements.</p>
 </div>
 
 
@@ -442,7 +445,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <section>
 <h2>More to come...</h2>
-<p>There are some unfinished features which remain undocumented for now, namely the <b>dumb_question</b> function for reading and reacting to loop position, URL variables, and URL segments. More info to come on those in a future release.</p>
+<p>Some of Dummy's unfinished features will remain undocumented for now, namely the <b>dumb_question</b> function for reading and reacting to loop position, URL variables, and URL segments. More info to come on those when they're done.</p>
 </section>
 
 </div>
