@@ -11,6 +11,5 @@
 #	s Seconds, with leading zeros	(00 through 59)
 #	u Milliseconds (Example: 54321)
 #
-
-# <?php $thePast = time() - (1 * rand(1,12) * rand(1,60) * 60); echo date("g:i a", $thePast); // 12 hour clock ;?>
-<?php $thePast = time() - (1 * rand(1,12) * rand(1,60) * 60); echo date("G:i", $thePast); // 24 hour clock ;?>
+#<?php $thePast = time() - (1 * rand(1,12) * rand(1,60) * 60); echo date("G:i", $thePast); // 24 hour clock ?>
+<?php $thePast = time() - (1 * rand(1,12) * rand(1,60) * 60); echo date("g:i a", $thePast); // 12 hour clock ?>

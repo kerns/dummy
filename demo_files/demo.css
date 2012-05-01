@@ -162,6 +162,7 @@ a:hover {
 ul, ol {
   display: block;
   list-style-position: outside;
+  margin:.5em 0;
 }
 
 ul {
@@ -351,11 +352,14 @@ table code {
 }
 
 .zoom-snippet img {
-  -webkit-transition: all .2s ease-in-out;
+  border:3px solid #eaeaea;
+  border-radius:3px;
+  margin-right: 2px;
 }
 
 .zoom-snippet img:hover {
-  -webkit-transform: scale(2);
+  border-color:#fff;
+  box-shadow: 0 2px 4px #222;
 }
 
 .img-snippet a {

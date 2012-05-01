@@ -43,14 +43,14 @@ This is especially important for front-end code that should be delivered to anot
 Dummy also aims to support designers and front-end artisans who find themselves increasingly attracted to In-Browser Design as a viable process for the creation, iteration, and client approval of their work. As does @beardedstudio. (http://blog.bearded.com/post/21447195970/mocking-up-is-hard-to-do)
 
 ### Requirements
-You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/docs/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
+You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/extras/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
 
 ### TODO
 + Improve demos, finish docs.
 + Optimize performance and memory usage.
 + Integrate a Lorum Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated (length in chars or words, casing, etc)
 + Ability to call and define image crops from within CSS (i.e. ability to post image requests in the URL to dummy.php)
-+ Develop an easy way to link our broadcast dumbluck outcomes, so that one outcome could bubble-up to another.
++ Develop an easy way to link our broadcast dumb_luck outcomes, so that one outcome could bubble-over to another.
 + Clean up the way errors and messages are formatted (i.e. abstract the HTML and style surrounding them)
 + It's a bad idea to ship this with a bandwidth hogging library of images in assets/images. The image assets that ship with Dummy are also highly geared toward usage in editorial design. What if we maintained separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design).
 

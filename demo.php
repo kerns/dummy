@@ -54,7 +54,7 @@
 </ol>
 
 <div class="snippet img-snippet">
-<img src="<? dummy("image@16:9,550x") ?>" width="550" alt="A test image..." />
+<img src="<? dummy("image@500x,4:3") ?>" width="500" alt="A test image..." />
 <p class="note">
 <?php
 $filename = 'dummy/cache';
@@ -268,20 +268,20 @@ if (file_exists($filename) && is_writable($filename) ) {
   <? dummy("ad@120x90") ?>
 </div>
 
-<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements. This is definitely the case with regard to advertising in the Adobe&reg; Flash&reg; format.</p>
+<p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements, as is the case with regard to advertising in the Adobe&reg; Flash&reg; format.</p>
 <p>The default embed code for both standards compliant image based ads and ads in the Flash format can be found on the root level of <b>/dummy/assets/ads</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
-<p>Note that the folders containing different formats also specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
-<p class="note"><b>Note:</b> For a lot of reasons, you may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
+<p>The folders containing different formats are also used to specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
+<p class="note"><b>Note:</b> You may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
 </article>
 </section>
 
 <section>
 <h2 id="luck">Dumb Luck</h2>
-<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that make it possible to quic flesh out highly variable, asset rich layouts. This is made possible by a function within Dummy named <b>dumb_luck</b>.</p>
+<p>The ability to insert randomly selected assets into a layout is great, but it's Dummy's simple logic for controlling probability and creating loop ranges that make it possible to flesh out highly variable, asset rich layouts with very little code. The basis for this logic is contained in a function called <b>dumb_luck</b>.</p>
 
 <article>
 <h3>Controlling Probability</h3>
-<p>A basic building block of Dummy driven layouts, we can use <b>dumb_luck</b> to influence the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
+<p>A basic building block of Dummy driven layouts, <b>dumb_luck</b> can be used to influence the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -291,19 +291,19 @@ if (file_exists($filename) && is_writable($filename) ) {
   </pre>
 </div>
 
-<p>Build out fallback or alternative outcomes using standard PHP if/else statements.</p>
+<p>Jazz up your <b>dumb_luck</b> logic with fallback or alternative outcomes using standard PHP if/else statement structure.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-    &lt;? if (dumb_luck("1%")): ?&gt;
-      There is a very slim chance that this will happen...
+    &lt;? if (dumb_luck("95%")): ?&gt;
+      Pretty damn likely to happen.
     &lt;? else: ?&gt;
-      This seems 99% more likely.
+      This is a lot less likely.
     &lt;? endif ?&gt;
   </pre>
 </div>
 
-<p>You can also nest <b>dumb_luck</b> logic as needed, to test and explore more complex scenarios or outcomes.</p>
+<p>You can also nest <b>dumb_luck</b> logic as needed, to test and explore more complex outcomes.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -331,23 +331,25 @@ if (file_exists($filename) && is_writable($filename) ) {
 <h3>Creating Loop Ranges</h3>
 
 <div class="snippet img-snippet zoom-snippet">
-	<? while (dumb_luck("50-100")): ?>
-	<a href="#"><img src="<? dummy("image@80x80,")?>" width="40" height="40" alt="A thumbnail..." /></a>
+	<? while (dumb_luck("100-200")): ?>
+	<a href="#"><img src="<? dummy("image@35x35,")?>" width="35" height="35" alt="A thumbnail..." /></a>
   <? endwhile ?>
-	<p class="note">Dumb Luck's loop range does more or less what it suggests. It takes whatever you place inside of it and loops it within a range of numbers that you specify.</p>
+	<p class="note">Dumb Luck's loop range takes whatever you place inside of it and loops it within a range of two numbers that you specify. Inside of this loop range, a single request for a 35x35 pixel thumbnail.</p>
 </div>
 
-<p>In the example above, there are two bits of Dummy Code working together. <b>1)</b> A <b>dumb_luck</b> loop range of 50 to 100. <b>2)</b> Inside of that loop range, a single request for a 40x40 thumbnail. Together, they look like this:</p>
+<p>Loop ranges make it possible to generate massive amounts of variable content very quickly. In the example above, there are two bits of Dummy code working together. A <b>dumb_luck</b> loop range of 100-200, and inside of that loop range, a single request for a 35x35 pixel thumbnail.</p>
+
+<p>The thumbnail will be rendered somewhere between 100 and 200 times. The Dummy code needed to achieve this is compact and human readable:</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-  &lt;? while (dumb_luck("50-100")): ?&gt;
-    &lt;? dummy("image@40x40") ?&gt;
+  &lt;? while (dumb_luck("100-200")): ?&gt;
+    &lt;? dummy("image@35x35") ?&gt;
   &lt;? endwhile ?&gt;
   </pre>
 </div>
 
-<p>Dumb Luck's loop range makes it possible to generate massive amounts of variable content very quickly. We do so using the same <b>dumb_luck</b> function we use to control probability &mdash; only instead of passing in a % value, we'll pass it a range of two numbers separated with a "-". The PHP syntax also changes from &ldquo;IF&rdquo; to &ldquo;WHILE&rdquo;. In the example below, we ask for between 5 and 10 instances of a list item containing a headline.</p>
+<p>Loop ranges are built on the same <b>dumb_luck</b> function used to control probability, only instead of passing in a <b>%</b> value we pass it a range of two numbers separated by a hyphen. These two values represent the minimum and maximum number of times the loop should continue. In the example below, we ask for between 5 and 10 instances of a list item containing a headline.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -357,9 +359,10 @@ if (file_exists($filename) && is_writable($filename) ) {
   &lt;? endwhile ?&gt;
   </ul>
   </pre>
+  <p class="note">Note that the PHP syntax used with dumb_luck requires &ldquo;WHILE&rdquo; in association with loop ranges.</p>
 </div>
 
-<p>The result is a simple UL list of between 5 and 10 list items:</p>
+<p>The result is a simple UL containing between 5 and 10 list items:</p>
 
 <div class="snippet text-snippet">
   <ul>
@@ -403,7 +406,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   <pre class="brush: php">
     <h1>&lt;? dummy("text@headline") ?&gt;</h1>
     &lt;? if (dumb_luck("25%")): ?&gt;
-      <p class="sub-title">&lt;? dummy("text@long-teaser") ?&gt;</p>
+      <p class="intro">&lt;? dummy("text@long-teaser") ?&gt;</p>
     &lt;? endif ?&gt;
     <p>By &lt;? dummy("text@author") ?&gt; | Published &lt;? dummy("text@date") ?&gt;</p>
     &lt;? while (dumb_luck("3-8")): ?&gt;
@@ -413,7 +416,7 @@ if (file_exists($filename) && is_writable($filename) ) {
       <p><b>Related Story:</b> <a href="#">&lt;? dummy("text@headline") ?&gt;</a></p>
     &lt;? endif ?&gt;
   </pre>
-  <p class="note">An example of a simple article 3 to 8 paragraphs in length, with optionally appearing sub-headline and related story elements.</p>
+  <p class="note">An example of a simple article 3 to 8 paragraphs in length, with optionally appearing intro text and related story elements.</p>
 </div>
 
 </article>
@@ -427,7 +430,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 </div>
 
 <footer>
-  <p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, comments? <a href="http://twitter.com/kerns">Contact me</a>.</p>
+  <p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, comments? <a href="http://twitter.com/kerns">@kerns</a>.</p>
 </footer>
 
 <script src="demo_files/sh/shCore.js" type="text/javascript"></script>
