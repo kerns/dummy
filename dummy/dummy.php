@@ -16,8 +16,8 @@
 $dummy_path = "/dummy"; // The location of Dummy relative to the webroot of your project. (Example: "/~username/Sites/ProjectName/dummy")
 $flash_ads = false; // (true or false) Incorporate Adobe® Flash® based ads in the random selection and insertion of ads?
 define("JPEG_QUALITY", 90); // (1-100) You understand...
-define("MAX_WIDTH_PX", 2560); // (value in px) Max width of an image in assets/images
-define("MAX_HEIGHT_PX", 1440); // (value in px) Max height of an image in assets/images
+define("MAX_WIDTH_PX", 2048); // (value in px) Max width of an image in assets/images
+define("MAX_HEIGHT_PX", 1536); // (value in px) Max height of an image in assets/images
 
 // ADVANCED CONFIGURATION
 $delimiter = '@'; // Leave this, no reason to change it.
@@ -27,7 +27,6 @@ define("HIDDEN_FOLDER_PREPEND", "!"); // Prepended to the name of a folder to be
 ini_set("memory_limit", "256M"); // Boosts memory allocation
 
 // END CONFIGURATION
-
 
 // BEGIN DUMMY
 // Start a session if it hasn't already been started
