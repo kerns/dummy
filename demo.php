@@ -325,7 +325,8 @@ if (file_exists($filename) && is_writable($filename) ) {
       &lt;? endif ?&gt;
     &lt;? endif ?&gt;
   </pre>
-  <p class="note">For the record... <b><? if (dumb_luck("50%")): ?><? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ?><? else: ?><? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ?><? endif ?></b>!</p>
+
+<p class="note">For the record... <b><? if (dumb_luck("50%")): ?><? if (dumb_luck("50%")): ?>Heads<? else: ?>Tails<? endif ?><? else: ?><? if (dumb_luck("50%")): ?>Rock<? elseif (dumb_luck("50%")): ?>Paper<? else: ?>Scissors<? endif ?><? endif ?></b>!</p>
 </div>
 </article>
 
@@ -334,19 +335,19 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <div class="snippet img-snippet zoom-snippet">
 	<? while (dumb_luck("50-100")): ?>
-	<a href="#"><img src="<? dummy("image/landscape@48x48,")?>" width="48" height="48" alt="A thumbnail..." /></a>
+	<a href="#"><img src="<? dummy("image/landscape@48x48,")?>" width="35" height="35" alt="A thumbnail..." /></a>
   <? endwhile ?>
-	<p class="note">Dumb Luck's loop range takes whatever content you place inside of it and loops it within a range of two numbers that you specify. Inside of the loop range above, a single request for a 48x48 pixel thumbnail.</p>
+	<p class="note">Dumb Luck's loop range takes whatever content you place inside of it and loops it within a range of two numbers that you specify. Inside of the loop range above, a single request for a 35x35 pixel thumbnail.</p>
 </div>
 
-<p>Loop ranges make it possible to generate massive amounts of variable content very quickly. In the example above, there are two bits of Dummy code working together. A <b>dumb_luck</b> loop range of 50-100, and inside of that loop range, a single request for a 48x48 pixel thumbnail.</p>
+<p>Loop ranges make it possible to generate massive amounts of variable content very quickly. In the example above, there are two bits of Dummy code working together. A <b>dumb_luck</b> loop range of 50-100, and inside of that loop range, a single request for a 35x35 pixel thumbnail.</p>
 
 <p>The thumbnail will be rendered no less than 50 times, and up to 100. The Dummy code used to achieve this is compact and human readable:</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
   &lt;? while (dumb_luck("50-100")): ?&gt;
-    &lt;? dummy("image@48x48") ?&gt;
+    &lt;? dummy("image@35x35") ?&gt;
   &lt;? endwhile ?&gt;
   </pre>
 </div>
