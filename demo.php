@@ -270,7 +270,9 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <p>Note that a request for an ad returns a pre-formatted block of embed code containing an ad, as opposed to just the URL path to the ad (as is done with images). The reason for this is that we often need blocks of repetitious, ancillary markup to surround ad placements, as is the case with regard to advertising in the Adobe&reg; Flash&reg; format.</p>
 <p>The default embed code for both standards compliant image based ads and ads in the Flash format can be found on the root level of <b>/dummy/assets/ads</b> in the form of two files &mdash; <b>image.embed.php</b> and <b>flash.embed.php</b> respectively. You can override the use of these defaults by placing an edited copy of one or both of these files in the folder of the format you wish to override.</p>
+
 <p>The folders containing different formats are also used to specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
+
 <p class="note"><b>Note:</b> You may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
 </article>
 </section>
@@ -281,7 +283,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <article>
 <h3>Controlling Probability</h3>
-<p>A basic building block of Dummy driven layouts, <b>dumb_luck</b> can be used to influence the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X is an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
+<p>A basic building block of Dummy driven layouts, <b>dumb_luck</b> can be used to influence the probability that something will happen when the document is rendered. This helps answer the age old question, <em>&ldquo;What does this layout look like with or without <b>X</b> ?&rdquo;</em>, where X could be an image, a special announcement, or a block of JavaScript that triggers some other chain of events.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -331,25 +333,25 @@ if (file_exists($filename) && is_writable($filename) ) {
 <h3>Creating Loop Ranges</h3>
 
 <div class="snippet img-snippet zoom-snippet">
-	<? while (dumb_luck("100-200")): ?>
-	<a href="#"><img src="<? dummy("image@35x35,")?>" width="35" height="35" alt="A thumbnail..." /></a>
+	<? while (dumb_luck("50-100")): ?>
+	<a href="#"><img src="<? dummy("image/landscape@48x48,")?>" width="48" height="48" alt="A thumbnail..." /></a>
   <? endwhile ?>
-	<p class="note">Dumb Luck's loop range takes whatever you place inside of it and loops it within a range of two numbers that you specify. Inside of this loop range, a single request for a 35x35 pixel thumbnail.</p>
+	<p class="note">Dumb Luck's loop range takes whatever content you place inside of it and loops it within a range of two numbers that you specify. Inside of the loop range above, a single request for a 48x48 pixel thumbnail.</p>
 </div>
 
-<p>Loop ranges make it possible to generate massive amounts of variable content very quickly. In the example above, there are two bits of Dummy code working together. A <b>dumb_luck</b> loop range of 100-200, and inside of that loop range, a single request for a 35x35 pixel thumbnail.</p>
+<p>Loop ranges make it possible to generate massive amounts of variable content very quickly. In the example above, there are two bits of Dummy code working together. A <b>dumb_luck</b> loop range of 50-100, and inside of that loop range, a single request for a 48x48 pixel thumbnail.</p>
 
-<p>The thumbnail will be rendered somewhere between 100 and 200 times. The Dummy code needed to achieve this is compact and human readable:</p>
+<p>The thumbnail will be rendered no less than 50 times, and up to 100. The Dummy code used to achieve this is compact and human readable:</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
-  &lt;? while (dumb_luck("100-200")): ?&gt;
-    &lt;? dummy("image@35x35") ?&gt;
+  &lt;? while (dumb_luck("50-100")): ?&gt;
+    &lt;? dummy("image@48x48") ?&gt;
   &lt;? endwhile ?&gt;
   </pre>
 </div>
 
-<p>Loop ranges are built on the same <b>dumb_luck</b> function used to control probability, only instead of passing in a <b>%</b> value we pass it a range of two numbers separated by a hyphen. These two values represent the minimum and maximum number of times the loop should continue. In the example below, we ask for between 5 and 10 instances of a list item containing a headline.</p>
+<p>Loop ranges are built on the same <b>dumb_luck</b> function used to control probability, only instead of passing in a <b>%</b> value we pass it a range of two numbers separated by a hyphen. These two values define the <em>minimum</em> and <em>maximum</em> number of times the loop should continue. In the example below, we ask for between 5 and 10 instances of a list item containing a headline.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
