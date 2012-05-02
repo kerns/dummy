@@ -134,7 +134,7 @@ function dummy_image($path, $params) {
       $result = $dummy_path."/assets/image/".$imgFn;
    } else {
       $params = str_replace(" ", "", $params);
-      $params = split(",", $params);
+      $params = explode(",", $params);
       $imgFnPath = pathinfo($imgFn);
       $nImgExt = $imgFnPath["extension"];
 
