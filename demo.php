@@ -27,7 +27,7 @@
 <div id="main" role="main">
 
 <div class="hero-block">
-  <p>This document contains a few working examples to get you started using Dummy, together with some light documentation on how it works. It also makes a suitable test page. If you can get it to operate without error then you're ready to start using it in your own project.</p>
+  <p>This document contains a few working demos, together with some light documentation to help get you started using Dummy. It also makes a suitable test page. If you can get it to operate without error then you're ready to start using it in your own project.</p>
   <p>If you're unclear as to why you'd want to do this in the first place, then head over to <a href="https://github.com/kerns/dummy">the project page</a>, or check out the <b>README.md</b> file included with this download.</p>
 </div>
 
@@ -333,7 +333,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 <article>
 <h3>Creating Loop Ranges</h3>
 
-<div class="snippet img-snippet zoom-snippet">
+<div class="snippet img-snippet thumb-snippet">
 	<? while (dumb_luck("50-100")): ?>
 	<a href="#"><img src="<? dummy("image/landscape@48x48,")?>" width="35" height="35" alt="A thumbnail..." /></a>
   <? endwhile ?>

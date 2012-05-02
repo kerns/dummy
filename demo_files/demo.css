@@ -66,7 +66,7 @@ table {
 body {
   color:#333;
   background-color: #fefefe;
-  font: 1.1em/1.4em 'Palatino Linotype','Book Antiqua', Palatino, Georgia, serif;
+  font: 1.1em/1.4em 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   margin:0;
   padding:4em 5em;
 }
@@ -83,7 +83,7 @@ h1,h2,h3 {
 
 h2 {
   border-bottom:2px solid #e0e9f0;
-  font: normal 2em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
+  font: normal 2em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   padding-bottom:.1em;
   padding-top: 1em;
 }
@@ -126,7 +126,7 @@ em {
 
 /* Typographic Overrides */
 header h1 {
-  font: normal 3.2em/1em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
+  font: normal 3.2em/1em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   margin:0 0 .5em -.2em;
 }
 
@@ -231,7 +231,7 @@ table tr:last-child td {
 }
 
 table td span {
-  font: italic .9em 'Chaparral Pro', 'Palatino Linotype','Book Antiqua', Palatino, Georgiam, serif;
+  font: italic .9em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   display: block;
 }
 
@@ -288,7 +288,8 @@ table code {
 }
 
 .snippet p.note {
-  margin:.5em 0
+  margin:.5em 0;
+  line-height: 1.4em;
 }
 
 .code-snippet {
@@ -347,23 +348,23 @@ table code {
   border-radius:2px;
 }
 
-.zoom-snippet {
+.img-snippet a {
+  border-bottom:0;
+}
+
+.thumb-snippet {
   overflow:visible;
 }
 
-.zoom-snippet img {
+.thumb-snippet img {
   border:3px solid #eaeaea;
   border-radius:3px;
   margin-right: 2px;
 }
 
-.zoom-snippet img:hover {
+.thumb-snippet img:hover {
   border-color:#fff;
   box-shadow: 0 2px 4px #222;
-}
-
-.img-snippet a {
-  border-bottom:0;
 }
 
 .table-snippet p.note {
@@ -371,6 +372,8 @@ table code {
   margin:1em .5em .5em .5em;
   text-align: center;
 }
+
+/* Navigation */
 
 #nav {
   background-color: #fff;
