@@ -7,7 +7,6 @@
   <title>Dummy - A Quick and Dirty Demo</title>
   <meta name="description" content="Dummy is a toolkit for rapid prototyping and QA.">
   <meta name="author" content="David Kerns">
-  <meta name="viewport" content="width=device-width">
 
   <!-- Dummy Demo CSS -->
   <link href="demo_files/demo.css" rel="stylesheet" type="text/css" />
@@ -21,7 +20,7 @@
 <body>
 
 <header>
-  <h1>A Quick and Dirty Dummy Demo</h1>
+  <h1>A&nbsp;Quick and&nbsp;Dirty Dummy&nbsp;Demo</h1>
 </header>
 
 <div id="main" role="main">
@@ -187,7 +186,7 @@ if (file_exists($filename) && is_writable($filename) ) {
   <img src="<? dummy("image@480x320") ?>" />
 </div>
 
-<p>You can specify exact pixel dimensions or just an aspect ratio. You can also combine these parameters. For example, you can choose to specify just the width, together with an aspect ratio. Dummy will return the path to an image that conforms to both requirements.</p>
+<p>You can specify exact pixel dimensions or just an aspect ratio. You can also combine these parameters. For example, you can choose to specify just the width together with an aspect ratio. Dummy will return the path to an image that conforms to both requirements.</p>
 
 <div class="snippet code-snippet">
   <pre class="brush: php">
@@ -209,34 +208,34 @@ if (file_exists($filename) && is_writable($filename) ) {
     <thead>
       <tr>
         <th scope="col" class="objective">Objective</th>
-        <th scope="col">Dummy Code</th>
+        <th scope="col" class="code">Dummy Code</th>
         <th scope="col" class="output">Output</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>100px square <span>Classic. Square.</span></td>
-        <td><code>&lt;? dummy("image@100x100") ?&gt;</code></td>
+        <td><code>&lt;?&nbsp;dummy("image@100x100")&nbsp;?&gt;</code></td>
         <td><span><a href="<? dummy("image@100x100") ?>"><? dummy("image@100x100") ?></a></span></td>
       </tr>
       <tr>
         <td>100px square (Part II) <span>A rather pointless way of generating the same result as above. Proving a point here.</span></td>
-        <td><code>&lt;? dummy("image@100x,1:1") ?&gt;</code></td>
+        <td><code>&lt;?&nbsp;dummy("image@100x,1:1")&nbsp;?&gt;</code></td>
         <td><span><a href="<? dummy("image@100x,1:1") ?>"><? dummy("image@100x,1:1") ?></a></span></td>
       </tr>
       <tr>
         <td>16:9 <span>With a height of 200px. Pixel dimensions and aspect ratios must be separated with a comma.</span></td>
-        <td><code>&lt;? dummy("image@16:9,x200") ?&gt;</code></td>
+        <td><code>&lt;?&nbsp;dummy("image@16:9,x200")&nbsp;?&gt;</code></td>
         <td><span><a href="<? dummy("image@16:9,x200") ?>"><? dummy("image@16:9,x200") ?></a></span></td>
       </tr>
       <tr>
         <td>16:9 (Part II) <span>Same as above. It doesn't matter which order you specify ratio or pixel dimensions.</span></td>
-        <td><code>&lt;? dummy("image@x200,16:9") ?&gt;</code></td>
+        <td><code>&lt;?&nbsp;dummy("image@x200,16:9")&nbsp;?&gt;</code></td>
         <td><span><a href="<? dummy("image@x200,16:9") ?>"><? dummy("image@x200,16:9") ?></a></span></td>
       </tr>
       <tr>
         <td>3:2 <span>The Photographer's aspect! We'll ask for assets from a specific subdirectory of &lsquo;dummy/assets/images/&rsquo; here to improve the odds of getting a suitable image.</span></td>
-        <td><code>&lt;? dummy("image/landscape@3:2") ?&gt;</code></td>
+        <td><code>&lt;?&nbsp;dummy("image/landscape@3:2")&nbsp;?&gt;</code></td>
         <td><span><a href="<? dummy("image@3:2") ?>"><? dummy("image@3:2") ?></a></span></td>
       </tr>
       <tr>
@@ -426,14 +425,15 @@ if (file_exists($filename) && is_writable($filename) ) {
 </section>
 
 <section>
-<h2>More to come...</h2>
-<p>Some of Dummy's unfinished features will remain undocumented for now, namely the <b>dumb_question</b> function for reading and reacting to loop position, URL variables, and URL segments. More info to come on those when they're done.</p>
+<h2>More to come</h2>
+<p>There are a few unfinished features in Dummy that remain too fluid to document, namely the <b>dumb_question</b> function for reading and reacting to loop position, URL variables, and URL segments. More info to come on those when they're done.</p>
+<p>If you're interested in <a href="https://github.com/kerns/dummy">following the project</a> and want to be part of developing a tool that could support better outcomes and workflows for thousands of front-end specialists, then please get in touch.</p>
 </section>
 
 </div>
 
 <footer>
-  <p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, comments? <a href="http://twitter.com/kerns">@kerns</a>.</p>
+  <p class="note">This page documents Dummy v. 1.0 &mdash; Ideas, questions, reprimands? <a href="http://twitter.com/kerns">@kerns</a>.</p>
 </footer>
 
 <script src="demo_files/sh/shCore.js" type="text/javascript"></script>
