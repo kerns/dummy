@@ -39,7 +39,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 + MJU II - http://www.flickr.com/photos/childofwar/5925910990/
 + Untitled - http://www.flickr.com/photos/childofwar/3767700499/
 
-#### Joi Ito - http://www.flickr.com/photos/joi/
+#### Joi Ito – http://www.flickr.com/photos/joi/
 + Steve Jobs and Bill Gates - http://www.flickr.com/photos/joi/522695099/
 + Shibuya Center Gai - http://www.flickr.com/photos/joi/1466127636/
 + View over Shibuya - http://www.flickr.com/photos/joi/1466158738/
@@ -113,7 +113,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 #### Jeff Foust (jfoust) – http://www.flickr.com/photos/jfoust/
 + Branson - http://www.flickr.com/photos/jfoust/5106238259/
 
-#### Alan Levine (cogdogblog) http://www.flickr.com/photos/cogdog/
+#### Alan Levine (cogdogblog) – http://www.flickr.com/photos/cogdog/
 + China Eastern Airline Wing - http://www.flickr.com/photos/cogdog/2878441417
 
 #### chiaki0808 - http://www.flickr.com/photos/chiaki/
@@ -159,16 +159,16 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 #### cyclonebill – http://www.flickr.com/photos/cyclonebill/
 + Restaurant Noma: Marv med syltede grøntsager - http://www.flickr.com/photos/cyclonebill/3678837304/
 
-#### USMC - http://www.flickr.com/photos/marine_corps/
+#### USMC – http://www.flickr.com/photos/marine_corps/
 + Marine Football - http://www.flickr.com/photos/marine_corps/4733392294/
 
 #### expertinfantry – http://www.flickr.com/photos/expertinfantry/
 + Best of USAF - http://www.flickr.com/photos/expertinfantry/5416827865/
 
-#### Stefan Kellner (no) - http://www.flickr.com/photos/skellner/
+#### Stefan Kellner (no) – http://www.flickr.com/photos/skellner/
 + Iris - http://www.flickr.com/photos/skellner/6201563772/
 
-#### Jessica Mullen http://www.flickr.com/photos/jessicamullen/
+#### Jessica Mullen – http://www.flickr.com/photos/jessicamullen/
 + Avatar - http://www.flickr.com/photos/jessicamullen/3810562763/
 + Pattern Language - http://www.flickr.com/photos/jessicamullen/3795847498/
 
