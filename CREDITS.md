@@ -1,15 +1,16 @@
 ## DUMMY IMAGES
 
-Pete Souza's White House photography is provided under a U.S. Government Work U.S. license: http://www.usa.gov/copyright.shtml
+### Used with Permission
 
-All other images are provided under different versions of a Creative Commons license permitting non-commercial sharing and remixing in exchange for attribution.
+Pete Souza's White House photography is provided under a U.S. Government Work U.S. license.
++ http://www.usa.gov/copyright.shtml
+
+All other images are provided under various versions of a Creative Commons license, all of which permit non-commercial sharing and remixing in exchange for attribution.
 
 + http://creativecommons.org/licenses/by/2.0/deed.en
 + http://creativecommons.org/licenses/by-sa/2.0/deed.en
 
------
-
-### Thanks.
+### Thanks
 All images bundled with Dummy (found in dummy/assets/images) are used gratefully with credit to the following:
 
 -----
@@ -96,7 +97,7 @@ All images bundled with Dummy (found in dummy/assets/images) are used gratefully
 #### Rob Brown (Man & His Cam) – http://www.flickr.com/photos/robbrown/
 + London Night Time Shots – http://www.flickr.com/photos/robbrown/95984916/
 
-#### European Week of Cities and Regions (opendays) – European Week of Cities and Regions - http://www.flickr.com/photos/opendays/
+#### European Week of Cities and Regions (opendays) – http://www.flickr.com/photos/opendays/
 + Press panel on the EU Strategy for the Danube Region - http://www.flickr.com/photos/opendays/6079069959/
 
 #### Jeff Foust (jfoust) – http://www.flickr.com/photos/jfoust/
@@ -106,7 +107,7 @@ All images bundled with Dummy (found in dummy/assets/images) are used gratefully
 + China Eastern Airline Wing - http://www.flickr.com/photos/cogdog/2878441417
 
 #### chiaki0808 - http://www.flickr.com/photos/chiaki/
-Joi Ito - http://www.flickr.com/photos/chiaki/3359475417/
++ Joi Ito - http://www.flickr.com/photos/chiaki/3359475417/
 
 #### laverrue – http://www.flickr.com/photos/23912576@N05/
 + James, I think your cover's blown! - http://www.flickr.com/photos/23912576@N05/2962194797/
