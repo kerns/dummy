@@ -1,17 +1,17 @@
-## Credits
+## Images
 
-### Permission & Licensing
+### Licensing
 
 Pete Souza's White House photography is provided under a U.S. Government Work U.S. license.
 + http://www.usa.gov/copyright.shtml
 
-All other images are provided under various versions of a Creative Commons license, all of which permit non-commercial sharing and remixing in exchange for attribution.
+All other images are provided under different forms of a Creative Commons license, permitting non-commercial sharing and remixing in exchange for attribution.
 
 + http://creativecommons.org/licenses/by/2.0/deed.en
 + http://creativecommons.org/licenses/by-sa/2.0/deed.en
 
 ### Thanks
-Images bundled with Dummy (found in dummy/assets/images) are used gratefully with credit to the following:
+Images bundled with Dummy (found in dummy/assets/images) are used gratefully and with specific credit to the following:
 
 -----
 
