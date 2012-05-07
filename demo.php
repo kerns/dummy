@@ -443,6 +443,10 @@ if (file_exists($filename) && is_writable($filename) ) {
      SyntaxHighlighter.all()
 </script>
 
+<? while (dumb_luck("120")): ?>
+<img src="<? dummy("image@1:1,500x") ?>" width="33%" height="" alt="" />
+<? echo (dumb_question("order:"))?>
+<? endwhile ?> 
 
 </body>
 </html>

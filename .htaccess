@@ -1,0 +1,15 @@
+# Dummy, version 1.0
+# Optional .htaccess file
+
+# Enables short tags, just in case PHP wants to complain
+php_flag short_open_tag on
+
+# Forces .htm(l) files to be processed like .php files
+# in the event that you don't feel like renaming them to .php
+AddHandler application/x-httpd-php .html .htm
+AddType application/x-httpd-php .html .htm
+
+# Performs some magic that will allow us to use segments
+# and queries in the URL (for advanced prototyping nerds)
+RewriteEngine on
+RewriteRule ^(.*?.(php|html?))(/.*)?$ $1?dummyurl=$3 [L,QSA,E=DUMMYURL:1]
