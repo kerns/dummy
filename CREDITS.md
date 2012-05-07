@@ -49,7 +49,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 #### [familymwr] (http://www.flickr.com/photos/familymwr/)
 + 2008 Summer Olympics – http://www.flickr.com/photos/familymwr/4928323919/
 + SOF_1946 – http://www.flickr.com/photos/familymwr/6234519771/
-+ Eyes that Speak – http://www.flickr.com/photos/familymwr/5546846883
++ Eyes that Speak – http://www.flickr.com/photos/familymwr/5546846883/
 + Bird – http://www.flickr.com/photos/familymwr/5548053768/
 
 #### [Andrew Kneebone] (http://www.flickr.com/photos/andrewkneebone/)
@@ -67,8 +67,8 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 + Queen Rania of Jordan, 2011 – http://www.flickr.com/photos/worldeconomicforum/6272860550/
 
 #### [Chris Stangier] (http://www.flickr.com/photos/chrisstangier/)
-+ Sony Center 1 – http://www.flickr.com/photos/chrisstangier/4414107325/in/photostream
-+ Sony Center 2 – http://www.flickr.com/photos/chrisstangier/4414870758/in/photostream/
++ Sony Center 1 – http://www.flickr.com/photos/chrisstangier/4414107325/
++ Sony Center 2 – http://www.flickr.com/photos/chrisstangier/4414870758/
 
 #### [caruba] (http://www.flickr.com/photos/denial_land/)
 + A Hazy Day in New York City – http://www.flickr.com/photos/denial_land/3883242306/
@@ -80,7 +80,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 
 #### [nasa hq] (http://www.flickr.com/photos/nasahqphoto/)
 + Expedition 23 Launch Day – http://www.flickr.com/photos/nasahqphoto/4489986468/
-+ Google Moon – http://www.flickr.com/photos/nasahqphoto/3815058710
++ Google Moon – http://www.flickr.com/photos/nasahqphoto/3815058710/
 
 #### [Siddy Lam] (http://www.flickr.com/photos/siddylam/)
 + Bokeh – http://www.flickr.com/photos/siddylam/4306121540/
@@ -89,8 +89,8 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 #### [ivva] (http://www.flickr.com/photos/ivva/)
 + Prada Tokyo – http://www.flickr.com/photos/ivva/852120668/
 
-#### [Eduardo Amorim] (http://www.flickr.com/photos/bombeador)
-+ Mascarado, boi... – http://www.flickr.com/photos/bombeador/4333920864
+#### [Eduardo Amorim] (http://www.flickr.com/photos/bombeador/)
++ Mascarado, boi... – http://www.flickr.com/photos/bombeador/4333920864/
 
 #### [foxxyz] (http://www.flickr.com/photos/foxxyz/)
 + Pong Ping Peking – http://www.flickr.com/photos/foxxyz/2088748696/
@@ -114,7 +114,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 + Branson – http://www.flickr.com/photos/jfoust/5106238259/
 
 #### [Alan Levine] (http://www.flickr.com/photos/cogdog/)
-+ China Eastern Airline Wing – http://www.flickr.com/photos/cogdog/2878441417
++ China Eastern Airline Wing – http://www.flickr.com/photos/cogdog/2878441417/
 
 #### [chiaki0808] (http://www.flickr.com/photos/chiaki/)
 + Joi Ito – http://www.flickr.com/photos/chiaki/3359475417/
@@ -140,10 +140,10 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 
 #### [Scott Beale] (http://www.flickr.com/photos/laughingsquid/)
 + @troy at Twitter – http://www.flickr.com/photos/laughingsquid/5301041649/
-+ See also [laughingsquid.com] (http://laughingsquid.com)
++ See also [laughingsquid.com] (http://laughingsquid.com/)
 
 #### [Jean-Marc Ayrault] (http://www.flickr.com/photos/jmayrault/)
-+ Meeting François Hollande – http://www.flickr.com/photos/jmayrault/6171036892
++ Meeting François Hollande – http://www.flickr.com/photos/jmayrault/6171036892/
 
 #### [Sara Goldsmith] (http://www.flickr.com/photos/saragoldsmith/)
 + centre court – http://www.flickr.com/photos/saragoldsmith/3669413374/
@@ -157,7 +157,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 #### [diebmx] (http://www.flickr.com/photos/diebmx/)
 + Portland – http://www.flickr.com/photos/diebmx/2169769011/
 
-#### [cyclonebill] (http://www.flickr.com/photos/cyclonebill/()
+#### [cyclonebill] (http://www.flickr.com/photos/cyclonebill/)
 + Restaurant Noma: Marv med syltede grøntsager – http://www.flickr.com/photos/cyclonebill/3678837304/
 
 #### [USMC] (http://www.flickr.com/photos/marine_corps/)
@@ -183,7 +183,6 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 
 #### [Todd Sanders] (http://www.flickr.com/photos/tsand/)
 + Owling – http://www.flickr.com/photos/tsand/6839850368/
-+ test
 
 #### [EARLIER.at] (http://www.flickr.com/photos/early-photography/)
 + Pilots. – http://www.flickr.com/photos/early-photography/6046248933/
