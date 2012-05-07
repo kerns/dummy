@@ -1,6 +1,6 @@
-## DUMMY IMAGES
+## Credits
 
-### Licensing & Permission
+### Permission & Licensing
 
 Pete Souza's White House photography is provided under a U.S. Government Work U.S. license.
 + http://www.usa.gov/copyright.shtml
@@ -194,3 +194,4 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully wit
 
 #### Diego Lavecchia (DieEgg) – http://www.flickr.com/photos/dieegg/
 + DL logo - http://www.flickr.com/photos/dieegg/5202011824/
+
