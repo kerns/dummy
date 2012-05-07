@@ -1,4 +1,4 @@
-# DUMMY IMAGES
+## DUMMY IMAGES
 
 Pete Souza's White House photography is provided under a U.S. Government Work U.S. license: http://www.usa.gov/copyright.shtml
 
@@ -7,7 +7,8 @@ All other images are provided under different versions of a Creative Commons lic
 + http://creativecommons.org/licenses/by/2.0/deed.en
 + http://creativecommons.org/licenses/by-sa/2.0/deed.en
 
-**All images bundled with Dummy (found in dummy/assets/images) are used gratefully with credit to the following:**
+
+### All images bundled with Dummy (found in dummy/assets/images) are used gratefully with credit to the following:
 
 #### Amir Kuckovic (childofwar) – http://www.flickr.com/photos/childofwar/
 + 12:38 - http://www.flickr.com/photos/childofwar/4378871291/
