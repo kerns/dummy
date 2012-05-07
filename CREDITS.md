@@ -87,9 +87,9 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 + HP Gas - http://www.flickr.com/photos/siddylam/4004470964/
 
 #### ivva – http://www.flickr.com/photos/ivva/
-+ Prada Tokyo http://www.flickr.com/photos/ivva/852120668/
++ Prada Tokyo - http://www.flickr.com/photos/ivva/852120668/
 
-#### Eduardo Amorim - http://www.flickr.com/photos/bombeador
+#### Eduardo Amorim – http://www.flickr.com/photos/bombeador
 + Mascarado, boi... - http://www.flickr.com/photos/bombeador/4333920864
 
 #### foxxyz – http://www.flickr.com/photos/foxxyz/
@@ -130,7 +130,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 + Tony Blair interviewed by Fortune - http://www.flickr.com/photos/thenickster/4694337005/
 + Duckhorn Vineyards - http://www.flickr.com/photos/thenickster/6829011764/
 
-#### NASA Goddard Photo and Video - http://www.flickr.com/photos/gsfc/
+#### NASA Goddard Photo and Video – http://www.flickr.com/photos/gsfc/
 + Operation Ice Bridge - http://www.flickr.com/photos/gsfc/5175654017/
 + The Webb Telescope's Actuators - http://www.flickr.com/photos/gsfc/5249004551/
 + Solar Flare Erupts - http://www.flickr.com/photos/gsfc/4975115754/
@@ -147,7 +147,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 #### Sara Goldsmith – http://www.flickr.com/photos/saragoldsmith/
 + centre court - http://www.flickr.com/photos/saragoldsmith/3669413374/
 
-#### Korea.net - http://www.flickr.com/photos/koreanet/
+#### Korea.net – http://www.flickr.com/photos/koreanet/
 + President Lee and Danish PM Rasmussen - http://www.flickr.com/photos/koreanet/4434586634/
 
 #### ahisgett – http://www.flickr.com/photos/hisgett/
