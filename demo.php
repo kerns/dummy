@@ -437,7 +437,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 </footer>
 
 <script src="demo_files/sh/shCore.js" type="text/javascript"></script>
-<script src="demo_files/sh/shBrushPHP.js" type="text/javascript"></script>
+<script src="demo_files/sh/shBrushPhp.js" type="text/javascript"></script>
 
 <script type="text/javascript">
      SyntaxHighlighter.all()
