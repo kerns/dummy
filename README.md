@@ -16,10 +16,9 @@ It can also been seen as a support tool for designers and front-end artisans rea
 + More. Not lots more, but a _bit_ more!
 
 ### You can…
-+ See demos …coming soon.
-+ Read docs …also coming soon.
-+ Give feedback …[this instant](http://twitter.com/kerns).
-+ Fork it on Github @ [https://github.com/kerns/dummy](https://github.com/kerns/dummy)
++ See demos and read docs at http://dummy.kerns.dk/
++ Ask questions and direct misgivings to http://twitter.com/kerns
++ Fork, follow or download via https://github.com/kerns/dummy
 
 ### More Info
 Dummy's primary goal is to provide tools that speed front-end prototyping and QA. Whether you're meticulously crafting a fully responsive site with a myriad of CSS breakpoints, or just slapping together a half-baked idea – using Dummy should make it easier _at the earliest stages of development_ to visualize, test and present something much closer to what your actual front-end will become under a variety of different conditions.
