@@ -432,9 +432,7 @@ table code {
 
 /* Media Queries, to iron out a few wrinkles */
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
   p {
     margin:0 0 1.5em 0;
@@ -451,9 +449,7 @@ and (max-device-width : 480px) {
 }
 
 /* Smartphones (portrait only) ----------- */
-@media only screen
-and (max-device-width:320px)
-and (orientation:portrait) {
+@media only screen and (max-device-width:320px) and (orientation:portrait) {
 
   body {
     font-size:2em
@@ -462,8 +458,7 @@ and (orientation:portrait) {
 }
 
 /* Larger desktops ----------- */
-@media only screen
-and (min-width : 1024px) {
+@media only screen and (min-width : 1024px) {
 
   body {
     font-size: 1.3em;
