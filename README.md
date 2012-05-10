@@ -12,13 +12,13 @@ It can also been seen as a support tool for designers and front-end artisans rea
 + Insert randomly selected strings of placeholder text in various lengths and formats (e.g. headline, teaser, paragraph).
 + Automagically crop and size high quality, news worthy, Creative Commons licensed placeholder images from a default pool – or from a specific folder or subset of folders that you provide.
 + Flesh out highly variable, asset rich layouts quickly with friendly, human-readable logic for building loops and controlling probability.
-+ Allow you to focus on the important things – namely, the design and the code – not on copying and pasting (static) Lorum Ipsum, or hunting down plausible placeholder images.
++ Allow you to focus on the important things – namely, the design and the code – not on copying and pasting (static) Lorem Ipsum, or hunting down plausible placeholder images.
 + More. Not lots more, but a _bit_ more!
 
 ### You can…
-+ [See Demos and Docs](http://dummy.kerns.dk)
-+ [Give feedback](http://twitter.com/kerns)
-+ Download, Fork or Follow it on Github @ [https://github.com/kerns/dummy](https://github.com/kerns/dummy)
++ See demos and read docs at http://dummy.kerns.dk/
++ Ask questions and direct misgivings to http://twitter.com/kerns
++ Fork, follow or download via https://github.com/kerns/dummy
 
 ### More Info
 Dummy's primary goal is to provide tools that speed front-end prototyping and QA. Whether you're meticulously crafting a fully responsive site with a myriad of CSS breakpoints, or just slapping together a half-baked idea – using Dummy should make it easier _at the earliest stages of development_ to visualize, test and present something much closer to what your actual front-end will become under a variety of different conditions.
@@ -47,7 +47,7 @@ You need a development environment running Apache + PHP and compiled with suppor
 ### TODO
 + Improve demos, finish docs.
 + Optimize performance and memory usage.
-+ Integrate a Lorum Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated (length in chars or words, casing, etc)
++ Integrate a Lorem Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated (length in chars or words, casing, etc)
 + Ability to call and define image crops from within CSS (i.e. ability to post image requests in the URL to dummy.php)
 + Develop an easy way to link our broadcast dumb_luck outcomes, so that one outcome could bubble-over to another.
 + Clean up the way errors and messages are formatted (i.e. abstract the HTML and style surrounding them)
@@ -57,4 +57,4 @@ You need a development environment running Apache + PHP and compiled with suppor
 Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Be a doll and let me know how you're using Dummy, or if you've used it to help build, test or demo anything interesting.
 
 ### Images
-License info and image credits can be found in dummy/CREDITS.md
+Credits and license info can be found in dummy/CREDITS.md
