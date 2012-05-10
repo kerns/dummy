@@ -35,38 +35,58 @@
 
 <article>
 <h3>Basic Requirements</h3>
-<p>You'll need a development environment running Apache and PHP compiled with support for GD (this hopefully covers most of them). Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively. These are easy to install and configure and a good way to get started if you're on unfamiliar ground.</p>
+<p>You'll need a development environment running Apache and PHP compiled with support for GD. Such an environment is provided out-of-the-box by Mac OS X. Alternatively, there are many <a href="http://en.wikipedia.org/wiki/MAMP">MAMP</a> and <a href="http://en.wikipedia.org/wiki/WAMP">WAMP</a> binaries available to both Mac and Windows users respectively. These are easy to install and configure and a good way to get started if you're on unfamiliar ground.</p>
 </article>
 
 <article>
 <h3>Setup</h3>
 <ol>
-  <li><p>Move the main <b>/dummy</b> folder to the root level of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension. Next, make sure that any document in which you want to use Dummy has the following code on the very first line.</p>
+  <li><p>Move the main <b>/dummy</b> folder to <em>the root level</em> of your web project, and make sure any <b>.html</b> documents in which you plan to use Dummy are renamed with a <b>.php</b> extension.</p></li>
+  
+  <li><p>Make sure that any document in which you want to use Dummy has the following code on the opening line.</p>
     <div class="snippet code-snippet">
       <pre class="brush: php">
         &lt;? require_once("dummy/dummy.php") ?&gt;
       </pre>
     </div>
-  </li>
-  <li><p>Open the file located at <b>/dummy/dummy.php</b> and make sure the first line in the configuration section points to the location of <b>/dummy</b> relative to the web root of your project. If you're using a virtual host the default value is probably fine, and you don't need to change anything.</p></li>
-  <li><p>Finally, make the cache folder located at <b>/dummy/cache</b> writable by your web server. Describing how to do this is outside the scope of this document, but finding out how is only <a href="http://www.google.com/search?q=how+to+make+a+folder+writable">a web search away</a>. If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p></li>
+    </li>
+  <li><p>Finally, make the cache folder located at <b>/dummy/cache</b> writable by your web server. If you see an image immediately below this block of text, it's working. A new image should appear every time you reload the page.</p></li>
 </ol>
+  
+  <div class="snippet img-snippet">
+  <img src="<? dummy("image@500x,4:3") ?>" width="500" alt="A test image..." />
+  <p class="note">
+  <?php
+  $filename = 'dummy/cache';
+  if (file_exists($filename) && is_writable($filename) ) {
+      echo "Success. <strong>$filename</strong> exists and seems to be writable.";
+  } elseif (file_exists($filename)) {
+      echo "<strong>$filename</strong> exists but it isn't writable by your web server. Please make it writable.";
+  } else {
+      echo "<strong>$filename</strong> does not seem to exist. Create it and make sure it is writable by your web server.";
+  }
+  ?>
+  </p>
+  </div>
+</article>
 
-<div class="snippet img-snippet">
-<img src="<? dummy("image@500x,4:3") ?>" width="500" alt="A test image..." />
-<p class="note">
-<?php
-$filename = 'dummy/cache';
-if (file_exists($filename) && is_writable($filename) ) {
-    echo "Success. <strong>$filename</strong> exists and seems to be writable.";
-} elseif (file_exists($filename)) {
-    echo "<strong>$filename</strong> exists but it isn't writable by your web server. Please make it writable.";
-} else {
-    echo "<strong>$filename</strong> does not seem to exist. Create it and make sure it is writable by your web server.";
-}
-?>
-</p>
-</div>
+<article>
+<h3>Troubleshooting</h3>
+<p>If everything is working, good for you. If things are not working out of the gate, here are the first things to check...</p>
+      <ul>
+        <li><p>Double check that the path to <b>/dummy/dummy.php</b> in the top of your document is valid. This is the machine path (not the web path). You might need to change it if you're using Dummy in a subfolder.</p></li>
+        <li><p>Check that the cache folder at <b>/dummy/cache</b> is writable by your server.</p></li>
+        <li><p>If for some reason you're not using a virtual host, or you can't include <b>/dummy</b> on the root of your project, check the very first line of <b>/dummy/dummy.php</b> and make sure the path is valid. This sets the web path to your images.</p></li>
+    </li>
+</ul>
+</article>
+
+<article>
+<h3>Tips</h3>
+<ul>
+  <li><p>The use of a virtual host for your web project is not only a solid best practice, it also makes configuring Dummy painless. I strongly recommend Patrick Gibson's excellent <a hred="https://github.com/pgib/virtualhost.sh">virtualhost.sh</a> script for creating and managing virtual hosts on the Mac. But there are readily available alternatives for doing this on every platform.</p></li>
+  <li><p>If you prefer to keep your document file extensions as <b>.html</b>, enable the file located at <b>/dummy/extras/optional.htaccess</b> file by removing the "optional" prefix and moving it to the root of your web project. Doing so will ask Apache to parse HTML documents as if they were PHP. It will also suppress any PHP warnings or errors generated by Dummy.</p></li>
+</ul>
 </article>
 </section>
 
@@ -272,7 +292,7 @@ if (file_exists($filename) && is_writable($filename) ) {
 
 <p>The folders containing different formats are also used to specify their dimensions (WxH). Dummy parses these folder names and interprets them as variables, which in turn can be used to set the width and height values of ads as they are parsed into the embed code. If you don't feel it necessary to pass these values to your embed code, you're free to add new formats in folders and name them however you like &mdash; just remember to create a custom embed for these formats.</p>
 
-<p class="note"><b>Note:</b> You may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
+<p>You may find it useful to enable or disable the insertion of Flash format ads under different testing scenarios. There is a global preference toggle in the top of <b>dummy.php</b> for controlling this. The default is disabled.</p>
 </article>
 </section>
 
