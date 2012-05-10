@@ -53,26 +53,38 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/* End reset */
 
 /* Begin Dummy Demo */
-/* Core Structure and Typography */
+/* Structure */
+#main {
+  max-width:1332px;
+}
+
+/* Typography */
 
 body {
-  color:#333;
-  background-color: #fefefe;
-  font: 1.1em/1.4em 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  background-color: #fff;
+  color:#667777;
+  font: 1.2em/1.5em 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   margin:0;
-  padding:2em 2.5em;
+  padding:4em 2.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#455;
+  color: #686F73;
 }
 
 h1,h2,h3 {
   clear:both;
   display: block;
-  margin:1.5em 0 .5em -15px;
+  margin:1.5em 0 .5em -.75em;
+}
+
+h1 {
+  font: normal 2.5em/.9em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  margin: 0 0 .5em -.2em;
+  padding-top: .2em;
 }
 
 h2 {
@@ -82,11 +94,11 @@ h2 {
 }
 
 h3 {
-  color:#5d5d52;
+  color:#4b616a;
   font-size:1em;
   font-weight: bold;
   margin-top: 2.5em;
-  margin-bottom: .75em;
+  margin-bottom: .8em;
   text-transform: uppercase
 }
 
@@ -102,51 +114,48 @@ p {
   margin:0 0 1em 0;
 }
 
-strong, b {
-  font-weight:bold
-}
-
 p.note {
-  color:#666;
-  font-size:.9em;
+  font-size:.8em;
   font-style: italic;
   margin:.5em 0;
 }
 
-em {
-  font-style:italic;
+p.hero {
+  color:#888;
+  font-size:1.1em;
+
 }
 
-/* Structure */
-
-#main {
-  max-width:1332px;
-}
-
-/* Typographic Overrides */
-
-header h1 {
-  font: normal 3em/1.1em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  margin:0 0 .5em -.2em;
-}
-
-.hero-block p {
-  color:#737f7f;
-  font-size:1.2em;
-  line-height:1.3em;
-  margin-left:-.5em;
-}
-
-footer p.note {
-  color:#666;
+footer p {
+  color:#a4abac;
   font-size:.8em;
   font-style:normal;
   text-align: center;
   padding: 3em 0;
 }
 
-/* Link style */
+footer p a, footer p a:visited {
+  color:#7E8586;
+  border-bottom: 1px dotted #B0BBBD;
+}
 
+/* Style & Emphasis */
+strong, b {
+  color:#546264;
+  font-weight:bold
+}
+
+em {
+  font-style:italic;
+}
+
+.mute {
+  color: rgba(255,255,255,.5);
+  text-shadow: 0px -1px 0px rgba(0,0,0,.5);
+  font-family: Sans-Serif;
+}
+
+/* Link style */
 a, a:visited {
   border-bottom:1px dotted #dbc;
   color:#b47;
@@ -160,12 +169,11 @@ a:hover {
 }
 
 /* Lists */
-
 ul, ol {
-  color:#333;
   display: block;
+  font-size:1em;
   list-style-position: outside;
-  margin:1em 0;
+  margin: 1.5em 2em 2em 0;
 }
 
 ul {
@@ -181,12 +189,8 @@ ul ul, ol ol {
 }
 
 li {
-  margin-bottom: .75em
-  }
-
-li b {
-  color:#333;
-  }
+  margin-bottom: 1.5em
+}
 
 
 /* Table Styles */
@@ -216,12 +220,10 @@ table th {
   background: -ms-linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
   background: linear-gradient(top,  #424a51 0%,#40454f 50%,#343941 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#424a51', endColorstr='#343941',GradientType=0 );
-
 }
 
 table td {
   border-bottom: 1px solid #efefef;
-  color: #666;
   padding: .5em .8em;
 }
 
@@ -238,7 +240,7 @@ table td span {
 }
 
 table tbody tr:hover td {
-  color: #000;
+  background-color: #fafafa
 }
 
 table code {
@@ -246,7 +248,6 @@ table code {
 }
 
 /* Some desperate tweaks */
-
 .text-table th.objective{
   width:20%;
   min-width:100px;
@@ -256,22 +257,8 @@ table code {
   width:40%;
 }
 
-.image-table th.objective {
-  width:30%;
-  min-width:180px;
-}
-
-.image-table th.code {
-  width:5%;
-}
-
 .image-table code {
- display: inline; margin: 0; padding: 0;
-}
-
-.image-table th.output {
-  width:50%;
-  min-width:250px;
+ font-size:.9em;
 }
 
 .image-table td {
@@ -282,7 +269,7 @@ table code {
 /* Wideley used to matte different objects in the demo */
 
 .snippet {
-  margin:1.5em 0 1.5em 0;
+  margin:1.5em 0;
   padding:.5em;
   overflow:hidden;
   box-shadow: inset 0px 1px 4px rgba(50, 50, 50, 0.8);
@@ -337,6 +324,10 @@ table code {
   color:#578;
 }
 
+.text-snippet ul li {
+  margin-bottom: .5em;
+}
+
 .text-snippet h4 {
   color:#578;
   line-height:1em;
@@ -375,7 +366,6 @@ table code {
 }
 
 .table-snippet p.note {
-  font-size:.9em;
   margin:1em .5em .5em .5em;
   text-align: center;
 }
@@ -431,36 +421,36 @@ table code {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
-  p {
-    margin:0 0 1.5em 0;
-  }
-
-  .hero-block p {
-    color:#4C5455;
-  }
-
-  ul, ol {
-    margin:1em .5em 1em 1.5em
-  }
-
-}
-
-/* Smartphones (portrait only) ----------- */
-@media only screen and (max-device-width:320px) and (orientation:portrait) {
-
   body {
-    font-size:2em
+    padding:3.8em 2em;
+  }
+  
+  h1 {
+    font-size: 5em
+  }
+
+  .snippet img {
+    width:100%
+  }
+  
+  ul, ol {
+    margin:1.5em .5em 1.5em 1em
   }
 
 }
 
 /* Larger desktops ----------- */
-@media only screen and (min-width : 1024px) {
+@media only screen and (min-width : 1025px) {
 
   body {
     font-size: 1.3em;
-    line-height: 1.4em;
-    padding:4em 5em;
+    line-height: 1.5em;
+    padding: 4em 6em;
+   }
+
+   h1 {
+     font-size: 3.2em;
+     line-height: 1em;
    }
 
 }
