@@ -131,7 +131,7 @@ footer p {
   font-size:.8em;
   font-style:normal;
   text-align: center;
-  padding: 3em 0;
+  padding: 8em 0 2em 0;
 }
 
 footer p a, footer p a:visited {
@@ -416,17 +416,12 @@ table code {
 }
 
 
-
 /* Media Queries, to iron out a few wrinkles */
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
   body {
     padding:3.8em 2em;
-  }
-  
-  h1 {
-    font-size: 5em
   }
 
   .snippet img {
