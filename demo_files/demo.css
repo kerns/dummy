@@ -131,7 +131,7 @@ footer p {
   font-size:.8em;
   font-style:normal;
   text-align: center;
-  padding: 3em 0;
+  padding: 8em 0 2em 0;
 }
 
 footer p a, footer p a:visited {
@@ -358,6 +358,7 @@ table code {
   border:3px solid #eaeaea;
   border-radius:3px;
   margin-right: 2px;
+  width:auto !important;
 }
 
 .thumb-snippet img:hover {
@@ -416,19 +417,16 @@ table code {
 }
 
 
-
 /* Media Queries, to iron out a few wrinkles */
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Smartphones + Small screens (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px), (max-width: 580px) {
 
   body {
-    padding:3.8em 2em;
+    padding:2em;
+    font-size:1em;
+    line-height: 1.4em;
   }
   
-  h1 {
-    font-size: 5em
-  }
-
   .snippet img {
     width:100%
   }
