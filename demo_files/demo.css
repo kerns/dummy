@@ -78,19 +78,20 @@ h1, h2, h3, h4, h5, h6 {
 h1,h2,h3 {
   clear:both;
   display: block;
-  margin:1.5em 0 .5em -.75em;
+  margin:1.5em 0 .5em -15px;
 }
 
 h1 {
   font: normal 2.5em/.9em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  margin: 0 0 .5em -.2em;
+  margin-top: 0;
+  margin-bottom: .5em;
   padding-top: .2em;
 }
 
 h2 {
   border-bottom:2px solid #e0e9f0;
   font: normal 1.8em 'Chaparral Pro', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  padding:1em 0 .1em 0;
+  padding:.5em 0 .1em 0;
 }
 
 h3 {
@@ -123,7 +124,7 @@ p.note {
 p.hero {
   color:#888;
   font-size:1.1em;
-
+  margin-left:-15px;
 }
 
 footer p {
@@ -422,7 +423,7 @@ table code {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px), (max-width: 580px) {
 
   body {
-    padding:2em;
+    padding:2em 15px 0 30px;
     font-size:1em;
     line-height: 1.4em;
   }
