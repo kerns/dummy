@@ -79,6 +79,7 @@ h1,h2,h3 {
   clear:both;
   display: block;
   margin:1.5em 0 .5em -15px;
+  letter-spacing:-.025em;
 }
 
 h1 {
@@ -212,7 +213,7 @@ table th {
   font-weight: normal;
   padding: .5em .8em;
   border: 2px solid #fff;
-  border-width: 2px 0;
+  border-width: 0 2px 0 0;
   background: #343941;
   background: -moz-linear-gradient(top,  #424a51 0%, #40454f 50%, #343941 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#424a51), color-stop(50%,#40454f), color-stop(100%,#343941));

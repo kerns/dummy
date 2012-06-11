@@ -1,19 +1,22 @@
 <?php
 
-// Dummy v. 1.0 – For Rapid Prototyping and QA
+// +-+-+-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+
+// Dummy v. 1.0
+// For Rapid Prototyping and QA
+// +-+-+-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+
 
 // Feedback, requests, ideas => http://twitter.com/kerns
 // Fork, Follow, Download => https://github.com/kerns/dummy
 
 // LICENSE
-// Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license
+// Provided under a Creative Commons Attribution-Share Alike 3.0 United States license
 // (http://creativecommons.org/licenses/by-sa/3.0/us/).
 
 // REQUIREMENTS
 // Apache + PHP + GD
 
 // BASIC CONFIGURATION
-$dummy_path = "/dummy"; // The location of Dummy relative to the webroot of your project. (Example: "/~username/Sites/ProjectName/dummy")
+$dummy_path = "/dummy"; // The location of "/dummy" relative to the webroot of your project. (Example: "/~username/Sites/ProjectName/dummy")
 $flash_ads = false; // (true or false) Incorporate Adobe® Flash® based ads in the random selection and insertion of ads?
 define("JPEG_QUALITY", 90); // (1-100) You understand...
 define("MAX_WIDTH_PX", 2048); // (value in px) Max width of an image in assets/images
@@ -25,7 +28,6 @@ define("ADVANCED_RANDOM_IMAGES", true); // (true or false) Minimizes the number 
 define("IGNORE_CACHE", false); // For debugging of image generation
 define("HIDDEN_FOLDER_PREPEND", "!"); // Prepended to the name of a folder to be excluded from normal random selection (Example: "!myfolder")
 ini_set("memory_limit", "256M"); // Boosts memory allocation
-
 // END CONFIGURATION
 
 // BEGIN DUMMY

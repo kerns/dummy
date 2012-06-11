@@ -56,6 +56,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 + Kane5 – http://www.flickr.com/photos/andrewkneebone/6246521404/
 + Lick Live – http://www.flickr.com/photos/andrewkneebone/5084588415/
 + Natasha Palmer – http://www.flickr.com/photos/andrewkneebone/5314132766/
++ D&M Bar - http://www.flickr.com/photos/andrewkneebone/6846504494
 
 #### [The White House] (http://www.flickr.com/photos/whitehouse/)
 + FLOTUS on the Tarmac (P031612SH-0065) – http://www.flickr.com/photos/whitehouse/7051407739/
