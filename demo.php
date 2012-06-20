@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Dummy - A Quick and Dirty Demo</title>
+  <title>Welcome to Dummy</title>
   <meta name="description" content="Dummy is a toolkit for rapid prototyping and QA.">
   <meta name="author" content="David Kerns">
 
@@ -19,11 +19,11 @@
 
 <body>
 
-<header>
-  <h1>A&nbsp;Quick and&nbsp;Dirty Dummy&nbsp;Demo</h1>
-</header>
-
 <div id="main" role="main">
+
+  <header>
+    <h1>Welcome to Dummy<span class="mute">.</span></h1>
+  </header>
 
   <p class="hero">This document contains a few working demos, together with some light documentation to help get you started using Dummy. It also makes a suitable test page. If you can get it to operate without error then you're ready to start using it in your own project.</p>
   <p class="hero">If you're unclear as to why you'd want to do this in the first place, then head over to <a href="https://github.com/kerns/dummy">the project page</a>, or check out the <b>README.md</b> file included with this download.</p>
@@ -420,7 +420,6 @@
 
 <p>When used together, asset generation, probability, and loop range logic can create highly variable layouts with very little effort in code. This makes it possible to quickly test how the change of an item, attribute or parameter in one place propagates on a range of different scales. It can provide new insights on the performance or design efficacy of your work at the earliest stages of a project, and every time you reload the page.</p>
 
-
 <div class="snippet code-snippet">
   <pre class="brush: php">
     <h1>&lt;? dummy("text@headline") ?&gt;</h1>
@@ -444,7 +443,7 @@
 <section>
 <h2>More to come</h2>
 <p>There are a few unfinished features in Dummy that remain too fluid to document, namely the <b>dumb_question</b> function for reading and reacting to loop position, URL variables, and URL segments. More info to come on those when they're done.</p>
-<p>If you're interested in <a href="https://github.com/kerns/dummy">following the project</a> and want to be part of developing a tool that could support better outcomes and workflows for thousands of front-end specialists, then please get in touch.</p>
+<p>In the meantime, <a href="https://github.com/kerns/dummy">follow the project</a> on GitHub. Your ideas and contributions toward improving the code are welcome.</p>
 </section>
 
 </div>
