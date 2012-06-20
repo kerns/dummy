@@ -58,7 +58,8 @@ table {
 /* Begin Dummy Demo */
 /* Structure */
 #main {
-  max-width:1332px;
+  max-width:1145px;
+  margin:auto;
 }
 
 /* Typography */
