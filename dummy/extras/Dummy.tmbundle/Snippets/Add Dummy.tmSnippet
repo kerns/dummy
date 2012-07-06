@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? require_once("${1:dummy/dummy.php}") ?&gt;
+$0</string>
+	<key>name</key>
+	<string>Add Dummy</string>
+	<key>tabTrigger</key>
+	<string>dummy</string>
+	<key>uuid</key>
+	<string>672891A7-A301-40E0-8DC8-834164B01CA0</string>
+</dict>
+</plist>

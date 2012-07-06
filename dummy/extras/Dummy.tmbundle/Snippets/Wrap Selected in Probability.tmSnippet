@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? if (dumb_luck("$1${2:%}")): ?&gt;
+${3:$TM_SELECTED_TEXT}
+&lt;? endif ?&gt;$0</string>
+	<key>keyEquivalent</key>
+	<string>^~%</string>
+	<key>name</key>
+	<string>Wrap Selected in Probability</string>
+	<key>uuid</key>
+	<string>26B963DB-7075-4A76-B26B-09F7B3FC2492</string>
+</dict>
+</plist>

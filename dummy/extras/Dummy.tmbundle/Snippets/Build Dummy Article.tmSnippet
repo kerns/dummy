@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? while (dumb_luck("$1${2:-$3}")): ?&gt;
+&lt;p&gt;&lt;? dummy("text@paragraph") ?&gt;&lt;/p&gt;
+&lt;? endwhile ?&gt;
+$0</string>
+	<key>name</key>
+	<string>Build Dummy Article</string>
+	<key>tabTrigger</key>
+	<string>dart</string>
+	<key>uuid</key>
+	<string>9AB71085-59D8-47A4-9C4C-49B492359514</string>
+</dict>
+</plist>

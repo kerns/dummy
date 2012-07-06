@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? while (dumb_luck("${1:1}-${2:3}")): ?&gt;$4${5:&lt;? endwhile ?&gt;}$0</string>
+	<key>name</key>
+	<string>Insert Variable Loop</string>
+	<key>tabTrigger</key>
+	<string>d++</string>
+	<key>uuid</key>
+	<string>ABC789BF-ACA2-4CCB-BB3D-61866EAF3B66</string>
+</dict>
+</plist>

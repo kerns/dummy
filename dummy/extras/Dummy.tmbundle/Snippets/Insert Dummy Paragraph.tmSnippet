@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? dummy("text@$1paragraph") ?&gt;$0</string>
+	<key>name</key>
+	<string>Insert Dummy Paragraph</string>
+	<key>tabTrigger</key>
+	<string>dpar</string>
+	<key>uuid</key>
+	<string>56D07C31-2741-42C2-93B8-12E9C751DEC6</string>
+</dict>
+</plist>
