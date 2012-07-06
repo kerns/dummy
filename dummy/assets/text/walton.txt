@@ -4,12 +4,12 @@
 # http://trentwalton.com/2012/06/19/fluid-type/
 #
 
-Lorem ipsum dolor sit amet, consectetur adip<span title="&rang;45 chars" style="color:orange">&rang;</span>isicing elit, sed do eiusmod <span title="&lang;75 chars" style="color:red">&lang;</span>tempor incididunt ut labore et dolore magna aliqu.
+Lorem ipsum dolor sit amet, consectetur adip<span title="&rang;45 chars">*</span>isicing elit, sed do eiusmod <span title="&lang;75 chars">*</span>tempor incididunt ut labore et dolore magna aliqu.
 
-Pellentesque habitant morbi tristique senect<span title="&rang;45 chars" style="color:orange">&rang;</span>us et netus et malesuada fame<span title="&lang;75 chars" style="color:red">&lang;</span>s ac turpis egestas.
+Pellentesque habitant morbi tristique senect<span title="&rang;45 chars">*</span>us et netus et malesuada fame<span title="&lang;75 chars">*</span>s ac turpis egestas.
 
-Nam interdum iaculis tincidunt. Aenean vel n<span title="&rang;45 chars" style="color:orange">&rang;</span>isl a ipsum posuere facilisis<span title="&lang;75 chars" style="color:red">&lang;</span> ut quis est. Maecenas faucibus mollis interdum.
+Nam interdum iaculis tincidunt. Aenean vel n<span title="&rang;45 chars">*</span>isl a ipsum posuere facilisis<span title="&lang;75 chars">*</span> ut quis est. Maecenas faucibus mollis interdum.
 
-Praesent consectetur sollicitudin lobortis. <span title="&rang;45 chars" style="color:orange">&rang;</span>Aenean massa erat, laoreet el<span title="&lang;75 chars" style="color:red">&lang;</span>ementum mollis non, consectetur ut massa.
+Praesent consectetur sollicitudin lobortis. <span title="&rang;45 chars">*</span>Aenean massa erat, laoreet el<span title="&lang;75 chars">*</span>ementum mollis non, consectetur ut massa.
 
-Phasellus vitae pharetra felis. In quis nibh<span title="&rang;45 chars" style="color:orange">&rang;</span> justo, non semper lectus. Ph<span title="&lang;75 chars" style="color:red">&lang;</span>asellus et tellus eu mi volutpat dapibus.
+Phasellus vitae pharetra felis. In quis nibh<span title="&rang;45 chars">*</span> justo, non semper lectus. Ph<span title="&lang;75 chars">*</span>asellus et tellus eu mi volutpat dapibus.
