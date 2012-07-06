@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;? dummy("text@$walton") ?&gt;$0</string>
+	<key>name</key>
+	<string>Insert Walton (Testing Column Measure)</string>
+	<key>tabTrigger</key>
+	<string>dwalt</string>
+	<key>uuid</key>
+	<string>EB7F2304-351A-4B68-AFDA-BEA130E1503D</string>
+</dict>
+</plist>
