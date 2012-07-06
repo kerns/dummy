@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>bundleUUID</key>
+	<string>788D1333-0B51-40C0-97B8-85A78114E1C5</string>
 	<key>content</key>
-	<string>&lt;? dummy("text@$walton") ?&gt;$0</string>
+	<string>&lt;? dummy("text@walton") ?&gt;$0</string>
 	<key>name</key>
 	<string>Insert Walton (Testing Column Measure)</string>
 	<key>tabTrigger</key>
