@@ -1,7 +1,10 @@
-# Based on a technique for maintaining optimal column
-# measure, as described (created?) by Trent Walton.
-#
+# Based on a simple technique for maintaining optimal
+# column measure, as described (created?) by Trent Walton.
+# 
 # http://trentwalton.com/2012/06/19/fluid-type/
+#
+# As they denote the 45th and 75th characters, aim for
+# one but never more than two "*" per line.
 #
 
 Lorem ipsum dolor sit amet, consectetur adip<span title="&rang;45 chars">*</span>isicing elit, sed do eiusmod <span title="&lang;75 chars">*</span>tempor incididunt ut labore et dolore magna aliqu.
