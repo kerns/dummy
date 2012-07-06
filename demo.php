@@ -265,7 +265,7 @@
 <p class="note"><strong>Note:</strong> When specifying dimensions, either as an exact pixel measurement or as an aspect ratio, describe the width first and height second (<b>Width</b>&nbsp;x&nbsp;<b>Height</b>).</p>
 </div>
 
-<p>The basic model for how Dummy selects assets is random and recursive. It begins looking for assets at the level you specify and drills down, only ignoring folders that start with a &lsquo;<b>!</b>&rsquo;. Dummy also works in the background to track which image was most recently served, to minimize the odds of inserting the same image twice in succession or in close proximity.</p>
+<p>The basic model for how Dummy selects image assets is semi-random and recursive. It begins looking for assets on the root level of <b>"assets/images"</b> and drills down, only ignoring sub-folders with names that begin with a &lsquo;<b>!</b>&rsquo;. Dummy also works in the background to track which image was most recently selected, in order to minimize the odds of inserting the same image in succession or in close proximity.</p>
 </article>
 
 <article>
