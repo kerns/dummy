@@ -2,9 +2,9 @@ Nam sollicitudin nunc at metus aliquet viverra venenatis lectus viverra.
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <a href="http://nyti.ms/KloFUa">http://nyti.ms/KloFUa</a>
 Integer magna sapien, adipiscing pellentesque egestas et, ultrices vitae ipsum.
 Aliquam interdum laoreet lectus eu interdum, ut risus nulla. Duis sed malesuada elit. <a href="http://nyti.ms/NFOJi8">http://nyti.ms/NFOJi8</a>
-Nulla eget est orci. In iaculis, nulla in volutpat posuere, turpis elit blandit quam, vitae porttitor mauris ante metus.
+Nulla eget est orci &hellip;in iaculis nulla in volutpat posuere. Turpis elit blandit quam, vitae porttitor mauris ante metus.
 Lorem ipsum dolor sit amet, consectetur adipiscing nullam. <a href="https://twitter.com/search/loremipsum">#loremipsum</a>
-Fusce id dolor a diam volutpat. Integer vitae orci magna.
+<a href="https://twitter.com/mat">@mat</a> Fusce id dolor a diam volutpat. Integer vitae orci magna.
 Morbi porttitor porttitor lectus et convallis. Nulla sollicitudin, augue in ultricies nullam. <a href="http://nyti.ms/MpRnES">http://nyti.ms/MpRnES</a>
 &ldquo;Nam felis odio, suscipit ac dictum ac ultricies ac leo&rdquo; &mdash; Cum sociis natoque penatibus et magnis dis parturient volutpat.
 Etiam laoreet, justo vel feugiat iaculis, nisl enim luctus est, ac metus. <a href="http://goo.gl/x5dmN">http://goo.gl/x5dmN</a>
@@ -13,3 +13,8 @@ Nullam fringilla consectetur turpis at viverra. Ut eu tellus nisi, sed commodo m
 In posuere ligula et nullam. <a href="http://nyti.ms/LURwlB">http://nyti.ms/LURwlB</a>
 Proin lobortis nunc ac erat bibendum ut porta tellus fringilla. Maecenas nibh tellus, tincidunt in pellentesque posuere.
 Pellentesque tempor rutrum arcu, ullamcorper rutrum massa gravida at massa nunc.
+<a href="https://twitter.com/guan">@guan</a> Quisque lobortis luctus est quis aliquam, &ldquo;nullam convallis nullam&rdquo;.
+Sed volutpat, diam quis auctor porta, justo felis tincidunt enim, quis cras amet.
+Integer eget est vel lacus auctor sollicitudin sed eget posuere. <a href="http://goo.gl/9F23a">http://goo.gl/9F23a</a>
+<a href="https://twitter.com/krautwald">@krautwald</a> Nam condimentum neque nec orci cursus sollicitudin &hellip;pellentesque ut est turpis volutpat.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at urna lectus.
