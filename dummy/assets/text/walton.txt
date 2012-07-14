@@ -1,5 +1,5 @@
 # Based on a simple technique for maintaining optimal
-# column measure, as described (created?) by Trent Walton.
+# column measure as described by Trent Walton.
 # 
 # http://trentwalton.com/2012/06/19/fluid-type/
 #
