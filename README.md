@@ -1,12 +1,12 @@
 # Dummy
 =====
-Dummy is a simple PHP based toolkit, designed to make the development, testing and presentation of web prototypes less time consuming and more realistic.
+Dummy is a toolkit designed to make the development, testing and presentation of web prototypes less time consuming and more realistic. It does so by making it easy to populate your static HTML with dynamic content, and by randomizing elements within your layout, in a way, simulating connectivity to a live database.
 
 Originally conceived as a tool for helping to simulate the high volume, rapidly changing content characteristics of online newspapers and magazines, it's generalized enough to benefit the early stage front-end development of any website or application with content that frequently changes in length, form or nature.
 
-Dummy can be useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before engineers further down the gantt diagram can begin the work of disassociating and obfuscating yours.
+Dummy can be useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before engineers further down the Gantt diagram can begin their work of disassociating and obfuscating yours.
 
-It can also been seen as a support tool for designers and front-end artisans ready to embrace the dark art of In-Browser Design.
+It can also been seen as a support tool for designers and front-end artisans ready to embrace the dark art of designing in-browser, as vastly different layout permutations can be generated and evaluated rapidly and with a minimum of effort.
 
 ### Dummy can…
 + Insert randomly selected strings of placeholder text in various lengths and formats (e.g. headline, teaser, paragraph).
@@ -17,13 +17,13 @@ It can also been seen as a support tool for designers and front-end artisans rea
 
 ### You can…
 + See demos and read docs at http://dummy.kerns.dk/
++ Watch a screencast at https://vimeo.com/42252088
 + Ask questions and direct misgivings to http://twitter.com/kerns
 + Fork, follow or download via https://github.com/kerns/dummy
 
 ### More Info
 Dummy's primary goal is to provide tools that speed front-end prototyping and QA. Whether you're meticulously crafting a fully responsive site with a myriad of CSS breakpoints, or just slapping together a half-baked idea – using Dummy should make it easier _at the earliest stages of development_ to visualize, test and present something much closer to what your actual front-end will become under a variety of different conditions.
 
-It does so by helping you to populate your work with content and randomizing key aspects of it's layout, in a way, simulating connectivity to a live database.
 
 **Dummy is for the front-end web worker who wonders…**
 
@@ -45,13 +45,12 @@ Dummy also aims to support designers and front-end artisans who find themselves 
 You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/extras/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
 
 ### TODO
-+ Improve demos, finish docs.
 + Optimize performance and memory usage.
 + Integrate a Lorem Ipsum generator, together with some intuitive syntax for specifying parameters of the text you want generated (length in chars or words, casing, etc)
 + Ability to call and define image crops from within CSS (i.e. ability to post image requests in the URL to dummy.php)
 + Develop an easy way to link our broadcast dumb_luck outcomes, so that one outcome could bubble-over to another.
-+ Clean up the way errors and messages are formatted (i.e. abstract the HTML and style surrounding them)
-+ It's a bad idea to ship this with a bandwidth hogging library of images in assets/images. The image assets that ship with Dummy are also highly geared toward usage in editorial design. What if we maintained separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design).
++ Clean up the way errors and messages are formatted (i.e. abstract the HTML and inline styles that surround them)
++ The image assets that ship with Dummy are highly geared for usage in editorial design. One could imagine separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design).
 
 ### License
 Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Be a doll and let me know how you're using Dummy, or if you've used it to help build, test or demo anything interesting.
