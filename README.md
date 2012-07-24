@@ -1,12 +1,12 @@
 # Dummy
 =====
-Dummy is a toolkit designed to make the development, testing and presentation of web prototypes less time consuming and more realistic. It does so by making it easy to populate your static HTML with dynamic content, and by randomizing elements within your layout, in a way, simulating connectivity to a live database.
+Dummy is a content generation toolkit designed to make the development, testing and presentation of web prototypes less time consuming and more realistic. It does so by making it easy to populate static HTML with dynamic content, and by randomizing elements within a layout on subsequent loads of a document, in a way, simulating connectivity to a live database.
 
 Originally conceived as a tool for helping to simulate the high volume, rapidly changing content characteristics of online newspapers and magazines, it's generalized enough to benefit the early stage front-end development of any website or application with content that frequently changes in length, form or nature.
 
-Dummy can be useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before engineers further down the Gantt diagram can begin their work of disassociating and obfuscating yours.
+Dummy can be useful in the early stages of a project's development, where basic questions and assumptions about how to architect the front-end must be tested and resolved to conclusion before engineers further down the Gantt diagram can begin their work of obfuscating yours.
 
-It can also been seen as a support tool for designers and front-end artisans ready to embrace the dark art of designing in-browser, as vastly different layout permutations can be generated and evaluated rapidly and with a minimum of effort.
+It can also been seen as a support tool for designers and front-end artisans ready to embrace the dark art of designing in-browser, as vastly different layout permutations can be generated and evaluated rapidly with each load of the page. Problems and shortcommings can be more quickly exposed.
 
 ### Dummy can…
 + Insert randomly selected strings of placeholder text in various lengths and formats (e.g. headline, teaser, paragraph).
@@ -32,14 +32,14 @@ Dummy's primary goal is to provide tools that speed front-end prototyping and QA
 + How do the columns align and balance as the amount of content changes – or what's the longest word that can fit into this column without triggering unwanted overflow?
 + What is the easiest way to demo the signed-in and signed-out states of this page?
 + Do these CSS breakpoints hold water?
-+ How will this script perform in a DOM when it needs to process over 100+ images?
++ How will this script perform within the DOM when it needs to process over 100 images? 1000 images?
 
 ### Why?
-Using Dummy in the early stages of front-end development can give you a new perspective on your work every time your document is reloaded in the browser, shortening and improving your test cycle by more quickly exposing weak-points or trouble areas as you go about marking up a new design.
+Using Dummy in the early stages of front-end development can give you a new perspective on your work every time your document is reloaded in the browser, shortening and improving your test cycle by more quickly exposing weak-points or trouble areas as you go about marking up a new design. It's like watching a time-lapse video of your layout performing with real data.
 
-This is especially important for front-end code that should be delivered to another team for implementation as part of a phased hand-off. As any front-ender knows, the earlier you can catch a problem the easier and less painful it will be to debug.
+Subscribing to the belief that the earlier a problem can be made to surface, the easier and less painful it will be to deal with and debug, this is especially useful in projects with front-end code that should be delivered to another team for implementation as part of a phased hand-off.
 
-Dummy also aims to support designers and front-end artisans who find themselves increasingly attracted to In-Browser Design as a viable process for the creation, iteration, and client approval of their work. As does @beardedstudio. (http://blog.bearded.com/post/21447195970/mocking-up-is-hard-to-do)
+Dummy also supports designers and front-end artisans who find themselves increasingly attracted to In-Browser Design as a viable process for the creation, iteration, and client approval of their work. As does @beardedstudio. (http://blog.bearded.com/post/21447195970/mocking-up-is-hard-to-do)
 
 ### Requirements
 You need a development environment running Apache + PHP and compiled with support for GD (this covers most of them). If you want to play with URL segments or other advanced techniques then you'll need to have mod_rewrite enabled, and you'll need to enable the .htaccess file (included in /dummy/extras/), but again, this probably covers most local development environments. If you're not developing locally, …why aren't you developing locally?
@@ -53,7 +53,7 @@ You need a development environment running Apache + PHP and compiled with suppor
 + The image assets that ship with Dummy are highly geared for usage in editorial design. One could imagine separate asset packages for different types of projects (e.g. a commerce package with commercial product shots, a portfolio or gallery package with images that showcase art, architecture, or design).
 
 ### License
-Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Be a doll and let me know how you're using Dummy, or if you've used it to help build, test or demo anything interesting.
+Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Be a doll and let us know how you're using Dummy, or if you've used it to help build, test or demo anything interesting.
 
 ### Images
 Credits and license info can be found in dummy/CREDITS.md
