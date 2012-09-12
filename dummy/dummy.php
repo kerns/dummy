@@ -425,7 +425,7 @@ function dumb_luck($p) {
    // some form of way of referring to the actual dumb_luck()-call we
    // are looping on.
    $stack = debug_backtrace();
-   $ref = md5($stack[0]['file'] . $stack[0]['line'] . $stack[0]['args']);
+   $ref = md5($stack[0]['file'] . $stack[0]['line'] . serialize( $stack[0]['args'] ));
 
    // Do we already have a frame for this call?
    if (count($luckstack) > 0) {
