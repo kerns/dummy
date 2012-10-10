@@ -196,3 +196,7 @@ Images bundled with Dummy (found in dummy/assets/images) are used gratefully and
 
 #### [Diego Lavecchia (DieEgg)] (http://www.flickr.com/photos/dieegg/)
 + DL logo – http://www.flickr.com/photos/dieegg/5202011824/
+
+
+## Code
+Thanks to everyone that has contributed, with special thanks to Kean Pedersen for the initial architecture and for a boat-load of ongoing support.

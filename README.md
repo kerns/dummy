@@ -55,5 +55,5 @@ You need a development environment running Apache + PHP and compiled with suppor
 ### License
 Dummy is released under a Creative Commons Attribution-Share Alike 3.0 United States license (http://creativecommons.org/licenses/by-sa/3.0/us/). Be a doll and let us know how you're using Dummy, or if you've used it to help build, test or demo anything interesting.
 
-### Images
-Credits and license info can be found in dummy/CREDITS.md
+### Credits
+Credits and image license information can be found in dummy/CREDITS.md
