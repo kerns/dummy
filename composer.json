@@ -1,0 +1,15 @@
+{
+    "name": "kerns/dummy",
+    "description": "A content generation toolkit for rapid web prototyping and QA",
+    "license": "Creative Commons Attribution-Share Alike 3.0 United States",
+    "authors": [
+        {
+            "name": "David Kerns",
+            "email": "david@kerns.dk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
