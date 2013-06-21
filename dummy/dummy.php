@@ -379,6 +379,10 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
     ob_end_clean();
     // figure out the image type
     $imgtype = exif_imagetype($content);
+    if (!$imgtype) {
+        echo "Could not open image $content";
+        exit;
+    }
     $contenttype = image_type_to_mime_type($imgtype);
     header("Content-type: " . $contenttype);
     readfile($content);
