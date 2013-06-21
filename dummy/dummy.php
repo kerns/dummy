@@ -373,12 +373,20 @@ function dummy($a, $internalcall = false) {
 // Check for the presense of a direct call
 // If that is the case, we call dummy() with the query part
 if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    $qs = $_SERVER['QUERY_STRING'];
+    if (getenv('DUMMYURL')) {
+        $qs = preg_replace('/^dummyurl=&/','', $qs);
+    }
     ob_start();
-    dummy($_SERVER['QUERY_STRING'], true);
+    dummy($qs, true);
     $content = ob_get_contents();
     ob_end_clean();
     // figure out the image type
     $imgtype = exif_imagetype($content);
+    if (!$imgtype) {
+        echo "Could not open image $content";
+        exit;
+    }
     $contenttype = image_type_to_mime_type($imgtype);
     header("Content-type: " . $contenttype);
     readfile($content);
