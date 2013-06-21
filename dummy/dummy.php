@@ -127,13 +127,17 @@ function dummy_ad($folder) {
 
 }
 
-function dummy_image($path, $params) {
+function dummy_image($path, $params, $pathtype = "URI") {
    global $dummy_path;
    $basePath = dirname(__FILE__)."/assets/image/";
    $imgFn = getRandomFile($basePath, $path);
 
    if ($params == "") {
-      $result = $dummy_path."/assets/image/".$imgFn;
+      if ($pathtype == "URI") {
+         $result = $dummy_path."/assets/image/".$imgFn;
+      } else {
+         $result = $basePath . $imgFn;
+      }
    } else {
       $params = str_replace(" ", "", $params);
       $params = explode(",", $params);
@@ -244,7 +248,11 @@ function dummy_image($path, $params) {
       imagedestroy($img);
       imagedestroy($cImg);
       }
-      $result = $nImgUrl;
+      if ($pathtype == "URI") {
+         $result = $nImgUrl;
+      } else {
+         $result = $nImgFn;
+      }
    }
    print $result;
 }
@@ -335,7 +343,7 @@ function getFilesRecursively($basePath, $path = "", $files = array()) {
    return $files;
 }
 
-function dummy($a) {
+function dummy($a, $internalcall = false) {
    global $delimiter;
 
    // Parse the command
@@ -355,12 +363,30 @@ function dummy($a) {
       if (substr($path, -1) != "/") {
          $path.= "/";
       }
-      dummy_image($path, $params);
+      dummy_image($path, $params, $internalcall ? 'FILE' : 'URI');
    } else {
       dummy_text($cmdraw, $params);
    }
 
 }
+
+// Check for the presense of a direct call
+// If that is the case, we call dummy() with the query part
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    ob_start();
+    dummy($_SERVER['QUERY_STRING'], true);
+    $content = ob_get_contents();
+    ob_end_clean();
+    // figure out the image type
+    $imgtype = exif_imagetype($content);
+    $contenttype = image_type_to_mime_type($imgtype);
+    header("Content-type: " . $contenttype);
+    readfile($content);
+    exit();
+
+}
+
+
 // SO ENDS THE DUMMY CORE
 
 
