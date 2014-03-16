@@ -11,7 +11,7 @@ All other images are provided under some form of Creative Commons license permit
 + http://creativecommons.org/licenses/by-sa/2.0/deed.en
 
 ### Thanks
-Images bundled with Dummy (found in dummy/assets/images) are used gratefully and with specific credit to the following:
+Images bundled with Dummy (found in dummy/assets/images) are used gratefully with credit to the following:
 
 -----
 
