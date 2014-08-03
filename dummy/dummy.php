@@ -34,21 +34,24 @@ ini_set("memory_limit", "256M"); // Boosts memory allocation
 // Start a session if it hasn't already been started
 $sid = session_id();
 if (!$sid) {
-   session_start(); 
+   session_start();
 }
 
 // Clear the list of used images
 $_SESSION["USED_RANDOM_IMAGES"] = array();
 
 // CORE DUMMY CODE (Deals with everything in dummy/assets)
-function dummy_filter_strings($a) {
+function dummy_filter_strings($a)
+{
    $a = trim($a);
    if ($a == '') return false;     // Remove empty lines
    if ($a{0} == '#') return false; // Remove comments
+
    return true;
 }
 
-function dummy_text($inpath, $filename) {
+function dummy_text($inpath, $filename)
+{
    $path = dirname(__FILE__) .  "/assets/" . $inpath;
 
    $strings = array();
@@ -68,6 +71,7 @@ function dummy_text($inpath, $filename) {
    // Any strings at all?
    if (count($strings) == 0) {
       echo "<em>Couldn't locate anything usable in <b>&#8220;/assets/$inpath@$filename&#8221;</b>. Please double check your Dummy Code.</em>";
+
       return;
    }
 
@@ -84,7 +88,8 @@ function dummy_text($inpath, $filename) {
    echo $content;
 }
 
-function dummy_ad($folder) {
+function dummy_ad($folder)
+{
    global $flash_ads;
    $path = dirname(__FILE__) . "/assets/ad";
 
@@ -127,7 +132,8 @@ function dummy_ad($folder) {
 
 }
 
-function dummy_image($path, $params, $pathtype = "URI") {
+function dummy_image($path, $params, $pathtype = "URI")
+{
    global $dummy_path;
    $basePath = dirname(__FILE__)."/assets/image/";
    $imgFn = getRandomFile($basePath, $path);
@@ -149,17 +155,17 @@ function dummy_image($path, $params, $pathtype = "URI") {
       $ay = 0;
       $rx = 0;
       $ry = 0;
-      foreach($params as $param) {
+      foreach ($params as $param) {
          if (preg_match("/^(\d{0,5})x(\d{0,5})$/", $param, $m)) {
-            $rx = (int)$m[1]; // Getting the width and making sure it's in the allowed range
-            $ry = (int)$m[2]; // Getting the height and making sure it's in the allowed range
+            $rx = (int) $m[1]; // Getting the width and making sure it's in the allowed range
+            $ry = (int) $m[2]; // Getting the height and making sure it's in the allowed range
             if ($rx > MAX_WIDTH_PX) {
                $rx = 0;
             }
             if ($ry > MAX_HEIGHT_PX) {
                $ry = 0;
             }
-         } else if (preg_match("/^([\d\.]+):([\d\.]+)$/", $param, $m)) {
+         } elseif (preg_match("/^([\d\.]+):([\d\.]+)$/", $param, $m)) {
             // Derive the aspect ratio
             $ax = $m[1];
             $ay = $m[2];
@@ -186,7 +192,7 @@ function dummy_image($path, $params, $pathtype = "URI") {
                $cx = $ox;
                $cy = $cx / $ar;
             }
-         } else if ($ar == 1) {
+         } elseif ($ar == 1) {
             // For squared images (width = height)
             $cx = min($ox, $oy);
             $cy = min($ox, $oy);
@@ -210,7 +216,7 @@ function dummy_image($path, $params, $pathtype = "URI") {
             // Calculate the new height
             $iy = floor($cy * $rx / $cx);
             $ix = $rx;
-         } else if ($rx == 0 && $ry > 0) {
+         } elseif ($rx == 0 && $ry > 0) {
             // Calculate the new width
             $ix = floor($cx * $ry / $cy);
             $iy = $ry;
@@ -239,9 +245,9 @@ function dummy_image($path, $params, $pathtype = "URI") {
 
          if ($nImgExt == "jpg" || $nImgExt == "jpeg") {
             @imagejpeg($nImg, $nImgFn, JPEG_QUALITY);
-         } else if ($nImgExt == "gif") {
+         } elseif ($nImgExt == "gif") {
             @imagegif($nImg, $nImgFn);
-         } else if ($nImgExt == "png") {
+         } elseif ($nImgExt == "png") {
             @imagepng($nImg, $nImgFn);
          }
       // Remove the images from memory
@@ -257,7 +263,8 @@ function dummy_image($path, $params, $pathtype = "URI") {
    print $result;
 }
 
-function getTrueColorImg($img, $ix, $iy, $ext) {
+function getTrueColorImg($img, $ix, $iy, $ext)
+{
    $rImg = imagecreatetruecolor($ix, $iy);
    if ($ext == "gif" || $ext == "png") {
       $trnprt_indx = imagecolortransparent($img);
@@ -273,16 +280,18 @@ function getTrueColorImg($img, $ix, $iy, $ext) {
          imagesavealpha($rImg, true);
       }
    }
+
    return $rImg;
 }
 
-function getCacheFilename($fn) {
-
+function getCacheFilename($fn)
+{
    // Replace bad characters with a "_"
    return preg_replace("/\W/", "_", $fn);
 }
 
-function getRandomFile($basePath, $path) {
+function getRandomFile($basePath, $path)
+{
    if (substr($path, 0, 1) == "/") {
       $path = substr($path, 1);
    }
@@ -295,7 +304,7 @@ function getRandomFile($basePath, $path) {
       // Ignore used images
       $ffiles = $files;
       foreach ($ffiles as $k=>$v) {
-         if (array_key_exists($v, $sfiles))  {
+         if (array_key_exists($v, $sfiles)) {
             unset($ffiles[$k]);
          }
       }
@@ -318,11 +327,12 @@ function getRandomFile($basePath, $path) {
 
    // Update the list of used images
    $_SESSION["USED_RANDOM_IMAGES"] = $sfiles;
+
    return $res;
 }
 
-function getFilesRecursively($basePath, $path = "", $files = array()) {
-
+function getFilesRecursively($basePath, $path = "", $files = array())
+{
    // Scan directories recursively
    $dn = $basePath.$path;
    if ($dh = opendir($dn)) {
@@ -340,10 +350,12 @@ function getFilesRecursively($basePath, $path = "", $files = array()) {
          }
       }
    }
+
    return $files;
 }
 
-function dummy($a, $internalcall = false) {
+function dummy($a, $internalcall = false)
+{
    global $delimiter;
 
    // Parse the command
@@ -358,7 +370,7 @@ function dummy($a, $internalcall = false) {
    // Branch out to what type we need to handle
    if ($cmd == 'ad') {
       dummy_ad($params);
-   } else if (strpos($cmd, "image") !== false && strpos($cmd, "image") == 0) {
+   } elseif (strpos($cmd, "image") !== false && strpos($cmd, "image") == 0) {
       $path = str_replace("image", "", $cmd);
       if (substr($path, -1) != "/") {
          $path.= "/";
@@ -401,7 +413,8 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 // If Dummy had an expansion pack, this would be it.
 // DUMB LUCK (Assigns probability and generates loops)
 
-function dumb_luck($p) {
+function dumb_luck($p)
+{
    /* Since we need to support nested loops, we will use a stack to maintain
    * each nesting. On the stack we put frames with the state of each nested loop.
    * Each frame contains a reference to the dumb_luck()-call in the condition of
@@ -412,7 +425,7 @@ function dumb_luck($p) {
    * http://en.wikipedia.org/wiki/Stack_(data_structure)
    * for more details.
    */
-   
+
    static $luckstack = array();
 
    // Handle normal randomness ("50%", "50")
@@ -425,6 +438,7 @@ function dumb_luck($p) {
       if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
       $frame = $luckstack[0];
       echo $frame['pos']+1;
+
       return;
    }
 
@@ -432,6 +446,7 @@ function dumb_luck($p) {
    if ($p == 'first') {
       if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
       $frame = $luckstack[0];
+
       return $frame['pos'] == 0;
    }
 
@@ -439,6 +454,7 @@ function dumb_luck($p) {
    if ($p == 'last') {
       if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
       $frame = $luckstack[0];
+
       return $frame['pos'] == $frame['count']-1;
    }
 
@@ -446,12 +462,14 @@ function dumb_luck($p) {
    if ($p == 'inner') {
       if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
       $frame = $luckstack[0];
+
       return $frame['pos'] != $frame['count']-1 && $frame['pos'] != 0;
    }
 
    // Are we looping on a range?
    if (strpos($p, '-') === false && !is_numeric($p)) {
       echo "<em>Wrong range given to <b>dumb_luck</b></em>";
+
       return false;
    }
 
@@ -469,6 +487,7 @@ function dumb_luck($p) {
             return true; // Keep looping
          } else {
             array_shift($luckstack); // Done looping, remove frame
+
             return false;
          }
       }
@@ -493,6 +512,7 @@ function dumb_luck($p) {
    // Enqueue frame on our stack, whatever that means...
    if ($count > 0) {
       array_unshift($luckstack, $frame);
+
       return true;
    } else {
       return false;
@@ -502,7 +522,8 @@ function dumb_luck($p) {
 
 // DUMB QUESTION (Gets answers to important questions)
 
-function dumb_question($p) {
+function dumb_question($p)
+{
    // Parse the command
    list($cmd,$params) = explode(':',$p,2);
 
@@ -535,7 +556,7 @@ function dumb_question($p) {
             // Check if the given question is not true
             if (!array_key_exists($key, $_GET)) {
                     return false;
-            } else if ($_GET[$key] != $value) {
+            } elseif ($_GET[$key] != $value) {
                return false;
             }
          }
@@ -544,11 +565,12 @@ function dumb_question($p) {
       return true;
    }
 
-   // For 'segment' commands, we check the .htaccess generated query string   
+   // For 'segment' commands, we check the .htaccess generated query string
    if ($cmd == 'segment') {
       // Requirement check
       if (!getenv('DUMMYURL')) {
          echo "<em>You can't ask about <b>segments</b> using dumb_question without first enabling the optional .htaccess file. Look in &#8220;dummy/docs&#8221; for more info.</em>";
+
          return false;
       }
       $segments = explode('/',$_GET['dummyurl']); // note that $segments[0] = '' after this
@@ -562,6 +584,7 @@ function dumb_question($p) {
             return;
          }
          echo $segments[$n];
+
          return;
       } else {
          // Test the segment content
@@ -573,12 +596,14 @@ function dumb_question($p) {
             if ($key >= count($segments)) return false; // make sure we don't index too far
             if ($segments[$key] != $value) return false;
          }
+
          return true;
       }
    }
 
    // Wrong command, you will be punished!
    echo "<em>Unknown command in <b>dumb_question:</b> $cmd</em>";
+
    return false;
 }
 
