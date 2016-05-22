@@ -16,7 +16,6 @@ It can also been seen as a support tool for designers and front-end artisans rea
 + More. Not lots more, but a _bit_ more!
 
 ### You can…
-+ See demos and read docs at http://dummy.kerns.dk/
 + Watch a screencast at https://vimeo.com/42252088
 + Ask questions and direct misgivings to http://twitter.com/kerns
 + Fork, follow or download via https://github.com/kerns/dummy
