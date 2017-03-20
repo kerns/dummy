@@ -87,7 +87,6 @@
 </article>
 </section>
 
-
 <section>
 <h2 id="assets">Dummy Assets</h2>
 <p>The ability to select, manipulate, and insert different assets into your front-end project is a key feature of Dummy. All of the assets available to Dummy live in a folder located at <b>dummy/assets/</b>. It's a good idea to poke around in here and see how things are structured. The simple syntax used to request different assets relates very much to the structure of this directory.</p>
