@@ -14,6 +14,7 @@
 
 // REQUIREMENTS
 // Apache + PHP + GD
+// Soon available for use with Nginx
 
 // BASIC CONFIGURATION
 $dummy_path = "/dummy"; // The location of "/dummy" relative to the webroot of your project. (Example: "/~username/Sites/ProjectName/dummy")
