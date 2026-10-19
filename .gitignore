@@ -1,0 +1,6 @@
+/vendor/
+/composer.lock
+/.phpunit.cache/
+/build/
+/dummy/cache/*
+!/dummy/cache/IMPORTANT.md

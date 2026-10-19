@@ -1,14 +1,53 @@
 {
     "name": "kerns/dummy",
-    "description": "A content generation toolkit for rapid prototyping and QA",
-    "license": "Creative Commons Attribution-Share Alike 3.0 United States",
-    "authors": [
-        {
-            "name": "David Kerns",
-            "email": "david@kerns.dk"
-        }
-    ],
-    "minimum-stability": "dev",
+    "description": "A content generation toolkit for rapid web prototyping and QA",
+    "type": "library",
+    "homepage": "https://github.com/kerns/dummy",
+    "license": "LicenseRef-CC-BY-SA-3.0-US",
+    "keywords": ["prototyping", "placeholder", "lorem-ipsum", "images", "laravel", "testing"],
+    "authors": [{"name": "David Kerns", "email": "david@kerns.dk"}],
+    "support": {
+        "docs": "https://kerns.github.io/dummy/",
+        "issues": "https://github.com/kerns/dummy/issues",
+        "source": "https://github.com/kerns/dummy"
+    },
     "require": {
+        "php": "^8.3",
+        "ext-gd": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "phpunit/phpunit": "^12.5 || ^13.0"
+    },
+    "autoload": {
+        "files": ["dummy/dummy.php"],
+        "psr-4": {"Kerns\\Dummy\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"Kerns\\Dummy\\Tests\\": "tests/"}
+    },
+    "extra": {
+        "branch-alias": {"dev-master": "2.0.x-dev"},
+        "laravel": {"providers": ["Kerns\\Dummy\\DummyServiceProvider"]}
+    },
+    "scripts": {
+        "test": "@php -d short_open_tag=0 vendor/bin/phpunit",
+        "demo:build": "@php tools/build-demo.php",
+        "lint": [
+            "@php -l dummy/dummy.php",
+            "@php -l dummy/Runtime.php",
+            "@php -l dummy/Lorem.php",
+            "@php -l src/DummyServiceProvider.php",
+            "@php -l config/dummy.php",
+            "@php -l demo.php",
+            "@php -l tools/build-demo.php"
+        ]
+    },
+    "config": {"sort-packages": true},
+    "archive": {
+        "exclude": [
+            "/vendor", "/.phpunit.cache", "/.github", "/tests", "/phpunit.xml", "/composer.lock", "/build",
+            "/dummy/cache/*", "!/dummy/cache/IMPORTANT.md"
+        ]
     }
 }
