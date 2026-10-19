@@ -35,7 +35,7 @@ $renderCodeExample = static function (string $code, string $label = 'PHP + HTML'
 <a class="skip-link" href="#main">Skip to examples</a>
 <div class="topbar">
   <div class="topbar-inner">
-    <a class="wordmark" href="#top">Dummy<span>.</span></a>
+    <a class="wordmark" href="#top">Dummy.</a>
     <nav class="topbar-links" aria-label="Demo links">
       <a href="https://github.com/kerns/dummy">GitHub ↗</a>
     </nav>
@@ -56,8 +56,8 @@ $renderCodeExample = static function (string $code, string $label = 'PHP + HTML'
       <a class="nav-sub" href="#image-quality">Image quality</a>
       <a class="nav-sub" href="#dummy-ads">Ads</a>
       <a href="#luck">Probability &amp; loops</a>
+      <a href="#complete-example">Complete example</a>
       <a href="#queries">Request queries</a>
-      <a class="nav-divider" href="#complete-example">Complete example ↓</a>
     </nav>
   </aside>
   <div class="content-column">
@@ -66,7 +66,7 @@ $renderCodeExample = static function (string $code, string $label = 'PHP + HTML'
 
   <header class="page-header">
     <p class="eyebrow">For rapid prototyping &amp; QA</p>
-    <h1>Welcome to Dummy<span class="mute">.</span></h1>
+    <h1>Welcome to Dummy.</h1>
   </header>
 
   <p class="hero">Fill PHP templates with realistic placeholder content, vary the length of an article, or show an image only some of the time. Reload the page to see how your layout handles a different combination.</p>
