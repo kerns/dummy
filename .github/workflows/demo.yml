@@ -1,0 +1,54 @@
+name: Demo
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - demo.php
+      - demo_files/**
+      - dummy/**
+      - tools/build-demo.php
+      - CREDITS.md
+      - LICENSE
+      - .github/workflows/demo.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: shivammathur/setup-php@2.40.0
+        with:
+          php-version: '8.5'
+          extensions: gd, dom
+          coverage: none
+      - uses: actions/configure-pages@v6.0.0
+      - run: php tools/build-demo.php
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: build/demo
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish demo
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1

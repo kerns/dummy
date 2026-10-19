@@ -1,586 +1,474 @@
 <?php
 
-// +-+-+-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+
-// Dummy v. 1.0
-// For Rapid Prototyping and QA
-// +-+-+-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+
+// Dummy — For Rapid Prototyping and QA
+// https://github.com/kerns/dummy
+// Creative Commons Attribution-Share Alike 3.0 United States.
 
-// Feedback, requests, ideas => http://twitter.com/kerns
-// Fork, Follow, Download => https://github.com/kerns/dummy
+use Kerns\Dummy\Lorem;
+use Kerns\Dummy\Runtime;
 
-// LICENSE
-// Provided under a Creative Commons Attribution-Share Alike 3.0 United States license
-// (http://creativecommons.org/licenses/by-sa/3.0/us/).
+require_once __DIR__ . '/Runtime.php';
+require_once __DIR__ . '/Lorem.php';
 
-// REQUIREMENTS
-// Apache + PHP + GD
-// Soon available for use with Nginx
+// Existing configuration names remain available before or after loading Dummy.
+// Explicit globals also work when Composer loads this file inside its autoloader.
+$GLOBALS['dummy_path'] ??= '/dummy';
+$GLOBALS['dummy_assets_path'] ??= __DIR__ . '/assets';
+$GLOBALS['dummy_cache_path'] ??= __DIR__ . '/cache';
+$GLOBALS['flash_ads'] ??= false;
+$GLOBALS['delimiter'] ??= '@';
 
-// BASIC CONFIGURATION
-$dummy_path = "/dummy"; // The location of "/dummy" relative to the webroot of your project. (Example: "/~username/Sites/ProjectName/dummy")
-$flash_ads = false; // (true or false) Incorporate Adobe® Flash® based ads in the random selection and insertion of ads?
-define("JPEG_QUALITY", 90); // (1-100) You understand...
-define("MAX_WIDTH_PX", 2048); // (value in px) Max width of an image in assets/images
-define("MAX_HEIGHT_PX", 1536); // (value in px) Max height of an image in assets/images
+foreach ([
+    'JPEG_QUALITY' => 90,
+    'MAX_WIDTH_PX' => 2048,
+    'MAX_HEIGHT_PX' => 1536,
+    'ADVANCED_RANDOM_IMAGES' => true,
+    'IGNORE_CACHE' => false,
+    'HIDDEN_FOLDER_PREPEND' => '!',
+] as $dummyConstant => $dummyDefault) {
+    if (!defined($dummyConstant)) {
+        define($dummyConstant, $dummyDefault);
+    }
+}
+unset($dummyConstant, $dummyDefault);
 
-// ADVANCED CONFIGURATION
-$delimiter = '@'; // Leave this, no reason to change it.
-define("ADVANCED_RANDOM_IMAGES", true); // (true or false) Minimizes the number of repeated images by way of opening a session. This is good.
-define("IGNORE_CACHE", false); // For debugging of image generation
-define("HIDDEN_FOLDER_PREPEND", "!"); // Prepended to the name of a folder to be excluded from normal random selection (Example: "!myfolder")
-ini_set("memory_limit", "256M"); // Boosts memory allocation
-// END CONFIGURATION
-
-// BEGIN DUMMY
-// Start a session if it hasn't already been started
-$sid = session_id();
-if (!$sid) {
-   session_start(); 
+function dummy_filter_strings($a)
+{
+    $a = trim($a);
+    return $a !== '' && $a[0] !== '#';
 }
 
-// Clear the list of used images
-$_SESSION["USED_RANDOM_IMAGES"] = array();
+function dummy_text($inpath, $filename)
+{
+    if ($inpath === 'text' && preg_match('/\A(words|sentences|paragraphs):([^,]*)(?:,(.*))?\z/s', (string) $filename, $matches)) {
+        $content = Lorem::generate($matches[1], $matches[2], $matches[3] ?? '');
+        if ($content === null) {
+            Runtime::error('Use a whole-number count or range, such as text@words:50 or text@words:30-60. '
+                . 'An optional ,title capitalizes each word. Limits: 10000 words, 1000 sentences, or 100 paragraphs.');
+            return;
+        }
+        echo $content;
+        return;
+    }
+    $root = $GLOBALS['dummy_assets_path'];
+    $key = $root . '/' . $inpath . '@' . $filename;
+    if (!isset(Runtime::$textPools[$key])) {
+        $strings = [];
+        if ($filename !== '' && $filename !== null) {
+            $file = Runtime::resolve($root, $inpath . '/' . $filename . '.txt');
+            if ($file !== null && is_file($file) && is_readable($file)) {
+                $strings = file($file, FILE_IGNORE_NEW_LINES);
+            }
+        } else {
+            $basePath = Runtime::resolve($root, $inpath);
+            if ($basePath !== null) {
+                foreach (getFilesRecursively($basePath) as $file) {
+                    if (is_readable($basePath . '/' . $file)) {
+                        $strings = array_merge($strings, file($basePath . '/' . $file, FILE_IGNORE_NEW_LINES));
+                    }
+                }
+            }
+        }
+        Runtime::$textPools[$key] = array_values(array_filter($strings, 'dummy_filter_strings'));
+    }
+    $strings = Runtime::$textPools[$key];
+    if ($strings === []) {
+        Runtime::error("Couldn't locate usable text in assets/$inpath@$filename.");
+        return;
+    }
 
-// CORE DUMMY CODE (Deals with everything in dummy/assets)
-function dummy_filter_strings($a) {
-   $a = trim($a);
-   if ($a == '') return false;     // Remove empty lines
-   if ($a{0} == '#') return false; // Remove comments
-   return true;
+    // Asset files are trusted local templates, as in the original Dummy.
+    // Support their legacy short tags independently of short_open_tag.
+    $template = preg_replace('/<\?(?!php(?:\s|$)|=|xml\b)/i', '<?php ', $strings[array_rand($strings)]);
+    ob_start();
+    try {
+        eval('?>' . $template);
+        $content = ob_get_contents();
+    } finally {
+        ob_end_clean();
+    }
+    echo trim($content);
 }
 
-function dummy_text($inpath, $filename) {
-   $path = dirname(__FILE__) .  "/assets/" . $inpath;
-
-   $strings = array();
-   if ($filename) {
-      $strings = file("$path/$filename.txt"); // Load the content of this file
-   } else {
-      $basePath = dirname(__FILE__)."/assets/$inpath/";
-      $files = getFilesRecursively($basePath);
-      foreach ($files as $file) {
-         $strings = array_merge($strings, file($basePath.$file));
-      }
-   }
-
-   // Remove unwanted strings
-   $strings = array_filter($strings, 'dummy_filter_strings');
-
-   // Any strings at all?
-   if (count($strings) == 0) {
-      echo "<em>Couldn't locate anything usable in <b>&#8220;/assets/$inpath@$filename&#8221;</b>. Please double check your Dummy Code.</em>";
-      return;
-   }
-
-   // Select random string among all the possible strings
-   $idx = array_rand($strings);
-
-   // Perform magic (do a php-parse of the string)
-   ob_start();
-   eval('?' . '>' . $strings[$idx]);
-   $content = trim(ob_get_contents());
-   ob_end_clean();
-
-   // Print the resulting string
-   echo $content;
+function dummy_ad($folder)
+{
+    global $dummy_path, $flash_ads;
+    $root = $GLOBALS['dummy_assets_path'] . '/ad';
+    $path = $root; // Available to existing custom ad templates.
+    $folder = $folder ?: '*';
+    if (str_contains($folder, "\0") || preg_match('~(^|[/\\\\])\.\.([/\\\\]|$)~', $folder)) {
+        Runtime::error('Ad folders must stay inside the assets/ad directory.');
+        return;
+    }
+    $extensions = $GLOBALS['flash_ads'] ? '{jpg,jpeg,gif,png,swf}' : '{jpg,jpeg,gif,png}';
+    $ads = array_values(array_filter(
+        glob("$root/$folder/*.$extensions", GLOB_BRACE) ?: [],
+        static fn ($file) => Runtime::resolve($root, substr($file, strlen($root) + 1)) !== null,
+    ));
+    if ($ads === []) {
+        Runtime::error("Couldn't locate an ad in assets/ad/$folder.");
+        return;
+    }
+    $ad = $ads[array_rand($ads)];
+    $overridepath = dirname($ad);
+    $inc = strtolower(pathinfo($ad, PATHINFO_EXTENSION)) === 'swf' ? 'flash.embed.php' : 'image.embed.php';
+    $useinc = is_file("$overridepath/$inc") ? "$overridepath/$inc" : "$root/$inc";
+    $size = basename($overridepath);
+    [$width, $height] = array_pad(explode('x', $size, 2), 2, '');
+    $relative = substr($ad, strlen($root) + 1);
+    $ad = rtrim($GLOBALS['dummy_path'], '/') . '/assets/ad/'
+        . implode('/', array_map('rawurlencode', explode('/', $relative)));
+    if (!is_file($useinc)) {
+        Runtime::error("Couldn't locate the ad template $inc.");
+        return;
+    }
+    include $useinc;
 }
 
-function dummy_ad($folder) {
-   global $flash_ads;
-   $path = dirname(__FILE__) . "/assets/ad";
-
-   // Find all possible ads
-   if (!$folder) $folder = '*';
-   if ($flash_ads) {
-      $ads = glob("$path/$folder/*.{jpg,jpeg,gif,png,swf}", GLOB_BRACE);
-   } else {
-      $ads = glob("$path/$folder/*.{jpg,jpeg,gif,png}", GLOB_BRACE);
-   }
-
-   // Select a random ad
-   $ad = $ads[array_rand($ads)];
-
-   // Decide which embed to use
-   $overridepath = dirname($ad);
-   if (substr($ad, -4) == '.swf') {
-      $inc = 'flash.embed.php';
-   } else {
-      $inc = 'image.embed.php';
-   }
-   // Doublecheck for overrides
-   if (file_exists(dirname($ad) . "/$inc")) {
-      $useinc = dirname($ad) . "/$inc"; // Use the override
-   } else {
-      $useinc = "$path/$inc";     // Use the default
-   }
-
-   // Which size did we choose?
-   $paths = array_reverse(explode('/', $ad));
-   $size = $paths[1];
-   list($width,$height) = explode('x', $size);
-
-   // What is the URL of the ad?
-   global $dummy_path;
-   $ad = "$dummy_path/assets/ad/$size/" . rawurlencode(basename($ad));
-
-   // Perform magic
-   include($useinc);
-
-}
-
-function dummy_image($path, $params, $pathtype = "URI") {
-   global $dummy_path;
-   $basePath = dirname(__FILE__)."/assets/image/";
-   $imgFn = getRandomFile($basePath, $path);
-
-   if ($params == "") {
-      if ($pathtype == "URI") {
-         $result = $dummy_path."/assets/image/".$imgFn;
-      } else {
-         $result = $basePath . $imgFn;
-      }
-   } else {
-      $params = str_replace(" ", "", $params);
-      $params = explode(",", $params);
-      $imgFnPath = pathinfo($imgFn);
-      $nImgExt = $imgFnPath["extension"];
-
-      list($ox, $oy, $nImgtype, $nImgattr) = getimagesize($basePath.$imgFn);
-      $ax = 0;
-      $ay = 0;
-      $rx = 0;
-      $ry = 0;
-      foreach($params as $param) {
-         if (preg_match("/^(\d{0,5})x(\d{0,5})$/", $param, $m)) {
-            $rx = (int)$m[1]; // Getting the width and making sure it's in the allowed range
-            $ry = (int)$m[2]; // Getting the height and making sure it's in the allowed range
+function dummy_image($path, $params, $pathtype = 'URI')
+{
+    $basePath = $GLOBALS['dummy_assets_path'] . '/image/';
+    $imgFn = getRandomFile($basePath, $path);
+    if ($imgFn === null) {
+        Runtime::error("Couldn't locate an image in assets/image/$path.");
+        return;
+    }
+    $source = $basePath . $imgFn;
+    $urlBase = rtrim($GLOBALS['dummy_path'], '/');
+    if (trim($params) === '') {
+        echo $pathtype === 'URI'
+            ? $urlBase . '/assets/image/' . implode('/', array_map('rawurlencode', explode('/', $imgFn)))
+            : $source;
+        return;
+    }
+    $size = getimagesize($source);
+    if ($size === false) {
+        Runtime::error('The selected file is not a supported image.');
+        return;
+    }
+    [$ox, $oy] = $size;
+    $rx = $ry = $ax = $ay = 0;
+    foreach (explode(',', str_replace(' ', '', $params)) as $param) {
+        if (preg_match('/^(\d{0,5})x(\d{0,5})$/', $param, $m)) {
+            $rx = (int) $m[1];
+            $ry = (int) $m[2];
             if ($rx > MAX_WIDTH_PX) {
-               $rx = 0;
+                $rx = 0;
             }
             if ($ry > MAX_HEIGHT_PX) {
-               $ry = 0;
+                $ry = 0;
             }
-         } else if (preg_match("/^([\d\.]+):([\d\.]+)$/", $param, $m)) {
-            // Derive the aspect ratio
-            $ax = $m[1];
-            $ay = $m[2];
-         }
-      }
-      $cx = $ox;
-      $cy = $oy;
-
-      if ($rx > 0 && $ry > 0) {
-         // If both the width and height are specifed, we have our aspect ratio (width:height)
-         $ax = $rx;
-         $ay = $ry;
-         $rx = 0;
-      }
-
-      if ($ax > 0 && $ay > 0) {
-         $ar = $ax / $ay;
-         if ($ar > 1) {
-            // For landscape oriented images (width > height)
-            if ($ox/$oy >= $ar) {
-               $cy = $oy;
-               $cx = $cy * $ar;
-            } else {
-               $cx = $ox;
-               $cy = $cx / $ar;
-            }
-         } else if ($ar == 1) {
-            // For squared images (width = height)
-            $cx = min($ox, $oy);
-            $cy = min($ox, $oy);
-         } else {
-            // For portrait oriented images (width < height)
-            if ($ox/$oy >= $ar) {
-               $cy = $oy;
-               $cx = $cy * $ar;
-            } else {
-               $cx = $ox;
-               $cy = $cx / $ar;
-            }
-         }
-      }
-
-      $ix = floor($cx);
-      $iy = floor($cy);
-      if ($rx > 0 && $ry > 0) {
-      } else {
-         if ($rx > 0 && $ry == 0) {
-            // Calculate the new height
-            $iy = floor($cy * $rx / $cx);
-            $ix = $rx;
-         } else if ($rx == 0 && $ry > 0) {
-            // Calculate the new width
-            $ix = floor($cx * $ry / $cy);
-            $iy = $ry;
-         }
-      }
-
-
-      // Image for output
-      $nImgUrl = sprintf("%s/cache/%s_%sx%s.%s", $dummy_path, getCacheFilename($imgFnPath["filename"]), $ix, $iy, $nImgExt);
-
-      // Image for saving file
-      $nImgFn = sprintf("%s/cache/%s_%sx%s.%s", dirname(__FILE__), getCacheFilename($imgFnPath["filename"]), $ix, $iy, $nImgExt);
-
-      // Saving image
-      if (!file_exists($nImgFn) || IGNORE_CACHE) {
-         $img = imagecreatefromstring(file_get_contents($basePath.$imgFn));
-         $cImg = $img;
-         if ($ax > 0 && $ay > 0) {
-            // Create a cropped image
-            $cImg = getTrueColorImg($img, $cx, $cy, $nImgExt);
-            imagecopy($cImg, $img, 0, 0, ($ox-$cx)/2, ($oy-$cy)/2, $cx, $cy);
-         }
-         // Resize the image
-         $nImg = getTrueColorImg($img, $ix, $iy, $nImgExt);
-         imagecopyresampled($nImg, $cImg, 0, 0, 0, 0, $ix, $iy, $cx, $cy);
-
-         if ($nImgExt == "jpg" || $nImgExt == "jpeg") {
-            @imagejpeg($nImg, $nImgFn, JPEG_QUALITY);
-         } else if ($nImgExt == "gif") {
-            @imagegif($nImg, $nImgFn);
-         } else if ($nImgExt == "png") {
-            @imagepng($nImg, $nImgFn);
-         }
-      // Remove the images from memory
-      imagedestroy($img);
-      imagedestroy($cImg);
-      }
-      if ($pathtype == "URI") {
-         $result = $nImgUrl;
-      } else {
-         $result = $nImgFn;
-      }
-   }
-   print $result;
-}
-
-function getTrueColorImg($img, $ix, $iy, $ext) {
-   $rImg = imagecreatetruecolor($ix, $iy);
-   if ($ext == "gif" || $ext == "png") {
-      $trnprt_indx = imagecolortransparent($img);
-      if ($trnprt_indx >= 0) {
-         $trnprt_color = imagecolorsforindex($img, $trnprt_indx);
-         $trnprt_indx = imagecolorallocate($rImg, $trnprt_color['red'], $trnprt_color['green'], $trnprt_color['blue']);
-         imagefill($rImg, 0, 0, $trnprt_indx);
-         imagecolortransparent($rImg, $trnprt_indx);
-      } elseif ($ext == "png") {
-         imagealphablending($rImg, false);
-         $color = imagecolorallocatealpha($rImg, 0, 0, 0, 127);
-         imagefill($rImg, 0, 0, $color);
-         imagesavealpha($rImg, true);
-      }
-   }
-   return $rImg;
-}
-
-function getCacheFilename($fn) {
-
-   // Replace bad characters with a "_"
-   return preg_replace("/\W/", "_", $fn);
-}
-
-function getRandomFile($basePath, $path) {
-   if (substr($path, 0, 1) == "/") {
-      $path = substr($path, 1);
-   }
-
-   // Getting the list of images already used...
-   $sfiles = $_SESSION["USED_RANDOM_IMAGES"];
-   $files = getFilesRecursively($basePath, $path);
-   if (ADVANCED_RANDOM_IMAGES) {
-
-      // Ignore used images
-      $ffiles = $files;
-      foreach ($ffiles as $k=>$v) {
-         if (array_key_exists($v, $sfiles))  {
-            unset($ffiles[$k]);
-         }
-      }
-      if (count($ffiles) > 0) {
-         $files = $ffiles;
-      } else {
-
-         // All images have been used, so let's clear the list
-         $sfiles = array();
-      }
-   }
-   $res = null;
-   if (count($files) > 0) {
-
-      // Get a random image
-      srand();
-      $res = $files[array_rand($files)];
-      $sfiles[$res] = 1;
-   }
-
-   // Update the list of used images
-   $_SESSION["USED_RANDOM_IMAGES"] = $sfiles;
-   return $res;
-}
-
-function getFilesRecursively($basePath, $path = "", $files = array()) {
-
-   // Scan directories recursively
-   $dn = $basePath.$path;
-   if ($dh = opendir($dn)) {
-      while (($de = readdir($dh)) !== false) {
-
-         // Take all filenames/folders which not beginning with "."
-         if (substr($de, 0, 1) != "." && substr($de, 0, 1) != HIDDEN_FOLDER_PREPEND) {
-            if (is_dir($dn.$de)) {
-
-               // Explore subdirectories
-               $files = getFilesRecursively($basePath, $path.$de."/", $files);
-            } else {
-               $files[] = $path.$de;
-            }
-         }
-      }
-   }
-   return $files;
-}
-
-function dummy($a, $internalcall = false) {
-   global $delimiter;
-
-   // Parse the command
-   if (strpos($a, $delimiter) !== false) {
-      list($cmdraw, $params) = explode($delimiter, $a, 2);
-   } else {
-      $cmdraw = $a;
-      $params = "";
-   }
-   $cmd = strtolower($cmdraw);
-
-   // Branch out to what type we need to handle
-   if ($cmd == 'ad') {
-      dummy_ad($params);
-   } else if (strpos($cmd, "image") !== false && strpos($cmd, "image") == 0) {
-      $path = str_replace("image", "", $cmd);
-      if (substr($path, -1) != "/") {
-         $path.= "/";
-      }
-      dummy_image($path, $params, $internalcall ? 'FILE' : 'URI');
-   } else {
-      dummy_text($cmdraw, $params);
-   }
-
-}
-
-// Check for the presense of a direct call
-// If that is the case, we call dummy() with the query part
-if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
-    $qs = $_SERVER['QUERY_STRING'];
-    if (getenv('DUMMYURL')) {
-        $qs = preg_replace('/^dummyurl=&/','', $qs);
+        } elseif (preg_match('/^([\d.]+):([\d.]+)$/', $param, $m)) {
+            $ax = (float) $m[1];
+            $ay = (float) $m[2];
+        }
     }
-    ob_start();
-    dummy($qs, true);
-    $content = ob_get_contents();
-    ob_end_clean();
-    // figure out the image type
-    $imgtype = exif_imagetype($content);
-    if (!$imgtype) {
-        echo "Could not open image $content";
+    if ($rx > 0 && $ry > 0) {
+        $ax = $rx;
+        $ay = $ry;
+    }
+    $cx = (float) $ox;
+    $cy = (float) $oy;
+    if ($ax > 0 && $ay > 0) {
+        $ratio = $ax / $ay;
+        if ($ox / $oy >= $ratio) {
+            $cx = $oy * $ratio;
+        } else {
+            $cy = $ox / $ratio;
+        }
+    }
+    $ix = $rx > 0 ? $rx : ($ry > 0 ? (int) floor($cx * $ry / $cy) : (int) floor($cx));
+    $iy = $ry > 0 ? $ry : ($rx > 0 ? (int) floor($cy * $rx / $cx) : (int) floor($cy));
+    if ($ix < 1 || $iy < 1 || (($rx > 0 || $ry > 0) && ($ix > MAX_WIDTH_PX || $iy > MAX_HEIGHT_PX))) {
+        Runtime::error('Image dimensions must be positive and within MAX_WIDTH_PX and MAX_HEIGHT_PX.');
+        return;
+    }
+    $ext = strtolower(pathinfo($imgFn, PATHINFO_EXTENSION));
+    if (!in_array($ext, ['jpg', 'jpeg', 'gif', 'png'], true)) {
+        Runtime::error('Image resizing supports JPEG, GIF, and PNG files.');
+        return;
+    }
+
+    // Include the source path and modification time to avoid collisions and stale crops.
+    $fingerprint = substr(hash('sha256', $imgFn . ':' . filemtime($source) . ':' . filesize($source)), 0, 16);
+    $cacheName = getCacheFilename(pathinfo($imgFn, PATHINFO_FILENAME)) . "_{$fingerprint}_{$ix}x{$iy}.$ext";
+    $cachePath = rtrim($GLOBALS['dummy_cache_path'], '/\\');
+    $cached = $cachePath . '/' . $cacheName;
+    if (!is_file($cached) || IGNORE_CACHE) {
+        if (!is_dir($cachePath) && !@mkdir($cachePath, 0775, true) && !is_dir($cachePath)) {
+            Runtime::error('The image cache directory could not be created.');
+            return;
+        }
+        if (!is_writable($cachePath)) {
+            Runtime::error('The image cache directory must be writable.');
+            return;
+        }
+        $img = imagecreatefromstring(file_get_contents($source));
+        if ($img === false) {
+            Runtime::error('The selected image could not be decoded.');
+            return;
+        }
+        $output = getTrueColorImg($img, $ix, $iy, $ext);
+        // Crop and resize in one pass, without an intermediate full-size crop.
+        imagecopyresampled($output, $img, 0, 0, (int) floor(($ox - $cx) / 2), (int) floor(($oy - $cy) / 2),
+            $ix, $iy, max(1, (int) floor($cx)), max(1, (int) floor($cy)));
+        $temporary = tempnam($cachePath, '.dummy-');
+        if ($temporary === false) {
+            Runtime::error('A temporary image cache file could not be created.');
+            return;
+        }
+        try {
+            $saved = match ($ext) {
+                'jpg', 'jpeg' => imagejpeg($output, $temporary, JPEG_QUALITY),
+                'gif' => imagegif($output, $temporary),
+                'png' => imagepng($output, $temporary),
+            };
+            if (!$saved || !rename($temporary, $cached)) {
+                Runtime::error('The generated image could not be saved.');
+                return;
+            }
+            chmod($cached, 0664);
+        } finally {
+            if (is_file($temporary)) {
+                unlink($temporary);
+            }
+        }
+        // GdImage objects release memory automatically on supported PHP versions.
+        unset($img, $output);
+    }
+    echo $pathtype === 'URI' ? $urlBase . '/cache/' . $cacheName : $cached;
+}
+
+function getTrueColorImg($img, $ix, $iy, $ext)
+{
+    $result = imagecreatetruecolor((int) $ix, (int) $iy);
+    if ($ext === 'gif' || $ext === 'png') {
+        $transparent = imagecolortransparent($img);
+        if ($transparent >= 0) {
+            $color = imagecolorsforindex($img, $transparent);
+            $index = imagecolorallocate($result, $color['red'], $color['green'], $color['blue']);
+            imagefill($result, 0, 0, $index);
+            imagecolortransparent($result, $index);
+        } elseif ($ext === 'png') {
+            imagealphablending($result, false);
+            imagefill($result, 0, 0, imagecolorallocatealpha($result, 0, 0, 0, 127));
+            imagesavealpha($result, true);
+        }
+    }
+    return $result;
+}
+
+function getCacheFilename($fn)
+{
+    return preg_replace('/\W/', '_', $fn);
+}
+
+function getRandomFile($basePath, $path)
+{
+    $files = getFilesRecursively($basePath, $path);
+    if ($files === []) {
+        return null;
+    }
+    $root = realpath($basePath);
+    if (ADVANCED_RANDOM_IMAGES) {
+        $unused = array_values(array_filter($files, static fn ($file) => !isset(Runtime::$usedImages[$root . '/' . $file])));
+        if ($unused !== []) {
+            $files = $unused;
+        } else {
+            foreach ($files as $file) {
+                unset(Runtime::$usedImages[$root . '/' . $file]);
+            }
+        }
+    }
+    $file = $files[array_rand($files)];
+    Runtime::$usedImages[$root . '/' . $file] = true;
+    return $file;
+}
+
+function getFilesRecursively($basePath, $path = '', $files = [])
+{
+    $root = realpath($basePath);
+    if ($root === false) {
+        return $files;
+    }
+    $directory = Runtime::resolve($root, $path);
+    if ($directory === null || !is_dir($directory) || !is_readable($directory)) {
+        return $files;
+    }
+    $key = $root . ':' . $directory;
+    if (!isset(Runtime::$fileLists[$key])) {
+        $found = [];
+        $visited = [];
+        $scan = static function ($directory) use (&$scan, &$found, &$visited, $root): void {
+            $resolved = realpath($directory);
+            if ($resolved === false || isset($visited[$resolved]) || !is_readable($directory)) {
+                return;
+            }
+            $visited[$resolved] = true;
+            foreach (new DirectoryIterator($directory) as $entry) {
+                $name = $entry->getFilename();
+                if (str_starts_with($name, '.') || (HIDDEN_FOLDER_PREPEND !== '' && str_starts_with($name, HIDDEN_FOLDER_PREPEND))) {
+                    continue;
+                }
+                $relative = substr($entry->getPathname(), strlen($root) + 1);
+                if (Runtime::resolve($root, $relative) === null) {
+                    continue;
+                }
+                if ($entry->isDir()) {
+                    $scan($entry->getPathname());
+                } elseif ($entry->isFile()) {
+                    $found[] = str_replace(DIRECTORY_SEPARATOR, '/', $relative);
+                }
+            }
+        };
+        $scan($directory);
+        sort($found);
+        Runtime::$fileLists[$key] = $found;
+    }
+    return array_merge($files, Runtime::$fileLists[$key]);
+}
+
+function dummy($a, $internalcall = false)
+{
+    [$cmdraw, $params] = array_pad(explode($GLOBALS['delimiter'], $a, 2), 2, '');
+    $cmd = strtolower($cmdraw);
+    if ($cmd === 'ad') {
+        dummy_ad($params);
+    } elseif (str_starts_with($cmd, 'image')) {
+        $path = substr($cmd, strlen('image'));
+        dummy_image(rtrim($path, '/') . '/', $params, $internalcall ? 'FILE' : 'URI');
+    } else {
+        dummy_text($cmdraw, $params);
+    }
+}
+
+function dumb_luck($p)
+{
+    $p = (string) $p;
+    if (str_ends_with($p, '%')) {
+        return rand(0, 99) < (int) $p;
+    }
+    if (in_array($p, ['', 'first', 'last', 'inner'], true)) {
+        if (Runtime::$loops === []) {
+            Runtime::error('Not inside dumb_luck.');
+            return false;
+        }
+        $frame = Runtime::$loops[0];
+        if ($p === '') {
+            echo $frame['pos'] + 1;
+            return;
+        }
+        return match ($p) {
+            'first' => $frame['pos'] === 0,
+            'last' => $frame['pos'] === $frame['count'] - 1,
+            'inner' => $frame['pos'] !== 0 && $frame['pos'] !== $frame['count'] - 1,
+        };
+    }
+    if (!is_numeric($p) && !preg_match('/^\d+-\d+$/', $p)) {
+        Runtime::error('Wrong range given to dumb_luck.');
+        return false;
+    }
+
+    // Keep the original call-site-based loop syntax, including nested loops.
+    $call = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
+    $ref = ($call['file'] ?? '') . ':' . ($call['line'] ?? 0) . ':' . $p;
+    if (Runtime::$loops !== [] && Runtime::$loops[0]['ref'] === $ref) {
+        if (++Runtime::$loops[0]['pos'] < Runtime::$loops[0]['count']) {
+            return true;
+        }
+        array_shift(Runtime::$loops);
+        return false;
+    }
+    if (is_numeric($p)) {
+        $count = (int) $p;
+    } else {
+        [$min, $max] = array_map('intval', explode('-', $p, 2));
+        $count = rand(min($min, $max), max($min, $max));
+    }
+    if ($count > 0) {
+        array_unshift(Runtime::$loops, ['count' => $count, 'pos' => 0, 'ref' => $ref]);
+        return true;
+    }
+    return false;
+}
+
+function dumb_question($p)
+{
+    [$cmd, $params] = array_pad(explode(':', $p, 2), 2, '');
+    if ($cmd === 'order') {
+        return dumb_luck($params);
+    }
+    $query = Runtime::$query ?? ($_GET ?? []);
+    if ($cmd === 'url') {
+        $params = str_replace(' ', '', $params);
+        if ($params === '') {
+            return $query === [] ? '' : '?' . http_build_query($query);
+        }
+        foreach (explode('&', $params) as $pair) {
+            [$key, $value] = array_pad(explode('=', $pair, 2), 2, null);
+            if (!array_key_exists($key, $query) || ($value !== null && $query[$key] != $value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    if ($cmd === 'segment') {
+        $path = $query['dummyurl'] ?? Runtime::$requestPath ?? ($_SERVER['PATH_INFO'] ?? null);
+        if ($path === null) {
+            $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+            $script = $_SERVER['SCRIPT_NAME'] ?? '';
+            if ($script !== '' && str_starts_with($path, $script . '/')) {
+                $path = substr($path, strlen($script));
+            }
+        }
+        if (!is_string($path)) {
+            return false;
+        }
+        $segments = explode('/', '/' . ltrim($path, '/'));
+        if ($params === '') {
+            return $path;
+        }
+        if (!str_contains($params, '=')) {
+            $n = (int) $params;
+            if (isset($segments[$n])) {
+                echo $segments[$n];
+            }
+            return;
+        }
+        foreach (explode('&', str_replace(' ', '', $params)) as $pair) {
+            [$key, $value] = array_pad(explode('=', $pair, 2), 2, null);
+            if (!isset($segments[$key]) || $value === null || $segments[$key] != $value) {
+                return false;
+            }
+        }
+        return true;
+    }
+    Runtime::error("Unknown command in dumb_question: $cmd.");
+    return false;
+}
+
+// Preserve direct image URLs, e.g. /dummy/dummy.php?image@640x,16:9.
+// Full paths prevent intercepting a host application's own dummy.php entry point.
+if (isset($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
+    $command = preg_replace('/^dummyurl=[^&]*&?/', '', $_SERVER['QUERY_STRING'] ?? '');
+    $command = rawurldecode($command);
+    if (!preg_match('~^image(?:/[^@]*)?(?:@|$)~i', $command)) {
+        http_response_code(400);
+        header('Content-Type: text/plain; charset=UTF-8');
+        echo 'Supply a Dummy image command, for example: ?image@640x,16:9';
         exit;
     }
-    $contenttype = image_type_to_mime_type($imgtype);
-    header("Content-type: " . $contenttype);
-    readfile($content);
-    exit();
-
+    ob_start();
+    dummy($command, true);
+    $file = ob_get_clean();
+    if (!is_file($file) || ($image = getimagesize($file)) === false) {
+        http_response_code(400);
+        header('Content-Type: text/plain; charset=UTF-8');
+        echo strip_tags($file);
+        exit;
+    }
+    header('Content-Type: ' . $image['mime']);
+    header('Content-Length: ' . filesize($file));
+    readfile($file);
+    exit;
 }
-
-
-// SO ENDS THE DUMMY CORE
-
-
-// If Dummy had an expansion pack, this would be it.
-// DUMB LUCK (Assigns probability and generates loops)
-
-function dumb_luck($p) {
-   /* Since we need to support nested loops, we will use a stack to maintain
-   * each nesting. On the stack we put frames with the state of each nested loop.
-   * Each frame contains a reference to the dumb_luck()-call in the condition of
-   * the while loop, together with the number of total iterations and the number
-   * of used iteration.
-   *
-   * What is a stack? A standard datastructure. See
-   * http://en.wikipedia.org/wiki/Stack_(data_structure)
-   * for more details.
-   */
-   
-   static $luckstack = array();
-
-   // Handle normal randomness ("50%", "50")
-   if (strpos($p, '%')/* || is_numeric($p)*/) {
-      return rand(0,99) < intval($p);
-   }
-
-   // Have we been asked to print the index?
-   if ($p == '') {
-      if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
-      $frame = $luckstack[0];
-      echo $frame['pos']+1;
-      return;
-   }
-
-   // Are we on the 'first' item of a random list?
-   if ($p == 'first') {
-      if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
-      $frame = $luckstack[0];
-      return $frame['pos'] == 0;
-   }
-
-   // Are we at the 'last' item of a random list?
-   if ($p == 'last') {
-      if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
-      $frame = $luckstack[0];
-      return $frame['pos'] == $frame['count']-1;
-   }
-
-   // Are we some place in the middle of a random list?
-   if ($p == 'inner') {
-      if (count($luckstack) == 0) { echo "<em>Not inside <b>dumb_luck</b></em>"; return false; }
-      $frame = $luckstack[0];
-      return $frame['pos'] != $frame['count']-1 && $frame['pos'] != 0;
-   }
-
-   // Are we looping on a range?
-   if (strpos($p, '-') === false && !is_numeric($p)) {
-      echo "<em>Wrong range given to <b>dumb_luck</b></em>";
-      return false;
-   }
-
-   // Find out which call we are looping. We use the backtrac to find
-   // some form of way of referring to the actual dumb_luck()-call we
-   // are looping on.
-   $stack = debug_backtrace();
-   $ref = md5($stack[0]['file'] . $stack[0]['line'] . serialize( $stack[0]['args'] ));
-
-   // Do we already have a frame for this call?
-   if (count($luckstack) > 0) {
-      if ($luckstack[0]['ref'] == $ref) {
-         // Continue with the old frame
-         if (++$luckstack[0]['pos'] < $luckstack[0]['count']) {
-            return true; // Keep looping
-         } else {
-            array_shift($luckstack); // Done looping, remove frame
-            return false;
-         }
-      }
-   }
-
-   // range or specific amount?
-   if (strpos($p, '-') === false) {
-      $count = intval($p); // doesn't work at the moment. Conflicts with "x%" (see first case in this function)
-   } else {
-      // Create new frame
-      $range = explode('-', $p,2);
-      // How many loops?
-      $count = rand(min($range[0], $range[1]), max($range[0],$range[1]));
-   }
-
-   $frame = array(
-        'count' => $count,
-        'pos' => 0,
-        'ref' => $ref,
-   );
-
-   // Enqueue frame on our stack, whatever that means...
-   if ($count > 0) {
-      array_unshift($luckstack, $frame);
-      return true;
-   } else {
-      return false;
-   }
-
-}
-
-// DUMB QUESTION (Gets answers to important questions)
-
-function dumb_question($p) {
-   // Parse the command
-   list($cmd,$params) = explode(':',$p,2);
-
-   // If the command is 'order', delegate to dumb_luck
-   if ($cmd == 'order') {
-      return dumb_luck($params);
-   }
-
-   // If the command is 'url', we are going to check the query string
-   if ($cmd == 'url') {
-      // Parse the params into key/value pairs
-      $params = str_replace(" ", "", $params);
-      if (!$params) {
-         if (count($_GET) > 0) {
-            $pre = '?';
-         } else {
-            $pre = '';
-         }
-
-         return $pre . http_build_query($_GET);
-      }
-      $pairs = explode('&',$params);
-      foreach ($pairs as $pair) {
-         // Parse the pair into a key and a value
-         list($key,$value) = explode('=',$pair,2);
-         if ($value === null) {
-            // just check for this in the url:
-            if (!array_key_exists($key, $_GET)) return false;
-         } else {
-            // Check if the given question is not true
-            if (!array_key_exists($key, $_GET)) {
-                    return false;
-            } else if ($_GET[$key] != $value) {
-               return false;
-            }
-         }
-      }
-      // All the questions were "not not false", so they must all be true. It's a crazy world.
-      return true;
-   }
-
-   // For 'segment' commands, we check the .htaccess generated query string   
-   if ($cmd == 'segment') {
-      // Requirement check
-      if (!getenv('DUMMYURL')) {
-         echo "<em>You can't ask about <b>segments</b> using dumb_question without first enabling the optional .htaccess file. Look in &#8220;dummy/docs&#8221; for more info.</em>";
-         return false;
-      }
-      $segments = explode('/',$_GET['dummyurl']); // note that $segments[0] = '' after this
-      if (!$params || strpos($params, '=') === false) {
-         // Print the segment content
-         if (!$params) {
-            return $_GET['dummyurl'];
-         }
-         $n = intval($params);
-         if ($n >= count($segments)) {
-            return;
-         }
-         echo $segments[$n];
-         return;
-      } else {
-         // Test the segment content
-         // This is the same approach as in the above code for command 'url'
-         $params = str_replace(" ", "", $params);
-         $pairs = explode('&', $params);
-         foreach ($pairs as $pair) {
-            list($key,$value) = explode('=',$pair,2);
-            if ($key >= count($segments)) return false; // make sure we don't index too far
-            if ($segments[$key] != $value) return false;
-         }
-         return true;
-      }
-   }
-
-   // Wrong command, you will be punished!
-   echo "<em>Unknown command in <b>dumb_question:</b> $cmd</em>";
-   return false;
-}
-
-/* eof */

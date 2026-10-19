@@ -1,4 +1,6 @@
-**This folder needs to be writable by your web server before Dummy can generate images.**
+**This directory must be writable by PHP to generate and reuse image crops.**
 
-You might need to get some help with this part if you're in doubt about how to proceed.
-
+Dummy creates the configured cache directory if it is missing. In a drop-in
+installation this is `dummy/cache`; Laravel defaults to
+`public/vendor/dummy/cache`. Generated files can be deleted to clear the cache.
+Do not make the entire application or Composer vendor directory writable.
