@@ -41,7 +41,7 @@ php -S localhost:8000
 
 Open [localhost:8000/demo.php](http://localhost:8000/demo.php). The demo includes installation instructions, working examples, copyable snippets, image thumbnails, and guidance for high-density displays. PHP needs write access to `dummy/cache`, or permission to create that directory.
 
-The hosted demo is a generated snapshot. Running it locally produces fresh random content on every request.
+The online examples stay the same between visits. Run the demo locally for fresh random content on each reload.
 
 ## Install with Composer
 
@@ -229,34 +229,9 @@ Use `if` with percentages and `while` with counts or ranges. Nested loops keep t
 
 `dumb_question('url:mode=compact')` tests query parameters. `dumb_question('segment:1=news')` tests URL path segments, numbered from one. Laravel uses the current request; plain PHP uses `PATH_INFO` or `REQUEST_URI`. The optional legacy Apache rewrite's `dummyurl` parameter is also supported.
 
-## Publishing the demo
+## Contributing
 
-GitHub Pages can host a static snapshot of the demo. PHP runs during the build, and the exported site contains HTML, CSS, JavaScript, and the selected images. The page labels itself as a snapshot; live per-request randomization remains available when running PHP locally.
-
-Build and preview it locally:
-
-```sh
-composer demo:build
-php -S localhost:8001 -t build
-```
-
-Open [localhost:8001/demo/](http://localhost:8001/demo/). The build also needs the PHP DOM extension. It uses relative resource URLs, so it works below a project URL path.
-
-The [Demo workflow](.github/workflows/demo.yml) rebuilds and publishes [kerns.github.io/dummy](https://kerns.github.io/dummy/) when demo-related changes reach `master`. It can also be run manually from GitHub Actions.
-
-## Development and verification
-
-```sh
-composer install
-composer validate --strict
-composer lint
-composer test
-composer audit
-```
-
-The suite covers legacy helpers, generated lorem and title casing, nested loops and positions, query/path helpers, image cropping/transparency/caching, ads, standalone loading, Laravel publishing and Blade rendering, and the static demo export. CI resolves compatible dependencies for PHP 8.3–8.5 with Laravel 12 and 13.
-
-See [the verification report](docs/verification.md) for the tested versions and fresh-project installation results.
+See the [contributor guide](CONTRIBUTING.md) for development setup, tests, and demo maintenance. The [verification report](docs/verification.md) lists tested versions and fresh-project installation results.
 
 ## License and credits
 
